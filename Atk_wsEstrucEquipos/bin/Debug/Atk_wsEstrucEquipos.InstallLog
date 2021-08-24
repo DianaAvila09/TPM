@@ -1,0 +1,56 @@
+﻿Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Instalando el servicio Atk_wsEstrucEquipos...
+El servicio Atk_wsEstrucEquipos se ha instalado correctamente.
+Creando el origen de EventLog Atk_wsEstrucEquipos en el registro Application...
+Confirmando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Desinstalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Quitando el origen de EventLog Atk_wsEstrucEquipos.
+Se está quitando el servicio Atk_wsEstrucEquipos del sistema...
+El servicio Atk_wsEstrucEquipos se ha quitado correctamente del sistema.
+Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Instalando el servicio Atk_wsEstrucEquipos...
+Creando el origen de EventLog Atk_wsEstrucEquipos en el registro Application...
+Deshaciendo ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Restaurando el registro de eventos al estado anterior para el origen Atk_wsEstrucEquipos.
+Desinstalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Quitando el origen de EventLog Atk_wsEstrucEquipos.
+Advertencia: el origen Atk_wsEstrucEquipos no está registrado en el equipo local.
+Se está quitando el servicio Atk_wsEstrucEquipos del sistema...
+El servicio Atk_wsEstrucEquipos se ha quitado correctamente del sistema.
+Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe
+Instalando el servicio Atk_wsEstrucEquipos...
+El servicio Atk_wsEstrucEquipos se ha instalado correctamente.
+Creando el origen de EventLog Atk_wsEstrucEquipos en el registro Application...
+Confirmando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsEstrucEquipos\bin\Debug\Atk_wsEstrucEquipos.exe

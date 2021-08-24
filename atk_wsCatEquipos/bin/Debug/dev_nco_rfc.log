@@ -1,0 +1,1410 @@
+**** Log file opened by process 12636 at 2020-06-09 12:40:14 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.177.102, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2020-06-09 12:40:14.723 [Thread 1]
+Invalid LZ-compressed data block received, ignored.
+**** Log file opened by process 22408 at 2020-06-09 12:42:24 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.177.102, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2020-06-09 12:42:24.278 [Thread 1]
+Invalid LZ-compressed data block received, ignored.
+**** Log file opened by process 19016 at 2020-11-19 07:33:19 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 192.168.0.9, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 07:33:19.658 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.12.0.82:3300' not reached
+TIME        Thu Nov 19 07:33:19 2020
+RELEASE     720
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3286
+DETAIL      NiPConnect2: 10.12.0.82:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2020-11-19 07:33:19.674 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.12.0.82:3300' not reached
+TIME        Thu Nov 19 07:33:19 2020
+RELEASE     720
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3286
+DETAIL      NiPConnect2: 10.12.0.82:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   en SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   en SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   en SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2020-11-19 07:33:55.564 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.12.0.82:3300' not reached
+TIME        Thu Nov 19 07:33:55 2020
+RELEASE     720
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3286
+DETAIL      NiPConnect2: 10.12.0.82:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2020-11-19 07:33:55.565 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcCommunicationException: 
+LOCATION    CPIC (TCP/IP) on local host with Unicode
+ERROR       partner '10.12.0.82:3300' not reached
+TIME        Thu Nov 19 07:33:55 2020
+RELEASE     720
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      nixxi.cpp
+LINE        3286
+DETAIL      NiPConnect2: 10.12.0.82:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     4
+
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   en SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   en SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   en SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+**** Log file opened by process 8052 at 2020-11-19 09:20:37 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:20:37.632 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 18468 at 2020-11-19 09:21:13 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:21:13.419 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 18568 at 2020-11-19 09:23:29 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:23:29.458 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 9776 at 2020-11-19 09:34:25 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:34:25.199 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 6256 at 2020-11-19 09:35:36 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:35:36.679 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+>> Error entry 2020-11-19 09:35:38.719 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 22400 at 2020-11-19 09:38:34 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:38:34.737 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 9800 at 2020-11-19 09:41:38 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:41:38.791 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 19224 at 2020-11-19 09:42:21 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:42:21.729 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 20884 at 2020-11-19 09:43:25 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:43:25.507 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 12636 at 2020-11-19 09:47:05 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:47:05.628 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+>> Error entry 2020-11-19 09:47:07.697 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 10636 at 2020-11-19 09:48:26 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:48:26.345 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+>> Error entry 2020-11-19 09:48:53.372 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 22284 at 2020-11-19 09:49:25 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:49:25.875 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+>> Error entry 2020-11-19 09:49:28.222 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 20880 at 2020-11-19 09:51:09 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:51:09.541 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 14104 at 2020-11-19 09:54:34 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:54:34.470 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 18016 at 2020-11-19 09:58:00 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:58:00.204 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 7548 at 2020-11-19 09:59:32 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 09:59:32.266 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 12608 at 2020-11-19 10:00:50 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:00:50.833 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 18704 at 2020-11-19 10:04:07 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:04:07.979 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 20660 at 2020-11-19 10:06:47 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:06:47.069 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 13240 at 2020-11-19 10:12:06 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:12:06.136 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 8748 at 2020-11-19 10:13:02 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:13:02.589 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 3376 at 2020-11-19 10:13:43 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:13:43.035 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 20752 at 2020-11-19 10:16:43 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:16:43.894 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 10000 at 2020-11-19 10:17:34 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ATKC0316, IP address: 10.103.178.155, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2020-11-19 10:17:34.686 [Thread 1]
+[ASHOST=10.12.0.82 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 22128 at 2021-04-28 12:55:53 (UTC-05:00 Central Daylight Time (Mexico))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: Z:\Codigo\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: Z:\Codigo\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 12x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ESTLPTSIS13, IP address: 172.19.218.200, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2021-04-28 12:55:53.521 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:53.529 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:53.923 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:53.940 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:54.142 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:54.145 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:54.357 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:54.361 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:54.568 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:54.572 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:54.798 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:54.803 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:54.998 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:55.004 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:55:55.212 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:55:55.216 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+**** Log file opened by process 4136 at 2021-04-28 12:56:59 (UTC-05:00 Central Daylight Time (Mexico))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: Z:\Codigo\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: Z:\Codigo\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 12x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ESTLPTSIS13, IP address: 172.19.218.200, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2021-04-28 12:56:59.416 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:56:59.435 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:56:59.854 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:56:59.859 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:57:00.131 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:57:00.137 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:57:00.393 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:57:00.398 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:57:00.671 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:57:00.687 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:57:00.996 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:57:01.006 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:57:01.285 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:57:01.294 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 12:57:01.593 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 12:57:01.601 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+**** Log file opened by process 23304 at 2021-04-28 14:32:57 (UTC-05:00 Central Daylight Time (Mexico))
+
+SAP .NET Connector 3.0 with file version 3.0.10.0 running on 64-bit .NET Framework 4.0.30319.42000
+Program: Z:\Codigo\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Working directory: Z:\Codigo\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug
+Operating system:  Enterprise 64-bit 
+Processor: 12x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 324
+Hostname: ESTLPTSIS13, IP address: 172.19.218.200, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2021-04-28 14:32:57.362 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:57.373 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:57.789 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:57.796 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:58.050 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:58.056 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:58.278 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:58.282 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:58.510 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:58.515 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:58.765 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:58.771 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:58.998 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:59.005 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2021-04-28 14:32:59.247 [Thread 1]
+Failure to create pool for destination Tpm (ORIGINAL) [ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2021-04-28 14:32:59.251 [Thread 1]
+[ASHOST=10.12.0.18 SYSNR=00 SYSID=Q40 USER=MJIMENEZ PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcLogonException: Name or password is incorrect (repeat logon) ---> SAP.Middleware.Connector.RfcAbapMessageException: Name or password is incorrect (repeat logon)
+   at SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   at SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   at SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   at SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   at SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   --- End of inner exception stack trace ---
+   at SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination)
+   at SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   at SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   at SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   at SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)

@@ -1,0 +1,108 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Atk_TpmMantenimiento.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Host" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10.12.0.82</Value>
+    </Setting>
+    <Setting Name="SystemID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">P40</Value>
+    </Setting>
+    <Setting Name="SystemNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">00</Value>
+    </Setting>
+    <Setting Name="Client" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EN</Value>
+    </Setting>
+    <Setting Name="PoolSize" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="UserPRD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EMM_RP_USER</Value>
+    </Setting>
+    <Setting Name="PwdPRD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EMMRPUSER01</Value>
+    </Setting>
+    <Setting Name="SrvSql" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EST02DB</Value>
+    </Setting>
+    <Setting Name="BD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TpmMtto</Value>
+    </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="PwdSql" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="TituCC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">61131022</Value>
+    </Setting>
+    <Setting Name="TituCA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">EMM</Value>
+    </Setting>
+    <Setting Name="RutaLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\atkApps\AtkTpmMantto\Log\logTpmManto.txt</Value>
+    </Setting>
+    <Setting Name="TituArea" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TPM-Ensamble</Value>
+    </Setting>
+    <Setting Name="barVerde" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">70</Value>
+    </Setting>
+    <Setting Name="barAmarilla" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="barRoja" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="IdPlanta" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1841</Value>
+    </Setting>
+    <Setting Name="MesesFalla" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="to" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="userBDRefec" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="pwdBDRefec" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="BDRefectorio" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Refectorio</Value>
+    </Setting>
+    <Setting Name="DiasxAno" Type="System.Decimal" Scope="Application">
+      <Value Profile="(Default)">286</Value>
+    </Setting>
+    <Setting Name="HrsxDia" Type="System.Decimal" Scope="Application">
+      <Value Profile="(Default)">22.5</Value>
+    </Setting>
+    <Setting Name="DiasxMes" Type="System.Decimal" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="PorcFallas" Type="System.Decimal" Scope="Application">
+      <Value Profile="(Default)">0.04</Value>
+    </Setting>
+    <Setting Name="BDHt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProdHist</Value>
+    </Setting>
+    <Setting Name="userHt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="pwdHt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="CentroCostos" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0061131022</Value>
+    </Setting>
+    <Setting Name="Depto" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SOLD</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

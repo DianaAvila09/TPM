@@ -1,0 +1,16 @@
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\GetInformacion.csprojAssemblyReference.cache
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\GetInformacion.csproj.CoreCompileInputs.cache
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\GetInformacion.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\GetInformacion.pdb
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\Entidades.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\sapnco.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\sapnco_utils.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\ToolsTpm.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\Entidades.pdb
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\ToolsTpm.pdb
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\GetInformacion.csproj.CopyComplete
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\GetInformacion.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\GetInformacion.pdb
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\EntityFramework.dll
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\Entidades.dll.config
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\bin\Debug\EntityFramework.xml

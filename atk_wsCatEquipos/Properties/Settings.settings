@@ -1,0 +1,90 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="atk_wsCatEquipos.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EST02DB</Value>
+    </Setting>
+    <Setting Name="BDSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmMtto</Value>
+    </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="PwdSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="SApSystemNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00</Value>
+    </Setting>
+    <Setting Name="SapClient" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="SapLanguage" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EN</Value>
+    </Setting>
+    <Setting Name="SapPoolSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="To" Type="System.String" Scope="User">
+      <Value Profile="(Default)">miguel.jimenez@magna.com</Value>
+    </Setting>
+    <Setting Name="From" Type="System.String" Scope="User">
+      <Value Profile="(Default)">miguel.jimenez@magna.com</Value>
+    </Setting>
+    <Setting Name="Subject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Catálogos de equipos de sap</Value>
+    </Setting>
+    <Setting Name="MinEjec" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="RutaLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\atkApps\Atk_wsCatEquipos\Log\LogCatEquipos.txt</Value>
+    </Setting>
+    <Setting Name="Planta" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1841</Value>
+    </Setting>
+    <Setting Name="category" Type="System.String" Scope="User">
+      <Value Profile="(Default)">M</Value>
+    </Setting>
+    <Setting Name="Status" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X</Value>
+    </Setting>
+    <Setting Name="LengEq" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EN</Value>
+    </Setting>
+    <Setting Name="LengStatus" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EN</Value>
+    </Setting>
+    <Setting Name="funtionLoc" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E*</Value>
+    </Setting>
+    <Setting Name="CategoriaWC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0007</Value>
+    </Setting>
+    <Setting Name="AlmMROs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AT56</Value>
+    </Setting>
+    <Setting Name="CategoriaMeasuringPoint" Type="System.String" Scope="User">
+      <Value Profile="(Default)">M</Value>
+    </Setting>
+    <Setting Name="CategoriaMainWC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0005</Value>
+    </Setting>
+    <Setting Name="EdoEquipo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">INST</Value>
+    </Setting>
+    <Setting Name="SapHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.12.0.82</Value>
+    </Setting>
+    <Setting Name="SapSystemID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">P40</Value>
+    </Setting>
+    <Setting Name="SapUserPRD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMM_RP_USER</Value>
+    </Setting>
+    <Setting Name="SapPwdPRD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMMRPUSER01</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

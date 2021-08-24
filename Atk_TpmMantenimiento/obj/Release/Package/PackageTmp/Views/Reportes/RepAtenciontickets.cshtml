@@ -1,0 +1,204 @@
+﻿@model Entidades.ParamRepAtnTickets
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+<form asp-controller="Reportes" method="post" action="RepAtenciontickets" class="form-horizontal">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="container-fluid bg-success">
+        <row>
+            <h4 class="btn-sm titu">@ViewBag.Message</h4>
+        </row>
+        <row>
+            <div class="form-inline">
+                @Html.Label("Periodo a consultar:")
+                @Html.TextBoxFor(m => Model.FecI, "{0:dd/MM/yyyy}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                @Html.TextBoxFor(m => Model.FecF, "{0:dd/MM/yyyy}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+
+                <button type="submit" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-list-alt"></span>Reporte
+                </button>
+                @*@Html.ActionLink("Excel", "ToExcel", "Reportes", new { @class = "btn btn-sm btn-success  glyphicon glyphicon-open-file", @style="font-size:12pt" })*@
+                <br />
+            </div>
+            <br />
+        </row>
+    </div>
+    <br />
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <table id="sort" class="display cell-border compact" style="width:100%; font-size:10pt">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Item</th>
+                            <th scope="col" class="text-center">Id Ticket</th>
+                            <th scope="col" class="text-center">Work Center</th>
+                            <th scope="col" class="text-center">Código de Equipo</th>
+                            <th scope="col" class="text-center">Tipo Falla</th>
+                            <th scope="col" class="text-center">Clasificacion</th>
+                            <th scope="col" class="text-center">Fec Reporte</th>
+                            <th scope="col" class="text-center">Fec Atensión</th>
+                            <th scope="col" class="text-center">Fec Cierre</th>
+                            <th scope="col" class="text-center">Min Reporte-Atensión</th>
+                            <th scope="col" class="text-center">Min Atensión-Cierre</th>
+                            <th scope="col" class="text-center">Min Reporte-Cierre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int r = 1;
+                        }
+
+                        @foreach (var row in Model.LstRepAtnTick)
+                        {
+                            var clase = string.Empty;
+
+                            if (row.TipoTicket == "R") { clase = "background-color: #ff6666"; }
+                            if (row.TipoTicket == "A") { clase = "background-color: #ffffcc"; }
+                            if (row.TipoTicket == "V") { clase = "background-color: #ccffcc"; }
+                            if (row.TipoTicket == "Z") { clase = "background-color: #b3e0ff"; }
+                            if (row.TipoTicket == "M") { clase = "background-color: #ffad33"; }
+                            if (row.TipoTicket == "G") { clase = "background-color: #9ae59a"; }
+                            if (row.TipoTicket == "P") { clase = "background-color: #001a4d; color:white;"; }
+
+                            <tr>
+                                <td class="text-center">
+                                    @r.ToString()
+                                </td>
+
+                                @{
+                                    string tic = row.IdTicket.ToString("N0");
+                                    <td class="text-center" style="width:100px;  @clase">
+                                        @Html.HiddenFor(modelItem => row.IdTicket)
+
+                                        <a style="font-weight:bold; padding:10px" target="_blank"
+                                           href='@Url.Action("Editar", "Tickets", new { Id = row.IdTicket, eq = row.CodEquipo })'
+                                           onclick="return mostrar_procesarl();">
+                                            @tic
+                                        </a>
+                                    </td>
+                                }
+                                <td class="text-left text-nowrap" style="@clase">
+                                    @Html.DisplayFor(modelItem => row.CodWorkCenter)
+                                </td>
+                                <td class="text-left text-nowrap" style="@clase">
+                                    @Html.DisplayFor(modelItem => row.CodEquipo)
+                                </td>
+
+                               
+                                <td class="text-left" style="@clase">
+                                    @Html.DisplayFor(modelItem => row.DescripTipo)
+                                </td>
+                                
+
+                                <td class="text-left">
+                                    @Html.DisplayFor(modelItem => row.DescripCodClasif)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.FchReporte)
+                                    @{
+                                        if (row.FchReporte.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                        {
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchReporte))
+                                        }
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.FchAtendido)
+                                    @{
+                                        if (row.FchAtendido.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                        {
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchAtendido))
+                                        }
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.FchClose)
+                                    @{
+                                        if (row.FchClose.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                        {
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchClose))
+                                        }
+                                    }
+                                </td>
+                                <td class="text-right">
+                                    @row.MinRepAtn.ToString("N0")
+                                </td>
+                                <td class="text-right">
+                                    @row.MinAtnCierre.ToString("N0")
+                                </td>
+                                <td class="text-right">
+                                    @row.MinRepCierre.ToString("N0")
+                                </td>
+
+                            </tr>
+                            r = r + 1;
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true
+               
+
+            });
+        });
+
+
+        $(document).ready(function () {
+            $(function () {
+                $(".date-time-picker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0",
+                    dateFormat: 'dd/mm/yy',
+                    controlType: 'select',
+                    oneLine: true,
+                    showTimepicker: false,
+                });
+            });
+
+            jQuery.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (isChrome) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+        });
+
+        $(document).ready(function () {
+            $('#FecIni').focus();
+        })
+    </script>
+
+}

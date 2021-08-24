@@ -1,0 +1,105 @@
+﻿@model List<Entidades.CatEquipo>
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="media" style="margin:10px">
+            <div class="media-left ui-button-text-icon-primary">
+                <label class="btn-sm titu">Catálogo de equipos Activos en Sap, Centro de costos: @ViewBag.TitleCC</label>
+            </div>
+
+            <div class="media-left">
+                @Html.ActionLink("Actualizar", "CatEquipos", "CatSap", new { @class = "btn btn-md btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+            </div>
+            <div class="media-left">
+                <label class="form-control">Fecha de actualizacconion: @Model[0].FecUpdate </label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+
+            <thead>
+                <tr style="font-size:12px">
+                    <th scope="col" class="font-weight-bold">Work Center</th>
+                    @*<th scope="col">Id Sap</th>*@
+                    <th scope="col">Código Equipo</th>
+                    <th scope="col">Descripción</th>
+                    @*<th scope="col">Ctro Costos</th>*@
+                    <th scope="col">Auth Group</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Functional Loction</th>
+                    <th scope="col">Planner Mantto.</th>
+                    <th scope="col">Respons Mantto.</th>
+                    <th scope="col">Focus Factory</th>
+                    <th scope="col">Object Type</th>
+                    @*<th scope="col">Manufacturado</th>
+                    <th scope="col">Modelo</th>*@
+                    <th scope="col">Valido desde</th>
+                    <th scope="col">Equipo Superior</th>
+                    @*<th scope="col">% Key Perfor.</th>*@
+                    @*<th scope="col">Actualizado</th>*@
+                </tr>
+            <thead />
+            <tbody>
+                @foreach (var dr in Model)
+                {
+                <tr class="fontChica">
+                    <td>
+                        <div>
+                            <label class="text-nowrap">@dr.WorkCenter   </label>
+                        </div>
+                    </td>
+
+                    @*<td class="fontChica">@dr.ObjectNumber </td>*@
+                    
+                    <td>
+                        <div>
+                            <label class="text-nowrap" >@dr.CodEquipo   </label>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div>
+                            <label class="text-nowrap" >@dr.DescripTechnical  </label>
+                        </div>
+                    </td>
+                   @* <td>@dr.CostCenter.Replace("00000", "")</td>*@
+                    <td>@dr.TecObjAutGrp</td>
+                    <td class="text-nowrap">@dr.IndivStatusObject</td>
+                    <td class="text-nowrap">@dr.FunctionalLocation</td>
+                    <td>@dr.PlannerGroup </td>
+                    <td>@dr.MainWorkCenter</td>
+                    <td> @dr.StandardTextKeyWC</td>
+                    <td> @dr.TypeTechObj</td>
+                    @*<td> @dr.ManufAsset</td>
+                    <td> @dr.ManufModelNum</td>*@
+                    <td> @dr.ValidFromDate.Substring(1, 10)</td>
+                    <td> @dr.Superordinate</td>
+                    @*<td> @dr.KeyPerformanceEfficRateWC</td>*@
+                    @*<td> @dr.FecUpdate</td>*@
+                    
+                </tr>
+                }
+            <tbody />
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "paging": false,
+                "responsive ": true,
+                "select": true,
+                "fixedHeader": true,
+                "scrollCollapse": true,
+                "scrollX": true,
+                "order": [[2, 'asc']]
+            });
+        });
+    </script>
+}

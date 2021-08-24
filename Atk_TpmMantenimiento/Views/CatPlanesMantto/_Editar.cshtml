@@ -1,0 +1,155 @@
+﻿@model Entidades.AltaPlanManto
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap-select")
+@Styles.Render("~/Content/Bootstrap-Select/css")
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<script>
+    $('#modalGenerica').on('shown.bs.modal', function () {
+        $('#planMt_CodCiclo').focus();
+    })
+
+    $.validator.methods.date = function (value, element) {
+        return this.optional(element) || moment(value, "DD/MM/YYYY HH:mm", true).isValid();
+    }
+
+</script>
+
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message</h4>
+    </div>
+</div>
+
+<div class="container-fluid">
+    @using (Ajax.BeginForm("Editar", "CatPlanesMantto", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group form-inline" style="padding:10px; background-color:lightblue;">
+
+                    @Html.Label("Id: ", new { @class = "control-label",})
+                    @Html.HiddenFor(model => model.planMt.Id)
+                    @Html.TextBoxFor(model => model.planMt.Id, new { @class = "form-control", @style = "width:50px", disabled = "true" })
+
+                    @Html.Label("Equipo: ", new { @class = "control-label", @style = "width:60px" })
+
+                    @Html.HiddenFor(model => model.planMt.CodEquipo)
+                    @Html.DropDownListFor(model => model.planMt.CodEquipo, new SelectList(Model.lstEquipos, "CodEquipo", "Cod_Descrip"), "-- Seleccion un valor --",
+                  new { @class = "form-control", @style="width:500px", disabled = "true" })
+                    @Html.ValidationMessageFor(model => model.planMt.CodEquipo, "", new { @class = "text-danger" })
+
+
+                    @Html.Label("Sist Mantto: ", new { @class = "control-label", @style = "width:120px" })
+
+                    @Html.HiddenFor(model => model.planMt.CodSistema)
+                    @Html.DropDownListFor(model => model.planMt.CodSistema, new SelectList(Model.lstSisManto, "CodSistema", "Sistema"), "-- Seleccion un valor --", new { @class = "form-control", @style = "width:150px", disabled = "true" })
+                    @Html.ValidationMessageFor(model => model.planMt.CodSistema, "", new { @class = "text-danger" })
+
+
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Periodo: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.planMt.CodCiclo, new SelectList(Model.lstCiclos, "CodCiclo", "Descripcion"), "-- Seleccion un valor --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.planMt.CodCiclo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Frecuencia: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.planMt.Frecuencia, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.planMt.Frecuencia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Ultima Ejecución", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.planMt.FecUltEjecucion, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @Html.ValidationMessageFor(model => model.planMt.FecUltEjecucion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Activado: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-offset-1 col-md-4">
+                        <div>
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.planMt.Estatus)
+                                @Html.ValidationMessageFor(model => model.planMt.Estatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.Label("Agrego: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.HiddenFor(model => model.planMt.UsuarioAlta)
+                        @Html.TextBoxFor(model => model.planMt.UsuarioAlta, new { @class = "form-control", disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.planMt.UsuarioAlta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Fecha de alta: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.HiddenFor(model => model.planMt.FechaAlta)
+                        @Html.TextBoxFor(model => model.planMt.FechaAlta, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", @disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.planMt.FechaAlta, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Cancelo :", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.planMt.UsuarioCancelo, new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.planMt.UsuarioCancelo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Fecha de cancelacion: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.planMt.FechaCancelacion, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @Html.ValidationMessageFor(model => model.planMt.FechaCancelacion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group-lg">
+                    <div class="col-md-offset-4 col-md-10" style="font-family:Arial">
+                        <button type="submit" class="btn btn-md btn-primary">
+                            <i class="glyphicon glyphicon-save"></i> Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(function () {
+                    $(".date-time-picker").datetimepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-100:+0",
+                        dateFormat: 'dd/mm/yy',
+                        controlType: 'select',
+                        timeFormat: 'HH:mm',
+                        oneLine: true
+                    });
+                });
+            </script>
+        </div>
+    }
+</div>
+

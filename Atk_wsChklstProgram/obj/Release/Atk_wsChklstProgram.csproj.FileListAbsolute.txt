@@ -1,0 +1,7 @@
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\bin\Release\Atk_wsChklstProgram.exe.config
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\bin\Release\Atk_wsChklstProgram.exe
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\bin\Release\Atk_wsChklstProgram.pdb
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\obj\Release\Atk_wsChklstProgram.csprojAssemblyReference.cache
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\obj\Release\Atk_wsChklstProgram.csproj.CoreCompileInputs.cache
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\obj\Release\Atk_wsChklstProgram.exe
+C:\atkApps\TPM_Mantenimiento\Atk_wsChklstProgram\obj\Release\Atk_wsChklstProgram.pdb

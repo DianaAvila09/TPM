@@ -1,0 +1,160 @@
+﻿@model Entidades.ParamRepChecklist
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+<form asp-controller="Reportes" method="post" action="ReporteCheckList">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="container-fluid bg-success">
+        <row>
+            <h4 class="btn-sm titu">@ViewBag.Message</h4>
+        </row>
+        <row>
+            <div class="form-inline">
+                @Html.Label("Periodo a consultar:")
+                @Html.TextBoxFor(m => Model.FecInicial, "{0:dd/MM/yyyy}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                @Html.TextBoxFor(m => Model.FecFinal, "{0:dd/MM/yyyy}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+
+                <button type="submit" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-list-alt"></span>Reporte
+                </button>
+                @*@Html.ActionLink("Excel", "ToExcel", "Reportes", new { @class = "btn btn-sm btn-success  glyphicon glyphicon-open-file", @style="font-size:12pt" })*@
+                <br />
+            </div>
+            <br />
+        </row>
+    </div>
+    <br />
+
+    <div>
+        <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+            <thead>
+                <tr>
+
+                    <th class="text-center">Id</th>
+                    <th scope="col">Work Center</th>
+                    <th scope="col">Descripción equipo</th>
+                    <th scope="col">Checklist</th>
+                    <th scope="col">Clasificación </th>
+                    <th scope="col">Periodo</th>
+                    <th scope="col">Frecuencia</th>
+                    <th scope="col">Fecha  </th>
+                    <th scope="col">Realizado por</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model.lstChecklist)
+                {
+                    <tr>
+                        <td class="text-center" style="width:100px;">
+                            @Html.HiddenFor(modelItem => row.IdChkEquipo)
+                            <a style="color:#000000; font-weight:bold; padding:10px" target="_blank"
+                               href='@Url.Action("Checklist", "Reportes", new { Id = row.IdChkEquipo})'>
+                                @row.IdChkEquipo.ToString().PadLeft(4,'0')
+                            </a>
+                        </td>
+                        
+                        <td>
+                            @Html.HiddenFor(modelItem => row.CodWorkCenter)
+                            @Html.DisplayFor(modelItem => row.CodWorkCenter)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(modelItem => row.DescripEquipo)
+                            @Html.DisplayFor(modelItem => row.DescripEquipo)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(modelItem => row.DescripChkList)
+                            @Html.DisplayFor(modelItem => row.DescripChkList)
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.CodClasif)
+                            @Html.DisplayFor(modelItem => row.CodClasif)
+                        </td>
+                        <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.DesripFrencu)
+                                @Html.DisplayFor(modelItem => row.DesripFrencu)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.Frecuencia)
+                                @Html.DisplayFor(modelItem => row.Frecuencia)
+                            </td>
+
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.FchEjecucion)
+                            @{
+                                if (row.FchEjecucion.Value.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                {
+                                    @Convert.ToString(string.Format("{0:dd/MM/yyyy hh:mm tt}", row.FchEjecucion))
+                                }
+                            }
+                        </td>
+
+                        <td>
+                            @Html.HiddenFor(modelItem => row.UserEjecuto)
+                            @Html.DisplayFor(modelItem => row.UserEjecuto)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[0, 'desc']]
+
+            });
+        });
+
+
+        $(document).ready(function () {
+            $(function () {
+                $(".date-time-picker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0",
+                    dateFormat: 'dd/mm/yy',
+                    controlType: 'select',
+                    //timeFormat: 'hh:mm TT',
+                    oneLine: true,
+                    showTimepicker: false,
+                });
+            });
+
+            jQuery.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (isChrome) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+        });
+
+                                                                                //$(document).ready(function () {
+                                                                                //    $('#FecIni').focus();
+                                                                                //})
+    </script>
+
+}

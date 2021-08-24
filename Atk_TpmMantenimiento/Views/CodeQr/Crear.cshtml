@@ -1,0 +1,139 @@
+﻿@model Entidades.AltaCodeQr
+
+@{
+    string vClase = "btn btn-md btn-primary disabled";
+    string vClase1 = "disabled = 'disabled'";
+   string vCentroCostos = Model.CodigoQr.CentroCostos;
+    if (Session["CatTpm"] != null)
+    {
+        if ((bool)Session["CatTpm"] == true)
+        {
+            vClase = "btn btn-primary";
+            vClase1 = "";
+        }
+    }
+    //  vClase = "btn btn-primary";
+}
+
+<div class="container-fluid bg-primary">
+    <div class="light-blue darken-3 white-text">
+        <h4 class="title " id="myModalLabel"><img src="~/Imagenes/CodeQrBlanco.png" width="40" /> @ViewBag.Message </h4>
+    </div>
+</div>
+<br />
+<form id="form1" runat="server" action="Crear" method="post">
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-horizontal">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Equipo: ", new { @class = "control-label col-md-1" })
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.CodigoQr.WorkCenter)
+                                @Html.HiddenFor(model => model.CodigoQr.DescripEquipo)
+                                @Html.HiddenFor(model => model.CodigoQr.Qr)
+                                @Html.HiddenFor(model => model.CodigoQr.CentroCostos)
+
+                                @Html.DropDownListFor(model => model.CodigoQr.CodEquipo,
+                                       new SelectList(Model.lstEquPadres, "CodEquipo", "Cod_Descrip"), "-- Seleccion un valor --",
+                                       new { id = "lstEquipos", @class = "selectEquipo show-tick form-control" })
+                                @* @Html.ValidationMessageFor(model => model.CodigoQr.CodEquipo, "", new { @class = "text-danger" })*@
+                            </div>
+
+                        </div>
+                        <br />
+                        <div class="form-group">
+
+                            @Html.Label("Tipo: ", new { @class = "control-label col-md-1" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.CodigoQr.Tipo,
+                                   new SelectList(Model.lstTiposQr, "Tipo", "Descrip"), "-- Seleccion un valor --",
+                                   new { id = "lstTipos", @class = "selectTipo show-tick form-control" })
+                                @*@Html.ValidationMessageFor(model => model.CodigoQr.Tipo, "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                        <br />
+
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-4" style="font-family:Arial">
+                                <button type="submit" class="@vClase" @vClase1>
+                                    <img src="~/Imagenes/CodeQrBlanco.png" width="30" /> Generar Codigo QR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" style="border: solid 2px black;">
+                        <br />
+                        <div class="form-group">
+                            <div class="text-center">
+
+                              
+                                @Html.ActionLink("Imprimir", "Imprimir", "CodeQr", new {id  = Model.CodigoQr.CodEquipo, idTipo = Model.CodigoQr.Tipo, ctroCtos = vCentroCostos}, new { @class = vClase + " glyphicon glyphicon-print"})
+                                 
+                                <a target="_blank" href="@Model.CodigoQr.Liga" class="glyphicon glyphicon-link  @vClase">Verificar QR</a>
+                            </div>
+                        </div>
+                        <div class="form-group" style="padding: 10px; ">
+                            @Html.Label("Link generado:", new { @class = "control-label" })
+                            <div class="bg-success" style="font-size:14px; max-width:95%; box-sizing:border-box; border:solid 1px black">
+                                @Html.DisplayFor(model => model.CodigoQr.Liga)
+
+                            </div>
+                        </div>
+
+                        <br />
+                        @if (Model.CodigoQr.Qr != null)
+                        {
+                            <div class="text-center">
+                                <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model.CodigoQr.Qr))" width="250" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script>
+        $('#modalGenerica').on('shown.bs.modal', function () {
+            $('#lstEquipos').focus();
+        })
+
+
+        $(document).ready(function () {
+            // Enable Live Search.
+            $('#lstEquipos').attr('data-live-search', true);
+            $('#lstTipos').attr('data-live-search', true);
+            $('.selectEquipo').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Equipo ]',
+                    //style: 'btn-success',
+                    size: 8
+                });
+            $('.selectTipo').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Tipo ]',
+                    //style: 'btn-success',
+                    size: 8
+                });
+        });
+        
+       
+    </script>
+}

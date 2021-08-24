@@ -1,0 +1,109 @@
+﻿@model Entidades.AltaCheckListEnc
+
+<form asp-controller="CatCheckList" method="post" action="Nuevo" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"> @ViewBag.Message</h4>
+    </div>
+    <div style="background-color: #eef3f7;">
+        <br />
+        <div class="form-group col-md-9">
+            @Html.Label("Código:", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.EncCheckList.CodCheckList, new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(model => model.EncCheckList.CodCheckList, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-9">
+            @Html.Label("Descripción:", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.EncCheckList.DescripCheckList, new { @class = "form-control", @style = "max-width:100%;" })
+                @Html.ValidationMessageFor(model => model.EncCheckList.DescripCheckList, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Clasificación:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.EncCheckList.CodClasif,
+                    new SelectList(Model.lstClasif, "CodClasif", "CodClasif"), "-- Seleccion un valor --",
+                    new { id = "lstClasif", @class = "selectClasif show-tick form-control" })
+
+                    @Html.ValidationMessageFor(model => model.EncCheckList.CodClasif, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Equipo parado: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Si @Html.RadioButtonFor(model => model.EncCheckList.EqParado, true)
+                    </label>
+                    <label class="btn btn-md btn-default" style="font-size:14px; width:100px; text-align:right">
+                        No @Html.RadioButtonFor(model => model.EncCheckList.EqParado, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Estatus: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.EncCheckList.Activo, true)
+                    </label>
+                    <label class="btn btn-md btn-default text-right" style="font-size:14px; width:100px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.EncCheckList.Activo, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br />
+        @Html.HiddenFor(model => model.EncCheckList.CodDepartamento)
+        @Html.HiddenFor(model => model.EncCheckList.UserAlta)
+        @Html.HiddenFor(model => model.EncCheckList.UserModif)
+        @Html.HiddenFor(model => model.EncCheckList.FchAlta)
+        @Html.HiddenFor(model => model.EncCheckList.FchModif)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-9" style="font-family:Arial">
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md" onclick = "return mostrar_procesar();" >
+                    <span class="glyphicon glyphicon-save"></span> Guardar
+                </button>
+                @Html.ActionLink("Cancelar", "CatCheckList", "CatCheckList", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:16px" })
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script>
+        $('#EncCheckList.CodCheckList').focus();
+
+        $(document).ready(function () {
+            $('#lstClasif').attr('data-live-search', true);
+            $('.selectClasif').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona una clasificación ]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+        });
+
+    </script>
+}

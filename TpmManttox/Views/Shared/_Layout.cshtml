@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TPM-Mantto.</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#" class="navbar-left">
+                    <img src="~/Imagenes/magna_logo.jpg" alt="Autotek Ind. de Méxikco" style="height:35px; padding-right:10px" />
+                </a>
+                @Html.ActionLink("TPM-Mantenimiento", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            </div>
+
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Administración de Tickets", "About", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Reportes
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink(" Consulta de tickets sin Atención", "Index", "Home")</li>
+                            <li>@Html.ActionLink(" Consulta de tickets sin WOM Asignada", "Contact", "Home")</li>
+                            <li>@Html.ActionLink(" Consulta de tickets en proceso", "About", "Home")</li>
+                            <li>@Html.ActionLink(" Resumen de Fallas en proceso por Focus", "About", "Home")</li>
+
+                        </ul>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+
+                            Catálogos Sap
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Equipos", "Index", "Home")</li>
+                            <li>@Html.ActionLink("PM Estándar por equipos (Measure Point)", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Main Work Center", "About", "Home")</li>
+                            <li>@Html.ActionLink("Focus factory de los equipos", "About", "Home")</li>
+                            <li>@Html.ActionLink("Procedimientos de mantenimiento", "About", "Home")</li>
+                            <li>@Html.ActionLink("Ubicaciones de los equipos (Function location)", "About", "Home")</li>
+                            <li>@Html.ActionLink("MRO's", "About", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Catálogos TPM
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Sistemas de mantenimiento", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Departamentos", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Tareas", "About", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Configuración
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Parametros del sistema", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Accesos", "Contact", "Home")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Contactos", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Tutorial", "Contact", "Home")</li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="alert-info active">
+                <p>&copy; @DateTime.Now.Year - <strong>Magna Autotek </strong> Tecnologías de la Información</p>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

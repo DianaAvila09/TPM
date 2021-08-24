@@ -1,0 +1,21 @@
+﻿@model Entidades.CodeQr
+@{
+    Layout = null;
+}
+
+    <div>
+        <br />
+        @if (Model.CodEquipo != null)
+        {
+            <div class="text-center">
+                <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model.Qr))" width="250" />
+            </div>
+            <div>
+                    WC: @Html.DisplayFor(model => model.WorkCenter)
+                <br />
+                Acceso: @Html.DisplayFor(model => model.DescripTipo)
+
+            </div>
+        }
+    </div>
+

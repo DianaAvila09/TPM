@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Atk_wsHistProdxDia.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.12.0.82</Value>
+    </Setting>
+    <Setting Name="SystemID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">P40</Value>
+    </Setting>
+    <Setting Name="SystemNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00</Value>
+    </Setting>
+    <Setting Name="Client" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EN</Value>
+    </Setting>
+    <Setting Name="PoolSize" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="PwdPRD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMMRPUSER01</Value>
+    </Setting>
+    <Setting Name="SrvSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EST02DB</Value>
+    </Setting>
+    <Setting Name="BD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ProdHist</Value>
+    </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="PwdSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="Planta" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1841</Value>
+    </Setting>
+    <Setting Name="MovRecibo1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">101</Value>
+    </Setting>
+    <Setting Name="MovRecibo2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">102</Value>
+    </Setting>
+    <Setting Name="UserPRD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EMM_RP_USER</Value>
+    </Setting>
+    <Setting Name="To" Type="System.String" Scope="User">
+      <Value Profile="(Default)">miguel.jimenez@magna.com</Value>
+    </Setting>
+    <Setting Name="From" Type="System.String" Scope="User">
+      <Value Profile="(Default)">miguel.jimenez@magna.com</Value>
+    </Setting>
+    <Setting Name="Smtp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Smtp.magna.global</Value>
+    </Setting>
+    <Setting Name="fecha" Type="System.String" Scope="User">
+      <Value Profile="(Default)">09/03/2017</Value>
+    </Setting>
+    <Setting Name="Subject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Servicio de actualizacion de hist. de produccion</Value>
+    </Setting>
+    <Setting Name="RutaLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\atkApps\Atk_wsHistProdxDia\Log\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

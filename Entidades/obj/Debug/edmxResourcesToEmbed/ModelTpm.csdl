@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TpmMttoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TpmMttoEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="spu_Get_EstrucEquipos">
+      <Parameter Name="pCtroCtos" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spu_GetCatCaract" ReturnType="Collection(TpmMttoModel.spu_GetCatCaract_Result)" />
+    <FunctionImport Name="spu_getCatDeptos" />
+    <FunctionImport Name="spu_getCatFallas" ReturnType="Collection(TpmMttoModel.spu_getCatFallas_Result)">
+      <Parameter Name="CodDepartamento" Mode="In" Type="String" />
+      <Parameter Name="CodSistema" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spu_getCatSistemas">
+      <Parameter Name="CodDepartamento" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spu_GetEquipos">
+      <Parameter Name="pCtroCtos" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="spu_GetFocusFt" />
+    <FunctionImport Name="spu_GetMainWC" />
+    <FunctionImport Name="spu_GetPmStandar" ReturnType="Collection(TpmMttoModel.spu_GetPmStandar_Result)" />
+    <FunctionImport Name="spu_GetProduccionAcum">
+      <Parameter Name="pFi" Mode="In" Type="DateTime" />
+      <Parameter Name="pFf" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spu_GetWorkCenter" />
+    <EntitySet Name="CatClasifFallas" EntityType="TpmMttoModel.CatClasifFalla" />
+    <EntitySet Name="CatComponentes" EntityType="TpmMttoModel.CatComponente" />
+    <EntitySet Name="CatPlantas" EntityType="TpmMttoModel.CatPlanta" />
+    <EntitySet Name="CatWorkCenters" EntityType="TpmMttoModel.CatWorkCenter" />
+    <EntitySet Name="CatWorkCenter1" EntityType="TpmMttoModel.CatWorkCenter1" />
+    <EntitySet Name="CatEquis" EntityType="TpmMttoModel.CatEqui" />
+    <EntitySet Name="Tickets" EntityType="TpmMttoModel.Ticket" />
+    <AssociationSet Name="FK_Tickets_CatPlantas" Association="TpmMttoModel.FK_Tickets_CatPlantas">
+      <End Role="CatPlanta" EntitySet="CatPlantas" />
+      <End Role="Ticket" EntitySet="Tickets" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="spu_GetCatCaract_Result">
+    <Property Type="Int32" Name="Identificador" Nullable="true" />
+    <Property Type="String" Name="Clave" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="AddresPLC" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="KeyCaracteristica" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Caracteristica" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Unit" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="Notas" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="FlagStatus" Nullable="true" />
+    <Property Type="String" Name="UserModif" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="DtModif" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="spu_getCatFallas_Result">
+    <Property Type="Int32" Name="IdFalla" Nullable="true" />
+    <Property Type="String" Name="CodFalla" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Descrip" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CodSistema" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CodDepartamento" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="spu_GetPmStandar_Result">
+    <Property Type="String" Name="IMPTT_POINT" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="IMPTT_MPOBJ" Nullable="true" MaxLength="22" />
+    <Property Type="String" Name="IMPTT_PSORT" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="IMPTT_PTTXT" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="IMPTT_MPTYP" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="IMPTT_BEGRU" Nullable="true" MaxLength="4" />
+    <Property Type="Decimal" Name="IMPTT_ATINN" Nullable="true" Precision="10" Scale="0" />
+    <Property Type="Decimal" Name="IMPTT_DESIR" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="IMPTT_CJUMP" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="IMPTT_PYEAR" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="FEC_UPDATE" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="CatClasifFalla">
+    <Key>
+      <PropertyRef Name="IdClasif" />
+    </Key>
+    <Property Name="IdClasif" Type="Int32" Nullable="false" />
+    <Property Name="CodClasif" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CatComponente">
+    <Key>
+      <PropertyRef Name="CveCompo" />
+    </Key>
+    <Property Name="CveCompo" Type="Decimal" Nullable="false" Precision="7" Scale="0" />
+    <Property Name="Componente" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Sistema" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Equipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="InicioVig" Type="DateTime" Precision="0" />
+    <Property Name="TerminaVig" Type="DateTime" Precision="0" />
+    <Property Name="UltRevision" Type="DateTime" Precision="0" />
+    <Property Name="UltPreventivo" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UltTicket" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FecUltTicket" Type="DateTime" Precision="3" />
+    <Property Name="Minimo" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Maximo" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Promedio" Type="Decimal" Precision="10" Scale="3" />
+  </EntityType>
+  <EntityType Name="CatPlanta">
+    <Key>
+      <PropertyRef Name="idPlanta" />
+    </Key>
+    <Property Name="idPlanta" Type="Int32" Nullable="false" />
+    <Property Name="ClavePlanta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="planta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Tickets" Relationship="TpmMttoModel.FK_Tickets_CatPlantas" FromRole="CatPlanta" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="CatWorkCenter">
+    <Key>
+      <PropertyRef Name="CodWorkCenter" />
+    </Key>
+    <Property Name="Planta" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TipoObjeto" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="IdWorkCenter" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="CodWorkCenter" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="keyValorStandar" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Administrador" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="FocusFactory" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="keyValordeOperacion" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="InicioVigencia" Type="DateTime" Precision="0" />
+    <Property Name="FinVigencia" Type="DateTime" Precision="0" />
+    <Property Name="Lenguaje" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaUpdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CatWorkCenter1">
+    <Key>
+      <PropertyRef Name="CRHD_ARBPL" />
+    </Key>
+    <Property Name="CRHD_WERKS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_OBJTY" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_OBJID" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="CRHD_ARBPL" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_VERWE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_VGWTS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_VERAN" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_KTSCH" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_STEUS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CRHD_BEGDA" Type="DateTime" Precision="0" />
+    <Property Name="CRHD_ENDDA" Type="DateTime" Precision="0" />
+    <Property Name="CRTX_SPRAS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CRTX_KTEXT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_UPDATE" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CatEqui">
+    <Key>
+      <PropertyRef Name="ObjectNumber" />
+    </Key>
+    <Property Name="CodEquipo" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="LengEqui" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TecObjAutGrp" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryEqui" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TypeTechObj" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ManufAsset" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ManufModelNum" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConsecutiveNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectNumber" Type="String" Nullable="false" MaxLength="22" FixedLength="false" Unicode="false" />
+    <Property Name="MaintenancePlan" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="MeasuringPoint" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="DescripTechnical" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="StatusInactive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SystemStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="LengDescrip" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="IndivStatusObject" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ValidDate" Type="DateTime" Precision="0" />
+    <Property Name="NumNextEquipUsage" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaintPlanningPlant" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ValidFromDate" Type="DateTime" Precision="0" />
+    <Property Name="Superordinate" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="PlannerGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PmObjType" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="IdWorkCenter" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="TechIdentNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AccountAssignment" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CatalogProfile" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="TechnicalInformation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FunctionalLocation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CrObjType" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectIdPPWorkCenter" Type="Decimal" Precision="8" Scale="0" />
+    <Property Name="ControllingArea" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CostCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MainWorkCenter" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="MainWCCategory" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="MainWCLocation" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PersonResponsibleMWC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="StandardTextKeyMWC" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="StandardValueKeyMWC" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="KeyPerformanceEfficRateMWC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="WorkCenter" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryWorkCenter" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="LocationWorkCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PersonResponsibleWC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="StandardTextKeyWC" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="StandardValueKeyWC" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="KeyPerformanceEfficRateWC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="FEC_UPDATE" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="WOM" />
+    </Key>
+    <Property Name="IdPlanta" Type="Int32" />
+    <Property Name="Ticket1" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="CodDepartamento" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CodWorkCenter" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CodEquipo" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="FallaReportada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FchReporte" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioReporto" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="Diagnostico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CodClasif" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CodSistema" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CodFalla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Falla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CodTipoFalla" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CodStatus" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="FecStatus" Type="DateTime" Precision="3" />
+    <Property Name="UsrAtendio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AccionPlan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FchAccionplan" Type="DateTime" Precision="3" />
+    <Property Name="WorkerAsignado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FecIniReparacion" Type="DateTime" Precision="3" />
+    <Property Name="FecEntgregaReparacion" Type="DateTime" Precision="3" />
+    <Property Name="CodTipoWom" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="WOM" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FchaPromesa" Type="DateTime" Precision="3" />
+    <Property Name="FchClose" Type="DateTime" Precision="3" />
+    <Property Name="PCReporto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Notas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CausoParo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CatPlanta" Relationship="TpmMttoModel.FK_Tickets_CatPlantas" FromRole="Ticket" ToRole="CatPlanta" />
+  </EntityType>
+  <Association Name="FK_Tickets_CatPlantas">
+    <End Type="TpmMttoModel.CatPlanta" Role="CatPlanta" Multiplicity="0..1" />
+    <End Type="TpmMttoModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatPlanta">
+        <PropertyRef Name="idPlanta" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="IdPlanta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

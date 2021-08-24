@@ -1,0 +1,128 @@
+﻿@model Entidades.GrupoActivEnc
+
+<form asp-controller="CatGrupoActiv" method="post" action="Editar" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message</h4>
+    </div>
+    <div class="form-group" style="background-color:lightblue; padding:5px">
+
+        @Html.Label("Id: ", htmlAttributes: new { @class = "control-label col-md-1" })
+        <div class="col-md-1">
+            @Html.HiddenFor(model => model.IdGrupoAct)
+            @Html.TextBoxFor(model => model.IdGrupoAct, new { @class = "form-control text-center", disabled = "true" })
+        </div>
+
+        @Html.Label("Código: ", htmlAttributes: new { @class = "control-label col-md-1" })
+        <div class="col-md-2">
+            @Html.HiddenFor(model => model.CodGrupo)
+            @Html.TextBoxFor(model => model.CodGrupo, new { @class = "form-control text-center", disabled = "true" })
+        </div>
+        <br />
+    </div>
+
+    <div style="background-color: #eef3f7;">
+        <div class="form-group col-md-9">
+            @Html.Label("Descripción: ", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.DescripGpo, new { @class = "form-control", @style = "max-width:100%;" })
+                @Html.ValidationMessageFor(model => model.DescripGpo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Ejecutar con Equipo detenido: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Si @Html.RadioButtonFor(model => model.EqParado, true)
+                    </label>
+                    <label class="btn btn-md btn-default" style="font-size:14px; width:100px; text-align:right">
+                        No @Html.RadioButtonFor(model => model.EqParado, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Estatus del Grupo: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.Activo, true)
+                    </label>
+                    <label class="btn btn-md btn-default text-right" style="font-size:14px; width:100px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.Activo, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Agrego: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.UserAlta)
+                    @Html.TextBoxFor(model => model.UserAlta, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Fecha de alta: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.FchAlta)
+                    @Html.TextBoxFor(model => model.FchAlta, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", disabled = "true" })
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Modifico: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.UserModif)
+                    @Html.TextBoxFor(model => model.UserModif, new { @class = "form-control", disabled = "true" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Actualizacion: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.FchModif)
+                    @Html.TextBoxFor(model => model.FchModif, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", disabled = "true" })
+
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-9" style="font-family:Arial">
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-save"></span> Guardar
+                </button>
+                @Html.ActionLink("Cancelar", "CatGrupoActiv", "CatGrupoActiv", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:14px" })
+            </div>
+        </div>
+        <br />
+
+    </div>
+
+</form>
+
+
+@section Scripts {
+    <script>
+        $('#DescripcionAct').focus();
+    </script>
+}
+

@@ -1,0 +1,127 @@
+﻿@model List<Entidades.CheckListEqEnc>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+@{
+    string vClase = "btn btn-sm btn-primary disabled";
+    if (Session["CapturaChecklist"] != null)
+    {
+        if ((bool)Session["CapturaChecklist"] == true)
+        {
+            vClase = "btn btn-sm btn-primary ";
+        }
+    }
+}
+
+<form id="MyForm" asp-controller="CaptChklst">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="media" style="margin:10px">
+                <div class="media-left">
+                    <label class="btn-sm titu">@ViewBag.Message</label>
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Actualizar", "ChklistProgram", "CaptChklst", new { pCtroCostos = ViewBag.Costos, codEqui = ViewBag.codEqui }, new { @class = "btn btn-sm btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+                </div>
+
+            </div>
+            <div>
+                <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Acción</th>
+                            <th class="text-center">Id </th>
+                            <th scope="col" class="text-center">Fec Programada</th>
+                            <th scope="col" class="text-center">Work Center</th>
+                            <th scope="col" class="text-center">Clasificación Checklist</th>
+                            <th scope="col" class="text-center">Nombre Checklist </th>
+                            <th scope="col" class="text-center">Equipo Parado </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Ejecutar", "Ejecutar", "CaptChklst", new { Id = row.IdChkEquipo }, new { @class = vClase + " glyphicon glyphicon-tasks" })
+
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.IdChkEquipo)
+                                    @Html.DisplayFor(modelItem => row.IdChkEquipo)
+
+                                </td>
+
+                                @{
+                                    string estatus = "";
+                                    if (row.FecProgramada.Value.Date == DateTime.Now.Date) { estatus = "background-color: #ccffcc"; }
+                                    if (row.FecProgramada.Value.Date < DateTime.Now.Date) { estatus = "background-color: #ff6666"; }
+
+
+                                }
+
+                                <td class="text-center" style="@estatus">
+                                    @Html.HiddenFor(modelItem => row.FecProgramada)
+                                    @{
+                                        if (row.FecProgramada.Value.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001" && row.IdFrecuencia != "TUR")
+                                        {
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", row.FecProgramada))
+                                        }
+                                        else
+                                        {
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm tt}", row.FecProgramada))
+                                        }
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.CodWorkCenter)
+                                    @Html.DisplayFor(modelItem => row.CodWorkCenter)
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.CodClasif)
+                                    @Html.DisplayFor(modelItem => row.CodClasif)
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.ChkEquipo)
+                                    @Html.DisplayFor(modelItem => row.ChkEquipo)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.EqParado)
+                                    @Html.DisplayFor(modelItem => row.EqParado)
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true
+               
+                
+
+            });
+        });
+
+        
+    </script>
+}

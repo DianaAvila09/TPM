@@ -1,0 +1,867 @@
+
+**** Log file opened by process 21720 at 2019-06-25 16:33:48 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-06-25 16:33:48.741 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapException: NO_DATA
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 2136 at 2019-06-26 13:20:33 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-06-26 13:20:33.112 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapException: NO_DATA
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 17680 at 2019-07-09 11:25:56 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-07-09 11:25:56.183 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 7508 at 2019-07-09 11:27:14 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-07-09 11:27:14.120 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 14616 at 2019-07-09 11:28:07 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-07-09 11:28:07.814 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 14648 at 2019-07-09 11:30:38 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-07-09 11:30:38.466 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 4728 at 2019-07-09 11:34:26 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-07-09 11:34:26.458 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 15488 at 2019-07-09 11:41:55 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-07-09 11:41:55.267 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 4804 at 2019-09-06 10:48:56 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-06 10:48:56.195 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 14448 at 2019-09-06 10:49:37 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-06 10:49:37.548 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 1504 at 2019-09-06 10:50:43 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-06 10:50:43.249 [Thread 13]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 21232 at 2019-09-06 10:58:11 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-06 10:58:11.609 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 6856 at 2019-09-06 11:06:08 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-06 11:06:08.536 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 22264 at 2019-09-06 12:58:16 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-06 12:58:16.546 [Thread 13]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 9536 at 2019-09-06 13:04:25 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-06 13:04:25.954 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 20724 at 2019-09-06 15:01:19 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-06 15:01:19.573 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 24372 at 2019-09-06 16:30:54 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-06 16:30:54.941 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 6540 at 2019-09-06 16:31:59 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-06 16:31:59.881 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 16184 at 2019-09-09 08:45:27 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-09 08:45:27.235 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 15136 at 2019-09-09 08:46:54 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-09 08:46:54.918 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+>> Info entry 2019-09-09 08:46:58.560 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 15356 at 2019-09-09 16:55:21 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-09 16:55:21.917 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 13836 at 2019-09-09 16:56:06 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-09 16:56:06.267 [Thread 13]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 14412 at 2019-09-09 17:42:17 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-09 17:42:17.477 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 6120 at 2019-09-10 09:17:01 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-10 09:17:01.776 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 22932 at 2019-09-10 09:19:27 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-10 09:19:27.675 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 9592 at 2019-09-10 09:21:56 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-10 09:21:56.832 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 9720 at 2019-09-10 09:27:12 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-10 09:27:12.281 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 20788 at 2019-09-10 10:16:59 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-10 10:16:59.401 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 9796 at 2019-09-10 12:32:03 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-10 12:32:03.326 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 22464 at 2019-09-10 12:57:45 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-10 12:57:45.023 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 20316 at 2019-09-10 13:01:21 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-10 13:01:21.754 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 9288 at 2019-09-10 13:08:07 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-10 13:08:07.909 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 12756 at 2019-09-11 14:15:08 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-11 14:15:08.974 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapException: FIELD_NOT_VALID
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 22880 at 2019-09-11 14:16:57 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2019-09-11 14:16:57.674 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapException: FIELD_NOT_VALID
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 14956 at 2019-09-11 14:18:57 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 14:18:57.129 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 10272 at 2019-09-11 14:21:30 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 14:21:30.172 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 8888 at 2019-09-11 14:23:47 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 14:23:47.692 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 9724 at 2019-09-11 15:37:20 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 15:37:20.408 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+>> Error entry 2019-09-11 15:38:29.491 [Thread 12]
+[ASHOST=10.12.0.83 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Tpm]
+SAP.Middleware.Connector.RfcAbapRuntimeException: An error has occurred while parsing a dynamic entry.
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.ReadBytes(Byte* buffer, Int32 count)
+   en SAP.Middleware.Connector.RfcConnection.ReadRfcIDBegin(Int32& length)
+   en SAP.Middleware.Connector.RfcConnection.ReadUpTo(RFCGET readState, RfcFunction function, RFCID toRid)
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+
+**** Log file opened by process 14692 at 2019-09-11 15:38:48 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 15:38:48.616 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 7276 at 2019-09-11 15:41:26 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 15:41:26.201 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 17056 at 2019-09-11 17:28:55 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 17:28:55.289 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 5324 at 2019-09-11 17:30:38 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-11 17:30:38.668 [Thread 12]
+Invalid LZ-compressed data block received, ignored.
+
+**** Log file opened by process 11256 at 2019-09-12 09:45:21 (UTC-05:00 Hora de verano central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO\2017\PROFESSIONAL\COMMON7\IDE\EXTENSIONS\TESTPLATFORM\testhost.x86.exe
+Working directory: C:\Proyectos\TPM_Mantenimiento\UnitTest\bin\Debug
+Operating system:   64-bit 
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ATKC0316, IP address: 10.99.63.150, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2019-09-12 09:45:21.074 [Thread 12]
+Invalid LZ-compressed data block received, ignored.

@@ -1,0 +1,10 @@
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\bin\Release\ws_HistProdxDia.exe.config
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\bin\Release\ws_HistProdxDia.exe
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\bin\Release\ws_HistProdxDia.pdb
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\bin\Release\sapnco.dll
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\bin\Release\sapnco_utils.dll
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\obj\Release\ws_HistProdxDia.csprojResolveAssemblyReference.cache
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\obj\Release\ws_HistProdxDia.ProjectInstaller.resources
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\obj\Release\ws_HistProdxDia.csproj.GenerateResource.Cache
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\obj\Release\ws_HistProdxDia.exe
+D:\Proyectos\web_ReportesProduccion\ws_HistProdxDia\obj\Release\ws_HistProdxDia.pdb

@@ -1,0 +1,339 @@
+﻿@model Entidades.Ticket
+@{
+    string tipo = Model.TipoTicket;
+    string clase = string.Empty;
+    if (tipo == "R") { clase = "background-color: #ff6666"; }
+    if (tipo == "A") { clase = "background-color: #ffff99"; }
+    if (tipo == "M") { clase = "background-color: #ffad33"; }
+    if (tipo == "L") { clase = "background-color: #ffffff"; }
+    if (tipo == "Z") { clase = "background-color: #b3e0ff"; }
+    if (tipo == "G") { clase = "background-color: #9ae59a"; }
+    if (tipo == "P") { clase = "background-color: #001a4d"; }
+
+    <div class="container-fluid rayaAbajo" style="font-size:18px;  font-weight:bold; @clase">
+        <div class="row" style="padding:5px; ">
+            <div class="col-md-3 form-inline">
+                @Html.Label("Consulta de ticket: ")
+                @Html.DisplayFor(model => model.IdTicket)
+            </div>
+
+            <div class="col-md-7">
+                <label>@ViewBag.Message</label>
+            </div>
+            <div class="col-md-1">
+                @Html.ActionLink(" Regresar ", "ListaTickets", "Tickets", new { CodEq = ViewBag.Equipo, statusTick = false, showError = false }, new { @class = "btn btn-primary glyphicon glyphicon-arrow-left", @style = "font-weight:bold" })
+            </div>
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid rayaAbajo" style="padding:5px; background-color:#d9d9d9; color:black; font-size: 12px; font-weight:bold ">
+        <div class="row">
+            <div class="col-sm-1 ">
+                @Html.Label("Planta: ")
+                <div class="form-control ColorImportante">
+                    @Html.DisplayFor(model => model.Planta)
+                </div>
+            </div>
+
+            <div class="col-sm-1">
+                @Html.Label("Work Center: ")
+                <div class="form-control ColorImportante">
+                    @Html.DisplayFor(model => model.CodWorkCenter)
+                </div>
+            </div>
+            <div class="col-sm-4">
+                @Html.Label("Equipo: ")
+                <div class="form-control ColorImportante">
+                    [@Html.DisplayFor(model => model.CodSubEquipo)]
+
+                    @Html.DisplayFor(model => model.CodEquipoDescrip)
+                </div>
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Fecha de reporte: ")
+                <div class="form-control ColorImportante">
+                    @Html.DisplayFor(model => model.FchReporte)
+                </div>
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Reporto: ")
+                <div class="form-control ColorImportante">
+                    @Html.DisplayFor(model => model.UsuarioReporto)
+                </div>
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Status: ")
+                <div class="form-control ColorImportante">
+
+                    @Html.DisplayFor(model => model.CodStatusDescrip)
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding:0px; background-color:lightsteelblue; font-size: 12px;">
+
+        <div class="row">
+            <div class="col-sm-2" style="font-weight:bold; background-color:steelblue; color:white; margin-left:15px; font-size: 14px;">
+                @Html.Label("Datos de la falla")
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    @Html.Label("Departamento Responsable: ")
+                    <div class="col-sm-3 form-control">
+                        @Html.DisplayFor(model => model.Depto)
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    @Html.Label("Falla atendida por:")
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.UsrAtendio)
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <div>
+                            @Html.Label("Se considera como \"HALLAZGO DE SEGURIDAD\":  ")
+                            <div class="form-group">
+                                    <label class="btn-sm btn-danger">
+                                        SI @Html.RadioButtonFor(model => model.HallazgoSeguridad, "SI", new { disabled = "disabled" })
+                                    </label>
+                                    <label class="btn-sm btn-default">
+                                        NO @Html.RadioButtonFor(model => model.HallazgoSeguridad, "NO", new { disabled = "disabled" })
+                                    </label>
+                                
+                                @{
+                                    if (Model.HallazgoSeguridad == "SI")
+                                    {
+                                        <div class="col-sm-2">
+                                            <img src="~/Imagenes/SafetyGrande.png" />
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-sm-2">
+
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                @Html.Label("Descripción de la falla:")
+                <div>
+                    @Html.TextAreaFor(model => model.FallaReportada, 2, 80, new { @class = "form-control", @style = "max-width:100% !important;  resize:none;", @readonly = true })
+                </div>
+            </div>
+            <!--
+    <div class="col-sm-2">
+        @Html.Label("Sensor:")
+        <div class="form-control colorImportante LetraBold">
+            @Html.DisplayFor(model => model.Sensor)
+        </div>
+    </div>
+        -->
+        </div>
+
+        <hr style="margin:5px" />
+
+        <div class="row">
+
+            <div class="col-sm-2" style="font-weight:bold; background-color:steelblue; color:white; margin-left:15px; font-size: 14px;">
+                @Html.Label("Diagnóstico Técnico")
+            </div>
+
+
+            <div class="col-sm-6">
+                @Html.Label("Diagnóstico:")
+                <div>
+                    @Html.TextAreaFor(model => model.Diagnostico, 2, 80, new { @class = "form-control", @style = "max-width:100% !important;  resize:none;", @readonly = true })
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+
+                <div class="col-sm-2">
+                    @Html.Label("Clasificación de falla:")
+                    <div class="col-sm-2 form-control">
+                        @Html.DisplayFor(model => model.ClasifDescrip)
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    @Html.Label("Sistema reportado:")
+                    <div class="form-control">
+                        [@Html.DisplayFor(model => model.CodSistema)]
+
+                        @Html.DisplayFor(model => model.CodSistemaDescrip)
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    @Html.Label("Falla:")
+                    <div class="form-control">
+                        [@Html.DisplayFor(model => model.CodFalla)]
+                        @Html.DisplayFor(model => model.CodFallaDescrip)
+
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    @Html.Label("Clasificación:")
+                    <div class="form-control">
+                        [@Html.DisplayFor(model => model.CodTipoFalla)]
+
+                        @Html.DisplayFor(model => model.CodTipoFallaDescrip)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-sm-2">
+
+                    @Html.Label("Causo Paro: ")
+                    <div class="">
+                        <label class="btn-sm btn-danger">
+                            SI @Html.RadioButtonFor(model => model.CausoParo, "SI", new { disabled = "disabled" })
+                        </label>
+                        <label class="btn-sm btn-default">
+                            NO @Html.RadioButtonFor(model => model.CausoParo, "NO", new { disabled = "disabled" })
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    @Html.Label("Tiempo de paro:")
+                    <div class="col-sm-1 form-control">
+                        @Html.DisplayFor(model => model.TiempoReparacion)
+
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    @Html.Label("Unidad:")
+                    <div class="col-sm-1 form-control">
+
+                        @Html.DisplayFor(model => model.DescripcionUT)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin:10px" />
+
+        <div class="row">
+            <div class="col-sm-2" style="font-weight:bold; background-color:steelblue; color:white; margin-left:15px; font-size: 14px;">
+                @Html.Label("Planeación")
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-5">
+                @Html.Label("Plan de acción:")
+                <div>
+                    @Html.TextAreaFor(model => model.AccionPlan, 3, 80, new { @class = "form-control", @style = "max-width:100% !important;  resize:none;", @readonly = true })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="=row">
+                    <div class="col-sm-5">
+                        @Html.Label("Fecha del Plan de acción:")
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.FchAccionplan)
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        @Html.Label("Asignado a:")
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.WorkerAsignado, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                    </div>
+                </div>
+                <div class="=row">
+                    <div class="col-sm-5">
+                        @Html.Label("Fecha de inicio:")
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.FecIniReparacion, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        @Html.Label("Fecha de Entrega:")
+                        <div class="form-control">
+                            @Html.DisplayFor(model => model.FecEntgregaReparacion, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br style="margin:5px" />
+
+        <div class="row">
+            <div class="col-sm-2">
+                @Html.Label("Tipo de WOM en Sap: ")
+                <div class="form-control">
+                    [@Html.DisplayFor(model => model.CodTipoWom)]
+                    @Html.DisplayFor(model => model.CodTipoWomDescrip, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Num WOM asignada en Sap: ")
+                <div class="form-control">
+                    @Html.DisplayFor(model => model.WOM)
+                </div>
+            </div>
+
+            <div class="form-group col-sm-2">
+                @Html.Label("Fecha promesa:")
+                <div class="form-control">
+                    @Html.DisplayFor(model => model.FchaPromesa)
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-2">
+                @Html.Label("Fecha de cierre del ticket:")
+                <div class="form-control ">
+                    @Html.DisplayFor(model => model.FchClose)
+                </div>
+            </div>
+
+        </div>
+        <hr style="margin:5px" />
+        <div class="row">
+            <div class="form-group">
+                <div class="col-sm-2 text-right">
+                    @Html.Label("Observaciones:")
+                </div>
+                <div class="form-group col-sm-6">
+                    @Html.TextAreaFor(model => model.Notas, new { @class = "form-control", rows = "2", @style = "max-width:100% !important;  resize:none;", @readonly = true })
+                </div>
+            </div>
+        </div>
+    </div>
+}

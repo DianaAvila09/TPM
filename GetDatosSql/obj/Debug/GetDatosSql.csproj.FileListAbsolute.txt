@@ -1,0 +1,6 @@
+C:\Proyectos\TPM_Mantenimiento\GetDatosSql\bin\Debug\GetDatosSql.dll
+C:\Proyectos\TPM_Mantenimiento\GetDatosSql\bin\Debug\GetDatosSql.pdb
+C:\Proyectos\TPM_Mantenimiento\GetDatosSql\obj\Debug\GetDatosSql.csproj.CoreCompileInputs.cache
+C:\Proyectos\TPM_Mantenimiento\GetDatosSql\obj\Debug\GetDatosSql.dll
+C:\Proyectos\TPM_Mantenimiento\GetDatosSql\obj\Debug\GetDatosSql.pdb
+C:\Proyectos\TPM_Mantenimiento\GetDatosSql\obj\Debug\GetDatosSql.csprojAssemblyReference.cache

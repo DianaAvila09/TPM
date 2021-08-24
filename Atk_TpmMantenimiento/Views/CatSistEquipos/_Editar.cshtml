@@ -1,0 +1,78 @@
+﻿@model Entidades.AltaSistManto
+
+
+@Scripts.Render("~/bundles/jqueryval")
+<script>
+
+    $('#modalGenerica').on('shown.bs.modal', function () {
+        $('#SistManto_Sistema').focus();
+    })
+</script>
+
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message</h4>
+    </div>
+</div>
+<br />
+
+
+<div class="container-fluid">
+    @using (Ajax.BeginForm("Editar", "CatSistEquipos", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="panel-body">
+
+            <div class="form-horizontal">
+
+                <div class="form-group" style="padding:3px; background-color:lightblue;">
+                    @Html.LabelFor(model => model.SistManto.CodSistema, htmlAttributes: new { @class = "control-label col-md-4 " })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.SistManto.CodSistema, new { htmlAttributes = new { @class = "form-control form-inline text", @style = "font-size:18px; font-weight:bold", @readonly = true } })
+                    </div>
+                </div>
+
+                @Html.HiddenFor(model => model.SistManto.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SistManto.Sistema, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.SistManto.Sistema, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SistManto.Sistema, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Sistema de Mantenimiento: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.SistManto.CodDepartamento, new SelectList(Model.lstDeptos, "CodDepartamento", "Descrip"), "-- Seleccion un valor --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SistManto.CodDepartamento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SistManto.Estatus, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class=" col-md-offset-1 col-md-5">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.SistManto.Estatus)
+                            @Html.ValidationMessageFor(model => model.SistManto.Estatus, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-6">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            <i class="glyphicon glyphicon-check"></i> Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

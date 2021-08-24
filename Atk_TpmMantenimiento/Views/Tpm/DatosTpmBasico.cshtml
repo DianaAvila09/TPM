@@ -1,0 +1,332 @@
+﻿@model List<Entidades.EquipoTpmBasico>
+
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+<form asp-controller="Tpm" method="post" action="Guardar">
+    <div class="row" style="padding-top:10px;">
+        <div class="col-md-4">
+            <label class="btn-sm titu text-capitalize">@ViewBag.Message</label>
+        </div>
+        <div class="col-md-2">
+            @Html.ActionLink("Actualizar", "DatosTpmBasico", "Tpm",new { CCostos = ViewBag.TitleCC },new { @class = "btn btn-md btn-success glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+        </div>
+        <div class="col-md-6 form-inline" style="float:right; padding-right:50px; padding-top:10px">
+            <label class="text-capitalize form-inline" style="font-size:10pt; color:black">Ultimos Ticket abiertos:</label>
+
+            <a id="Rojo" href="#" class="btn btn-sm rojo" title="Criticos">
+                <span class="badge" style="background-color:white; color:black;font-size:12pt">@ViewBag.rojos</span>
+            </a>
+            <a id="amarillo" href="#" class="btn btn-sm amarillo" title="Alertas">
+                <span class="badge" style="background-color:white; color:black;font-size:12pt">@ViewBag.amarillo</span>
+            </a>
+            <a id="naranja" href="#" class="btn btn-sm naranja" title="Mantenimiento">
+                <span class="badge" style="background-color:white; color:black;font-size:12pt">@ViewBag.naranja</span>
+            </a>
+            <a id="azul" href="#" class="btn btn-sm azul" title="Calidad">
+                <span class="badge" style="background-color:white; color:black;font-size:12pt">@ViewBag.azul</span>
+            </a>
+            <a id="verde" href="#" class="btn btn-sm verde" title="Mejora">
+                <span class="badge" style="background-color:white; color:black;font-size:12pt">@ViewBag.verde</span>
+            </a>
+            <!--
+    <a id="azulmar" href="#" class="btn btn-sm azulmar" title="Pokayoke">
+        <span class="badge" style="background-color:white; color:black;font-size:12pt">@ViewBag.azulmar</span>
+    </a>
+    -->
+            <a id="quitar" href="#" class="btn btn-sm" title="quitar filtros">
+                <span class="badge" style="background-color:black; color:white;font-size:12pt">X</span>
+            </a>
+
+        </div>
+    </div>
+    <div>
+        <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+            <thead>
+                <tr class="text-capitalize">
+                    <th class="text-center">Item</th>
+                    <th scope="col" class="text-center">Work Center</th>
+                    <th scope="col" class="text-center">Descripción</th>
+                    <th scope="col" class="text-center">Periodo</th>
+                    <th scope="col" class="text-center">Frecuencia</th>
+                    <th scope="col" class="text-center">PM Standar</th>
+                    <th scope="col" class="text-center">PM Real</th>
+                    <th scope="col" class="text-center">Núm. de fallas</th>
+                    <th scope="col" class="text-center">Pzas. Producidas</th>
+                    <th scope="col" class="text-center">Avance</th>
+                    <th scope="col" class="text-center">Ultimo Ticket</th>
+                    <th scope="col" class="text-center"></th>
+                    <!--<th scope="col" class="text-center">Pokayoke Sensor</th>-->
+                    <th scope="col" class="text-center">Responsable</th>
+                    <th scope="col" class="text-center">Ubicación</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    string item = "";
+                    int cont = 1;
+                }
+                @foreach (var dr in Model)
+
+                {
+                <tr>
+                    @{
+                        item = cont.ToString();
+
+                    }
+                    <td class="text-center ">
+                        @item
+                    </td>
+                    <td style="font-weight:bold" class="text-nowrap text-center ">
+                        @Html.HiddenFor(modelItem => dr.CodWorkCenter)
+                        @Html.DisplayFor(modelItem => dr.CodWorkCenter)
+                    </td>
+                    @*<td style="font-size:10pt; font-weight:bold" class="text-nowrap">
+            @Html.HiddenFor(modelItem => dr.CodEquipo)
+            @Html.DisplayFor(modelItem => dr.CodEquipo)
+        </td>*@
+                    <td style="font-weight:bold">
+                        @Html.HiddenFor(modelItem => dr.DescripTechnical)
+                        @Html.DisplayFor(modelItem => dr.DescripTechnical)
+                    </td>
+                    <td style="font-weight:bold" class="text-nowrap">
+                        @Html.HiddenFor(modelItem => dr.Ciclo)
+                        @Html.DisplayFor(modelItem => dr.Ciclo)
+                    </td>
+                    <td style="font-weight:bold" class="text-nowrap">
+                        @Html.HiddenFor(modelItem => dr.Frecuencia)
+                        @Html.DisplayFor(modelItem => dr.Frecuencia)
+                    </td>
+
+                    @{
+                        string pms = " ";
+                        string nFallas = " ";
+                        string nPzasProd = " ";
+                        string pmr = " ";
+                        if (dr.PmStandar != 0)
+                        {
+                            pms = dr.PmStandar.ToString("N0");
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => dr.PmStandar)
+                                @pms
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@Html.HiddenFor(modelItem => dr.PmStandar)</td>
+                        }
+                    }
+
+                    @{
+                        if (dr.PmReal != 0)
+                        {
+                            pmr = dr.PmReal.ToString("N0");
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => dr.PmReal)
+                                @pmr
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @Html.HiddenFor(modelItem => dr.PmReal)
+                            </td>
+                        }
+                    }
+                    @{
+                        if (dr.NumFallas != 0) { nFallas = dr.NumFallas.ToString("N0"); }
+                        <td class="text-center">
+                            @nFallas
+                        </td>
+                    }
+                    @{
+
+                        if (dr.PzasProducidas != 0) { nPzasProd = dr.PzasProducidas.ToString("N0"); }
+
+                        <td class="text-center">
+                            @nPzasProd
+                        </td>
+                    }
+
+                    <td class="text-center text-nowrap">
+                        @Html.HiddenFor(modelItem => dr.PorcAvance)
+                        <div class="progress" style=" width: 250px; height:25px; margin:auto; display:inline-block">
+                            @{
+                                string verd = (dr.Barra.Verde).ToString();
+                                <div class="progress-bar progress-bar-success" role="progressbar" style="width: @verd%; background-color:#9ae59a"></div>
+                            }
+                            @{
+                                string ama = dr.Barra.Amarilla.ToString();
+                                <div class="progress-bar progress-bar-warning" role="progressbar" style="width: @ama%; background-color:#ffffb3"></div>
+                            }
+                            @{
+                                string roj = dr.Barra.Roja.ToString();
+                                <div class="progress-bar progress-bar-danger" role="progressbar" style="width: @roj%; background-color:#ff6666"></div>
+                            }
+
+                        </div>
+                        <div style="display:inline-block">
+                            <span style="color:black; font-weight:bold;">
+                                @Html.DisplayFor(modelItem => dr.PorcAvance)%
+                            </span>
+                        </div>
+
+                    </td>
+
+                    @{
+                        string cClase = string.Empty;
+                        switch (dr.TipoFalla)
+                        {
+                            case "R":
+                                cClase = "background-color:#ff6666; color: black";
+                                break;
+                            case "A":
+                                cClase = "background-color:#ffff99; color: black";
+                                break;
+                            case "M":
+                                cClase = "background-color:#ffad33; color: black";
+                                break;
+                            case "L":
+                                cClase = "background-color:#ffffff; color: black";
+                                break;
+                            case "Z":
+                                cClase = "background-color: #b3e0ff; color: black";
+                                break;
+                            case "G":
+                                cClase = "background-color:#00b33c; color: black";
+                                break;
+                            case "P":
+                                cClase = "background-color: #001a4d; color: white";
+                                break;
+                            default:
+                                cClase = "background-color:#d6f5d6; color: black";
+                                break;
+                        }
+                    }
+
+                    <td style="@cClase" class="text-left text-nowrap">
+                        @{ string tic = string.IsNullOrEmpty(dr.UltFalla) ? " " : " " + dr.UltFalla;}
+                        @{
+                            if (dr.HallazgoSeguridad > 0)
+                            {
+                                <a style="color:#000000; font-weight:bold; padding:10px" href='@Url.Action("ListaTickets", "Tickets", new { CodEq = dr.CodEquipo, statusTick = true, showError=false, CtroCostos="" })'
+                                   onclick="return mostrar_procesarl();">
+                                    <img src='@Url.Content("~/Imagenes/safety.png")' /> @tic
+                                </a>
+                            }
+                            else
+                            {
+                                if (dr.TipoFalla != "P")
+                                {
+                                    @Html.ActionLink(tic, "ListaTickets", "Tickets", new { CodEq = dr.CodEquipo, statusTick = true, showError = false, CtroCostos = "" },
+   new
+   {
+       @class = "glyphicon glyphicon-list",
+       @style = "color: black; font-weight:bold; padding:10px",
+       onclick = "return mostrar_procesarl();"
+   })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink(tic, "ListaTickets", "Tickets", new { CodEq = dr.CodEquipo, statusTick = true, showError = false, CtroCostos = "" },
+      new
+      {
+          @class = "glyphicon glyphicon-list",
+          @style = "color: White; font-weight:bold; padding:10px",
+          onclick = "return mostrar_procesarl();"
+      })
+                                }
+
+                            }
+                        }
+
+                    </td>
+                    <td style="color:white">
+                        @Html.DisplayFor(modelItem => dr.TipoFalla)
+                    </td>
+                    <!--                        <td class="text-center">
+        @Html.HiddenFor(modelItem => dr.Sensor)
+        @Html.DisplayFor(modelItem => dr.Sensor)
+    </td>
+        -->
+
+                    <td class="text-center">
+                        @Html.HiddenFor(modelItem => dr.MainWorkCenter)
+                        @Html.DisplayFor(modelItem => dr.MainWorkCenter)
+                    </td>
+                    <td>
+                        @Html.HiddenFor(modelItem => dr.FunctionalLocation)
+                        @Html.DisplayFor(modelItem => dr.FunctionalLocation)
+                    </td>
+                </tr>
+                    cont = cont + 1;
+                }
+            </tbody>
+        </table>
+    </div>    
+</form>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "select": true,
+                "paging": false,
+                "responsive": true,
+                "scrollX": true,
+                "fixedHeader": true,
+                "cell-border": true,
+                "order": [[9, 'desc']],
+                "columnDefs": [{
+                    "targets": [11],
+                    "visible": false,
+                    "searchable": true                    
+                }]
+            });
+
+
+            $('#Rojo').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("R").draw();
+            });
+
+
+            $('#amarillo').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("A").draw();
+            });
+
+            $('#naranja').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("M").draw();
+            });
+            $('#azul').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("Z").draw();
+            });
+            $('#verde').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("G").draw();
+            });
+
+            $('#azulmar').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("P").draw();
+            });
+
+            $('#sinTicket').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("X").draw();
+            });
+
+            $('#quitar').on('click', function (e) {
+                e.preventDefault();
+                table.column(11).search("").draw();
+            });
+        });
+    </script>
+}

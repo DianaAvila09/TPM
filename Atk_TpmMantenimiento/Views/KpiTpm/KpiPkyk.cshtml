@@ -1,0 +1,546 @@
+﻿@model Entidades.ParamKpiPkyk
+
+@{
+    var dx = ViewBag.dx;
+    var dHt = ViewBag.dHt;
+    var dMs = ViewBag.dMs;
+
+    var dMes = ViewBag.dxMes;
+    var dEventos = ViewBag.dMesEventos;
+    var dTenden = ViewBag.dMesTenden;
+
+    var dt5Sensor = ViewBag.t5x;
+    var dt5eventos = ViewBag.t5tick;
+    var top5mes = ViewBag.Top5Mes.ToString();
+    var dateHoy = DateTime.Now.Millisecond;
+
+}
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+<form asp-controller="KpiTpm" method="post" action="KpiPkyk">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="container-fluid bg-success">
+
+        <h4 class="btn-sm titu">@ViewBag.Message</h4>
+        <div class="form-inline">
+
+
+            <div class="form-group">
+                @Html.Label("Periodo a consultar:  ")
+                @Html.Label("  Año:")
+                @Html.TextBoxFor(m => Model.AnioIni, new { @type = "number", @class = "form-control", @style = "width:90px" })
+                <div>
+                    @Html.ValidationMessageFor(model => model.AnioIni, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.Label("Mes:")
+            @Html.DropDownListFor(model => model.MesIni,
+                          new SelectList(Model.lstMesIni, "NumMes", "DescripEsp"),
+                          new { @class = "form-control", @style = "width:100px" })
+            @Html.ValidationMessageFor(model => model.MesIni, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label(" al   ")
+                @Html.Label("Año:")
+                @Html.TextBoxFor(m => Model.AnioFin, new { @type = "number", @class = "form-control", @style = "width:90px" })
+                <div>
+                    @Html.ValidationMessageFor(model => model.AnioFin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @Html.Label("Mes:")
+            @Html.DropDownListFor(model => model.MesFin,
+                          new SelectList(Model.lstMesFin, "NumMes", "DescripEsp"),
+                         new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MesFin, "", new { @class = "text-danger" })
+
+            @Html.Label("Pareto:")
+            @Html.RadioButtonFor(m => Model.Pareto, "ACTU")  Mes actual
+            @Html.RadioButtonFor(m => Model.Pareto, "ULT30")  Últimos 30 dias
+
+            @*</div>
+        <div class="form-group col-md-1 align-bottom">*@
+            <button id="grafica" type="submit" class="btn btn-success btn-md" onclick="return mostrar_procesar();">
+                <span class="glyphicon glyphicon-list-alt"></span>Reporte
+            </button>
+            <button id="IrBitacora" type="button" class="btn btn-success btn-md">
+                <span class="glyphicon glyphicon-calendar"></span>Bitácora
+            </button>
+        </div>
+        <br />
+    </div>
+
+    <br />
+
+    <div style="text-align:center ">
+        <label class="btn-sm bg-primary titu"> @ViewBag.Periodo</label>
+
+    </div>
+
+    <br />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="PkykxMes" style=" width:100%; min-height:350px;">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div id="Top5" style=" width:100%; min-height:350px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div style="text-align:center ">
+            <label class="btn-sm bg-primary titu"> @ViewBag.PeriodoHt</label>
+        </div>
+
+        <div class="col-md-12">
+            <div id="Pkyk" style=" width:100%; min-height:350px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-success">
+        <h4 class="btn-sm titu">@ViewBag.Bita</h4>
+        <div class="form-inline">
+
+            <div class="form-group">
+                @Html.Label("Periodo a consultar:")
+
+                @Html.TextBoxFor(m => Model.bitacora.FchInicio, "{0:dd/MM/yyyy}", new { id = "FchInicio", @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                al  @Html.TextBoxFor(m => Model.bitacora.FchFin, "{0:dd/MM/yyyy}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+
+            </div>
+
+            @Html.Label("Celda:")
+            @Html.DropDownListFor(model => model.bitacora.WorkCenter,
+                          new SelectList(Model.bitacora.lstWc, "CodWorkCenter", "LlaveWc"),
+                          new { @class = "form-control", @style = "width:100px" })
+            @Html.ValidationMessageFor(model => model.bitacora.WorkCenter, "", new { @class = "text-danger" })
+
+
+            @Html.Label("Estatus:")
+            @Html.DropDownListFor(model => model.bitacora.Estatus,
+                          new SelectList(Model.bitacora.lstEstatus, "Clave", "Descrip"),
+                          new { @class = "form-control", @style = "width:100px" })
+            @Html.ValidationMessageFor(model => model.bitacora.Estatus, "", new { @class = "text-danger" })
+
+            <button id="Bitacora" type="button" class="btn btn-success btn-md" onclick="return mostrar_procesar();">
+                <span class="glyphicon glyphicon-calendar"></span>Ver Actividades
+            </button>
+
+            <button id="Bitacora" type="button" class="btn btn-success btn-md" onclick="return mostrar_procesar();">
+                <span class="glyphicon glyphicon-plus"></span>Agregar Actividad
+            </button>
+
+        </div>
+        <br />
+    </div>
+    <div>
+        <table id="Mitabla" class="display compact cell-border" style="width:100%; font-size:12px">
+            <thead>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th scope="col">Sensor</th>
+                    <th scope="col">Celda</th>
+                    <th scope="col">Causa</th>
+                    <th scope="col">Acción correctiva</th>
+                    <th scope="col">Registro</th>
+                    <th scope="col">Fec Registro</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.bitacora.lstBitacora)
+                {
+                    <tr>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.Id)
+                        </td>
+
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.Sensor)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.Celda)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.FchRegistro)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.UsrRegistro)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.Estatus)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.Causa)
+                        </td>
+                        <td class="text-center">
+                            @Html.DisplayFor(m => item.Accion)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</form>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+
+    <script src="~/Scripts/echarts.min.js?V1@{@dateHoy}"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+
+    <script>
+
+        var dMes     =  @Html.Raw(Json.Encode(@dMes));
+        var dEventos =  @Html.Raw(Json.Encode(@dEventos));
+        var dTenden  =  @Html.Raw(Json.Encode(@dTenden));
+        var vDescrip = '@ViewBag.Periodo';
+
+        var dx  =  @Html.Raw(Json.Encode(@dx));
+        var dHt =  @Html.Raw(Json.Encode(@dHt));
+        var dMs =  @Html.Raw(Json.Encode(@dMs));
+
+        var dt5x =  @Html.Raw(Json.Encode(@dt5Sensor));
+        var dt5Eventos =  @Html.Raw(Json.Encode(@dt5eventos));
+        var DescripMes = '@top5mes';
+
+    // si hay periodos a graficar
+    // ESto es para que no muestre una grfica vacia al entrar a la pantalla
+
+        if (dMes != null) {
+            // Grafica de pokayokets
+            var ChartMes = echarts.init(document.getElementById('PkykxMes'));
+            var optMes = {
+
+                // Fondo de la grafica
+                backgroundColor: '#F5F5F5',
+                title: {
+                    //text: vDescrip
+                },
+                grid: {
+                    top: "15%",
+                    left: "15%",
+                    right: "5%",
+                    bottom: "30%"
+                },
+                // Datos a mostrar en el tooltip
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    top: '2%'
+                },
+                // Valores del eje X
+                xAxis: {
+                    data: dMes,
+                    axisLabel: {
+                        // Poniendo este valor en Cero, forza a poner todos los valores
+                        interval: 0,
+                        rotate: 45,
+                        fontWeight: 'bold'
+                    }
+                },
+                // Valores del eje Y
+                yAxis: [{
+                    type: "value",
+                    name: "# Tickets",
+                    max: function (value) {
+                        return value.max + 50;
+                    },
+                    axisLabel: {
+                        formatter: "{value}",
+                        fontWeight: 'bold'
+                    }
+                }],
+                dataZoom: [
+                    {
+                        show: true,
+                        start: 0,
+                        end: 100
+                    },
+                ],
+                series: [
+                    {
+                        name: 'Tickets',
+                        type: 'bar',
+                        data: dEventos,
+                        color: '#3366cc',
+                        //barWidth: '40%',
+                        // Formato de la etiqueta dentro de la barra
+                        label:
+                        {
+                            show: true,
+                            color: 'black',
+                            fontWeight: 'bold',
+                            fontSize: 12,
+                          //  rotate: 45,
+                            position: 'top',
+                            formatter: function (params) {
+                                var returnData = '';
+                                // Se agrega condicion para que no muestre los valores en cero en las series
+                                if (params.value != 0) { returnData = params.value; }
+                                return returnData;
+                            }
+                        }
+                    },
+                    {
+                        name: 'Tendencia',
+                        type: 'line',
+                        data: dTenden,
+                       showSymbol: false,
+                        color: '#000000',
+                        lineStyle:
+                        {
+                            color: '#000000',
+                            width: 3,
+                            type: 'solid'
+                        }
+                    }
+
+                ]
+            };
+
+            // Asignamos las opciones de la grafica al Objeto echarts
+            ChartMes.setOption(optMes);
+            //*****************************************************//
+            // Grafica de top5 de fallas
+            var ChartTop5 = echarts.init(document.getElementById('Top5'));
+            var optiont5 = {
+                // Fondo de la grafica
+                backgroundColor: '#F5F5F5',
+                title: {
+                    text: "Top 5 Análisis de Pareto " + DescripMes
+                },
+                grid: {
+                    left: "30%",
+                    top: "20%"
+                },
+                // Datos a mostrar en el tooltip
+                tooltip: {
+                    trigger: 'none'
+                },
+                legend: {
+                    show: false
+                },
+                // Valores del eje X
+                xAxis: {
+                    name: "Núm Tickets",
+                    nameLocation: 'center',
+                    type: "value",
+                    axisLabel: {
+                        //    // Poniendo este valor en Cero, forza a poner todos los valores
+                        interval: 0,
+                        //    //rotate: 45,
+                        //    fontWeight: 'bold'
+                    },
+                    nameTextStyle: { lineHeight: 45 }
+                },
+                // Valores del eje Y
+                yAxis: [{
+                    type: "category",
+                    name: "Sensor",
+                    data: dt5x,
+                    axisLabel: {
+                        fontWeight: 'bold'
+                    }
+                }],
+                series: [
+                    {
+                        name: 'Tickets',
+                        type: 'bar',
+                        data: dt5Eventos,
+                        color: '#99cc00',
+                        barWidth: '70%',
+                        // Formato de la etiqueta dentro de la barra
+                        label: {
+                            show: true,
+                            color: 'black',
+                            //fontWeight: 'bold',
+                            fontSize: 12,
+                            //position: 'top',
+                            //rotate: 90
+                            //formatter: function (params) {
+                            //    var returnData = '';
+                            //    // Se agrega condicion para que no muestre los valores en cero en las series
+                            //    if (params.value != 0) { returnData = params.value + '%'; }
+                            //    return returnData;
+                            //}
+                        }
+                    }]
+            };
+            // Asignamos las opciones de la grafica al Objeto echarts
+            ChartTop5.setOption(optiont5);
+
+        }
+
+    if (dx != null)
+    {
+        // Grafica de pokayokets
+        var ChartPkyk = echarts.init(document.getElementById('Pkyk'));
+        var optPkyk = {
+
+            // Fondo de la grafica
+            backgroundColor: '#F5F5F5',
+            title: {
+                //text: vDescrip
+            },
+            grid: {
+                top: "10%",
+                left: "5%",
+                right: "5%",
+                bottom:"35%"
+            },
+            // Datos a mostrar en el tooltip
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                top: '2%'
+            },
+            // Valores del eje X
+            xAxis: {
+                data: dx,
+                axisLabel: {
+                    // Poniendo este valor en Cero, forza a poner todos los valores
+                    interval: 0,
+                    rotate: 65,
+                    fontWeight: 'bold'
+                }
+            },
+             // Valores del eje Y
+            yAxis: [{
+                type: "value",
+                name: "# Tickets",
+                max: function (value) {
+                    return value.max + 50;
+                },
+                axisLabel: {
+                    formatter: "{value}",
+                    fontWeight: 'bold'
+                }
+            }],
+            dataZoom: [
+                {
+                    show: true,
+                    start: 0,
+                    end: 50
+                },
+            ],
+            series: [
+                {
+                name: 'Histórico',
+                type: 'bar',
+                data: dHt,
+                    color: '#3366cc',
+                barWidth: '40%',
+                // Formato de la etiqueta dentro de la barra
+                label: {
+                        show: true,
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: 10,
+                    rotate: 45,
+                    position: 'top',
+                        formatter: function (params) {
+                                        var returnData = '';
+                                        // Se agrega condicion para que no muestre los valores en cero en las series
+                                        if (params.value != 0) { returnData = params.value; }
+                                        return returnData;}
+                        }
+                },
+                {
+                    name: 'Ult. Meses',
+                    type: 'bar',
+                    data: dMs,
+                    color: '#99cc00',
+                    barWidth: '40%',
+                    // Formato de la etiqueta dentro de la barra
+                    label: {
+                        show: true,
+                        color: 'black',
+                        fontWeight: 'bold',
+                        fontSize: 10,
+
+                        rotate: 45,
+                        formatter: function (params) {
+                            var returnData = '';
+                            // Se agrega condicion para que no muestre los valores en cero en las series
+                            if (params.value != 0) { returnData = params.value; }
+                            return returnData;
+                        }
+                    }
+                }
+                ]
+        };
+
+        // Asignamos las opciones de la grafica al Objeto echarts
+        ChartPkyk.setOption(optPkyk);
+
+
+    }
+
+
+
+    // Funcion para hacer responsive la grafica
+        window.onresize = function ()
+        {
+        ChartPkyk.resize();
+        ChartMes.resize();
+        ChartTop5.resize();
+        }
+
+
+        $(document).ready(function () {
+            var table = $('#Mitabla').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true
+               // "order": [[9, 'desc']]
+
+            });
+        
+            $(function () {
+                $(".date-time-picker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0",
+                    dateFormat: 'dd/mm/yy',
+                    controlType: 'select',
+                    //timeFormat: 'hh:mm TT',
+                    oneLine: true,
+                    showTimepicker: false,
+                });
+            });
+
+            jQuery.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (isChrome) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+        });
+
+        $('#IrBitacora').click(function () {
+            $('#FchInicio').focus();
+        });
+
+    </script>
+}

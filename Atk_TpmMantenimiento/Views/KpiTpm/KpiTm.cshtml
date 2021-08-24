@@ -1,0 +1,557 @@
+﻿@model Entidades.ParamKpiTpm
+
+@{
+    var dx = ViewBag.Meses;
+
+    var dtra = ViewBag.MttrAuto;
+    var dmtra = ViewBag.MetaMttrAuto;
+    var dbfa = ViewBag.MtbfAuto;
+    var dmbfa = ViewBag.MetaMtbfAuto;
+
+    var dtrm = ViewBag.MttrMnt;
+    var dmtrm = ViewBag.MetaMttrMnt;
+    var dbfm = ViewBag.MtbfMnt;
+    var dmbfm = ViewBag.MetaMtbfMnt;
+
+    var dtrt = ViewBag.MttrTkl;
+    var dmtrt = ViewBag.MetaMttrTkl;
+    var dbft = ViewBag.MtbfTkl;
+    var dmbft = ViewBag.MetaMtbfTkl;
+
+    var lstTm = Model.lstKpiMt;
+    var dateHoy = DateTime.Now.Millisecond;
+}
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+@*Ancho de la ventana modal*@
+<style>
+    .modal-content {
+        width: 90% !important;
+        margin: 30px auto !important;
+    }
+</style>
+
+<form asp-controller="KpiTpm" method="post" action="KpiTm" class="form-inline">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="container-fluid bg-success">
+
+        <h4 class="btn-sm titu">@ViewBag.Message</h4>
+
+        <div class="form-group">
+            @Html.Label("Periodo a consultar:  ")
+            <div>
+                @Html.Label("  Año:")
+
+                @Html.TextBoxFor(m => Model.AnioIni, new { @type = "number", @class = "form-control", @style = "width:90px" })
+
+                @Html.ValidationMessageFor(model => model.AnioIni, "", new { @class = "text-danger" })
+
+                @Html.Label("Mes:")
+                @Html.DropDownListFor(model => model.MesIni,
+                              new SelectList(Model.lstMesIni, "NumMes", "DescripEsp"),
+                              new { @class = "form-control", @style = "width:100px" })
+                @Html.ValidationMessageFor(model => model.MesIni, "", new { @class = "text-danger" })
+
+
+                @Html.Label(" al   ")
+                @Html.Label("Año:")
+                @Html.TextBoxFor(m => Model.AnioFin, new { @type = "number", @class = "form-control", @style = "width:90px" })
+
+                @Html.ValidationMessageFor(model => model.AnioFin, "", new { @class = "text-danger" })
+
+
+                @Html.Label("Mes:")
+                @Html.DropDownListFor(model => model.MesFin,
+                              new SelectList(Model.lstMesFin, "NumMes", "DescripEsp"),
+                             new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MesFin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("WorkCenter: ")
+            <div>
+                @Html.DropDownListFor(model => model.WorkCenter,
+                                        new SelectList(Model.lstEqPadres, "CodWorkCenter", "Cod_Descrip"), "-- Seleccion un equipo --",
+                                        new { id = "lstEquipos", @class = "selectEquipo show-tick form-control"})
+                @Html.ValidationMessageFor(model => model.WorkCenter, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+                @Html.Label("Focus Factory: ")
+                <div>
+                    @Html.DropDownListFor(model => model.FocusFactory,
+                                            new SelectList(Model.lstFocus, "Focus", "Focus"), "-- Seleccion un Focus Factory --",
+                                            new { id = "lstFocus", @class = "selectFocus show-tick form-control", disabled = true })
+                    @Html.ValidationMessageFor(model => model.FocusFactory, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+        <div class="form-group">
+            @Html.Label("Reporte por:  ")
+            <div>
+                <div class="btn-group">
+                    <label class="btn-sm btn-default">
+                        @Html.RadioButtonFor(model => model.tipoRep, 1) Area de Prensas
+                    </label>
+                    <label class="btn-sm btn-default">
+                        @Html.RadioButtonFor(model => model.tipoRep, 2) Work Center
+                    </label>
+                    @*<label class="btn-sm btn-default">
+                            @Html.RadioButtonFor(model => model.tipoRep, 3, new { disabled = "disabled" }) Focus
+                        </label>*@
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <button id="GenGraf" type="submit" class="btn btn-success btn-md" onclick="return mostrar_procesar();">
+                <span class="glyphicon glyphicon-stats"></span>Reporte
+            </button>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div>
+            <div class="text-center">
+                <label class="btn-sm bg-primary titu"> @ViewBag.Periodo</label>
+                @Html.Label("Area de servicio:  ")
+                <button id="btnAutom" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-stats"></span>Automatización
+                </button>
+                <button id="btnManto" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-stats"></span>Mantenimiento
+                </button>
+                <button id="btnTkl" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-stats"></span>Troqueles
+                </button>
+                <button id="btnMttr" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-list"></span>Datos del cálculo
+                </button>
+                @Html.ActionLink("Excel", "ToExcel", "KpiTpm", new {pPeri = ViewBag.Periodo }, new { @class = "btn btn-sm btn-success  glyphicon glyphicon-refresh"})                           
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <br />
+        <div class="col-md-6 " style="background-color:#F5F5F5; border: 3px solid grey;">
+            <div>
+                <div class="col-md-1">
+                    <img id="imgFvDonw" src="~/Imagenes/fVerdedown.png" width="50" height="250" style="display:none; padding-top:100px" />
+                </div>
+                <div class="col-md-11">
+                    <div id="GrafMttr" style="width:90%; min-height:450px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="background-color:#F5F5F5;  border: 3px solid grey;">
+            <div class="col-md-1">
+                <img id="imgFvUp" src="~/Imagenes/fVerdeUp.png" width="50" height="250" style="display:none; padding-top:100px" />
+            </div>
+            <div class="col-md-11">
+                <div id="GrafMtbf" style="width:100%; min-height:450px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modalDatos">
+        <div class="modal-dialog" style="width:90%">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title" style="font-size:20px">Detalle de datos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table id="datos" class="display" style="width:100%; font-size:12px">
+                        <thead>
+                            <tr>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Min Automa.</th>
+                                <th scope="col">Min Mantto.</th>
+                                <th scope="col">Min Troquel</th>
+                                <th scope="col">Min Program.</th>
+                                <th scope="col">Total Min.</th>
+                                <th scope="col">Eventos Automa.</th>
+                                <th scope="col">Eventos Mantto.</th>
+                                <th scope="col">Eventos Troqueles</th>
+                                <th scope="col">Mttr Automa.</th>
+                                <th scope="col">Mtfb Automa.</th>
+                                <th scope="col">Mttr Mantto.</th>
+                                <th scope="col">Mtfb Mantto.</th>
+                                <th scope="col">Mttr Troqueles.</th>
+                                <th scope="col">Mtfb Troqueles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dr in Model.lstKpiMt)
+                            {
+                            <tr>
+                                @Html.HiddenFor(model => dr.Periodo)
+                                @Html.HiddenFor(model => dr.Anio)
+                                @Html.HiddenFor(model => dr.Mes)
+                                @Html.HiddenFor(model => dr.MinAutomat)
+                                @Html.HiddenFor(model => dr.MinMantto)
+                                @Html.HiddenFor(model => dr.MinTroqueles)
+                                @Html.HiddenFor(model => dr.MinProgramado)
+                                @Html.HiddenFor(model => dr.TotalMinutos)
+                                @Html.HiddenFor(model => dr.EventosAutoma)
+                                @Html.HiddenFor(model => dr.EventosMantto)
+                                @Html.HiddenFor(model => dr.EventosTroqueles)
+                                @Html.HiddenFor(model => dr.MttrAuto)
+                                @Html.HiddenFor(model => dr.MtbfAuto)
+                                @Html.HiddenFor(model => dr.MttrManto)
+                                @Html.HiddenFor(model => dr.MtbfManto)
+                                @Html.HiddenFor(model => dr.MttrTroquel)
+                                @Html.HiddenFor(model => dr.MtbfTroquel)
+
+
+
+                                <td>@dr.Periodo</td>
+
+
+                                <td style="text-align: right; padding-right: 10px;">@dr.MinAutomat.ToString("N0") </td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MinMantto.ToString("N0") </td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MinTroqueles.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MinProgramado.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.TotalMinutos.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.EventosAutoma.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.EventosMantto.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.EventosTroqueles.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MttrAuto.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MtbfAuto.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MttrManto.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MtbfManto.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MttrTroquel.ToString("N0")</td>
+                                <td style="text-align: right; padding-right: 10px;">@dr.MtbfTroquel.ToString("N0")</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+                @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+</form>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+
+    <script src="~/Scripts/echarts.min.js?V1@{@dateHoy}"></script>
+
+    <script>
+
+        var dx = @Html.Raw(Json.Encode(@dx));
+        var dtra = @Html.Raw(Json.Encode(@dtra));
+        var dmtra = @Html.Raw(Json.Encode(@dmtra));
+        var dbfa = @Html.Raw(Json.Encode(@dbfa));
+        var dmbfa = @Html.Raw(Json.Encode(@dmbfa));
+
+        var dtrm = @Html.Raw(Json.Encode(@dtrm));
+        var dmtrm = @Html.Raw(Json.Encode(@dmtrm));
+        var dbfm = @Html.Raw(Json.Encode(@dbfm));
+        var dmbfm = @Html.Raw(Json.Encode(@dmbfm));
+
+        var dtrt = @Html.Raw(Json.Encode(@dtrt));
+        var dmtrt = @Html.Raw(Json.Encode(@dmtrt));
+        var dbft = @Html.Raw(Json.Encode(@dbft));
+        var dmbft = @Html.Raw(Json.Encode(@dmbft));
+
+
+            // si hay periodos a graficar
+            // ESto es para que no muestre una grafica vacia al entrar a la pantalla
+        if (dx != null)
+        {
+            // Grafica de Mttr Automatizacopn
+            var ChartMttr = echarts.init(document.getElementById('GrafMttr'));
+            var optionMttr = {
+
+                // Fondo de la grafica
+                backgroundColor: '#F5F5F5',
+                title: {
+                    text: "Gráfica de MTTR - Area de Servicio: Automatización"
+                },
+                grid: {
+                    top: "20%"
+                },
+                // Datos a mostrar en el tooltip
+                tooltip: {
+                    trigger: 'axis',
+                    //axisPointer: { type: 'cross'} ,
+                    //formatter: function(params) {
+                    //    var returnData = "";
+                    //    returnData += "Periodo: " + params[0].name + " </br>";
+                    //    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[0].color + '"></span>';
+                    //    returnData += params[0].seriesName + ":  " + params[0].value + "% </br>";
+                    //    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[1].color + '"></span>';
+                    //    returnData += params[1].seriesName + ":  " + params[1].value + "% </br>";
+                    //    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[2].color + '"></span>';
+                    //    returnData += params[2].seriesName + ":  " + params[2].value + "% </br>";
+                    //    return returnData;
+                    //}
+                },
+                legend: {
+                    top: '10%'
+                },
+                // Valores del eje X
+                xAxis: {
+                    data: dx,
+                    axisLabel: {
+                        // Poniendo este valor en Cero, forza a poner todos los valores
+                        interval: 0,
+                        rotate: 45
+                        //fontWeight: 'bold'
+                    }
+                },
+                // Valores del eje Y
+                yAxis: [{
+                    type: "value",
+                    name: "Minutos",
+                    axisLabel: {
+                        formatter: "{value} min."
+                        //fontWeight: 'bold'
+                    }
+                }],
+                series: [
+                    {
+                        name: 'MTTR',
+                        type: 'bar',
+                        data: dtra,
+                        color: '#b5ff66',
+                        barWidth: '70%',
+                        // Formato de la etiqueta dentro de la barra
+                        label: {
+                            show: true,
+                            color: 'black',
+                            position: 'top',
+                            //fontWeight: 'bold',
+                            //fontSize: 12,
+                            //bold: true,
+                            //rotate: 90,
+                            formatter: function (params) {
+                                var returnData = '';
+                                // Se agrega condicion para que no muestre los valores en cero en las series
+                                if (params.value != 0) { returnData = params.value; }
+                                return returnData;
+                            }
+                        }
+                    },
+                    {
+                        name: 'Meta',
+                        type: 'line',
+                        data: dmtra,
+                        //showSymbol: false,
+                        symbolSize: 5,
+                        color: '#009900',
+                        lineStyle: {
+                            color: '#009900',
+                            width: 3,
+                            type: 'solid'
+                        }
+                    }]
+            };
+
+
+            // Asignamos las opciones de la grafica al Objeto echarts
+            ChartMttr.setOption(optionMttr);
+
+            //*******************************************************************************************************************//
+            // Grafica de Mtbf Automatizacopn
+            var ChartMtbf = echarts.init(document.getElementById('GrafMtbf'));
+            var optionMtbf = {
+
+                // Fondo de la grafica
+                backgroundColor: '#F5F5F5',
+                title: {
+                    text: "Gráfica de MTBF - Area de Servicio: Automatización"
+                },
+                grid: {
+                    top: "20%"
+                },
+                // Datos a mostrar en el tooltip
+                tooltip: {
+                    trigger: 'axis',
+                    //axisPointer: { type: 'cross'} ,
+                    //formatter: function(params) {
+                    //    var returnData = "";
+                    //    returnData += "Periodo: " + params[0].name + " </br>";
+                    //    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[0].color + '"></span>';
+                    //    returnData += params[0].seriesName + ":  " + params[0].value + "% </br>";
+                    //    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[1].color + '"></span>';
+                    //    returnData += params[1].seriesName + ":  " + params[1].value + "% </br>";
+                    //    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[2].color + '"></span>';
+                    //    returnData += params[2].seriesName + ":  " + params[2].value + "% </br>";
+                    //    return returnData;
+                    //}
+                },
+                legend: {
+                    top: '10%'
+                },
+                // Valores del eje X
+                xAxis: {
+                    data: dx,
+                    axisLabel: {
+                        // Poniendo este valor en Cero, forza a poner todos los valores
+                        interval: 0,
+                        rotate: 45
+                        //fontWeight: 'bold'
+                    }
+                },
+                // Valores del eje Y
+                yAxis: [{
+                    type: "value",
+                    name: "Minutos",
+                    axisLabel: {
+                        formatter: "{value} min."
+                        //fontWeight: 'bold'
+                    }
+                }],
+                series: [
+                    {
+                        name: 'MTBF',
+                        type: 'bar',
+                        data: dbfa,
+                        color: '#99cc00',
+                        barWidth: '70%',
+                        // Formato de la etiqueta dentro de la barra
+                        label: {
+                            show: true,
+                            position: 'top',
+                            color: 'black',
+                            //fontWeight: 'bold',
+                            //fontSize: 12,
+                            //bold: true,
+                            //rotate: 90,
+                            formatter: function (params) {
+                                var returnData = '';
+                                // Se agrega condicion para que no muestre los valores en cero en las series
+                                if (params.value != 0) { returnData = params.value; }
+                                return returnData;
+                            }
+                        }
+                    },
+                    {
+                        name: 'Meta',
+                        type: 'line',
+                        data: dmbfa,
+                        //showSymbol: false,
+                        symbolSize: 5,
+                        color: '#009900',
+                        lineStyle: {
+                            color: '#009900',
+                            width: 3,
+                            type: 'solid'
+                        }
+                    }]
+            };
+
+            // Asignamos las opciones de la grafica al Objeto echarts
+            ChartMtbf.setOption(optionMtbf);
+
+            $("#imgFvUp").css('display', 'block');
+            $("#imgFvDonw").css('display', 'block');
+        }
+            //*******************************************************************************************************************//
+
+
+    // Funcion para hacer responsive la grafica
+        window.onresize = function ()
+        {
+            ChartMttr.resize();
+            ChartMtbf.resize();
+        }
+
+        $(document).ready(function () {
+            $("#btnAutom").click(function (event) {
+                event.preventDefault();
+                optionMttr.series[0].data = dtra;
+                optionMttr.title.text = "Gráfica de MTTR - Area de Servicio: Automatización";
+                optionMttr.series[1].data = dmtra;
+                ChartMttr.setOption(optionMttr);
+
+                optionMtbf.series[0].data = dbfa;
+                optionMtbf.series[1].data = dmbfa;
+                optionMtbf.title.text = "Gráfica de MTBF - Area de Servicio: Automatización";
+                ChartMtbf.setOption(optionMtbf);
+
+            });
+
+
+        });
+
+        $(document).ready(function () {
+            $("#btnManto").click(function (event) {
+
+                event.preventDefault();
+
+                optionMttr.series[0].data = dtrm;
+                optionMttr.series[1].data = dmtrm;
+                optionMttr.title.text = "Gráfica de MTTR - Area de Servicio: Mantenimiento";
+                ChartMttr.setOption(optionMttr);
+
+                optionMtbf.series[0].data = dbfm;
+                optionMtbf.series[1].data = dmbfm;
+                optionMtbf.title.text = "Gráfica de MTBF - Area de Servicio: Mantenimiento";
+                ChartMtbf.setOption(optionMtbf);
+
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btnTkl").click(function (event) {
+                event.preventDefault();
+                optionMttr.series[0].data = dtrt;
+                optionMttr.series[1].data = dmtrt;
+                optionMttr.title.text = "Gráfica de MTTR - Area de Servicio: Troqueles";
+                ChartMttr.setOption(optionMttr);
+
+                optionMtbf.series[0].data = dbft;
+                optionMtbf.series[1].data = dmbft;
+                optionMtbf.title.text = "Gráfica de MTBF - Area de Servicio: Troqueles";
+                ChartMtbf.setOption(optionMtbf);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#btnMttr").click(function (event) {
+                event.preventDefault();
+                $('#modalDatos').modal('toggle');
+
+            });
+
+            $("#btnMtfb").click(function (event) {
+                event.preventDefault();
+                $('#modalDatos').modal('toggle');
+
+            });
+        });
+
+        $(document).ready(function () {
+            var table = $('#datos').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                //"responsive ": true,
+                "paging": false,
+                "select": true,
+                //"fixedHeader": true,
+                "scrollX": true,
+                "order": [[0, 'asc']]
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Tpm_CalcHistorico.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SrvSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EST02DB</Value>
+    </Setting>
+    <Setting Name="BD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmMtto</Value>
+    </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="PwdSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="RutaLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\atkApps\AtkTpmMantto\HistCc11205\Log\TpmCalcHistLog.txt</Value>
+    </Setting>
+    <Setting Name="RutaLogError" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\atkApps\AtkTpmMantto\HistCc11205\Log\TpmCalcHistBug.txt</Value>
+    </Setting>
+    <Setting Name="Planta" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="Departamento" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PREN</Value>
+    </Setting>
+    <Setting Name="CtroCtos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">11205</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

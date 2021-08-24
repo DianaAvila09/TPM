@@ -1,0 +1,6 @@
+C:\Proyectos\TPM_Mantenimiento\Repository\bin\Debug\Repository.dll
+C:\Proyectos\TPM_Mantenimiento\Repository\bin\Debug\Repository.pdb
+C:\Proyectos\TPM_Mantenimiento\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+C:\Proyectos\TPM_Mantenimiento\Repository\obj\Debug\Repository.dll
+C:\Proyectos\TPM_Mantenimiento\Repository\obj\Debug\Repository.pdb
+C:\Proyectos\TPM_Mantenimiento\Repository\obj\Debug\Repository.csprojAssemblyReference.cache

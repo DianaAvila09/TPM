@@ -1,0 +1,30 @@
+﻿@model Entidades.AltaCodeQr
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+</head>
+<body>
+    <div>
+        <br />
+        @if (Model.CodigoQr.Qr != null)
+        {
+            <div class="text-center">
+                <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model.CodigoQr.Qr))" width="250" />
+            </div>
+            <div>
+                @Model.CodigoQr.Tipo
+                @Model.CodigoQr.CodEquipo
+                @Model.CodigoQr.WorkCenter
+
+            </div>
+        }
+    </div>
+</body>
+</html>

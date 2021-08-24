@@ -1,0 +1,2 @@
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\Tpm.GetInformacion.csprojAssemblyReference.cache
+C:\Proyectos\TPM_Mantenimiento\GetInformacionSap\obj\Debug\Tpm.GetInformacion.csproj.CoreCompileInputs.cache

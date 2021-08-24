@@ -1,0 +1,247 @@
+﻿@model Entidades.AltaChkxEq
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+@{
+    string vClase1 = "btn btn-sm btn-primary disabled ";
+    string vClase2 = "btn btn-sm btn-success disabled ";
+    string vClase3 = "btn btn-sm btn-danger disabled ";
+    if (Session["CatChecklist"] != null)
+    {
+        if ((bool)Session["CatChecklist"] == true)
+        {
+            vClase1 = "btn btn-sm btn-primary ";
+            vClase2 = "btn btn-sm btn-success ";
+            vClase3 = "btn btn-sm btn-danger ";
+        }
+    }
+}
+
+<form asp-controller="CatChklstxEquipo" method="post" action="VerActiv" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px; height:45px">
+        <h4 class="bg-primary white-text"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message: @Model.ChklsxEq.CodWorkCenter </h4>
+    </div>
+
+    <div style="background-color:#abc2d4; padding:5px">
+        <div class="row">
+            <div class="col-md-1">
+
+                @Html.Label("Id checklist: ", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.ChklsxEq.IdChkEquipo)
+                @Html.TextBoxFor(model => model.ChklsxEq.IdChkEquipo, new { @class = "form-control text-center", disabled = "true" })
+            </div>
+            <div class="col-md-2">
+
+                @Html.Label("Checklist:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.CodChkList)
+                @Html.TextBoxFor(model => model.ChklsxEq.CodChkList, new { @class = "form-control", disabled = "true" })
+            </div>
+            <div class="col-md-4">
+                @Html.Label("Descripción:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.DescripChkList)
+                @Html.TextBoxFor(model => model.ChklsxEq.DescripChkList, new { @class = "form-control", @style = "max-width:100%", disabled = "true" })
+
+            </div>
+            <div class="col-md-1">
+
+                @Html.Label("Clasificación:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.ChklsxEq.CodClasif)
+                @Html.TextBoxFor(model => model.ChklsxEq.CodClasif, new { @class = "form-control", @style = "max-width:100%", disabled = "true" })
+
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Frecuencia:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.ChklsxEq.Frecuencia)
+                @Html.TextBoxFor(model => model.ChklsxEq.Frecuencia, new { @class = "form-control col-md-1", disabled = "true" })
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Periodo:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.DesripFrencu)
+                @Html.TextBoxFor(model => model.ChklsxEq.DesripFrencu, new { @class = "form-control col-md-1", disabled = "true" })
+            </div>
+            <div class="col-md-2">
+                <div>
+                    @Html.Label("Estatus:", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="btn-group">
+                    <label class="btn btn-xs btn-success" style="font-size:14px; width:80px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, true, new { disabled = "true" })
+                    </label>
+                    <label class="btn btn-xs btn-default text-right" style="font-size:14px; width:80px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, false, new { disabled = "true" })
+                    </label>
+                </div>
+                @Html.HiddenFor(model => model.ChklsxEq.Activo)
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #eef3f7;">
+        <div class="row">
+            <div class="col-md-1">
+                @Html.ActionLink("Regresar", "CatChklstxEquipo", "CatChklstxEquipo", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-log-out", @style = "font-size:14px" })
+
+            </div>
+            <div class="alert bg-primary white-text col-md-3" style="margin:0px; border:0px; height:35px">
+                <h4 class="bg-primary white-text"><i class="glyphicon glyphicon"></i> Total de ponderacion: @ViewBag.SumPonder </h4>
+            </div>
+
+            <div class="form-inline col-md-8">
+                @Html.ActionLink("Activar programación", "Activar", "CatChklstxEquipo", new { idCkEqEnc = Model.ChklsxEq.IdChkEquipo }, new { @class = vClase2 + "glyphicon glyphicon-calendar", @style = "font-size:14px;", Title = "Autorizar programacion", data_modal = "" })
+                
+                <button id="Cancelar" name="Cancelar" type="submit" class="btn btn-sm btn-danger" formaction=@Url.Action("Cancelar", "CatChklstxEquipo",new {idCkEqEnc = Model.ChklsxEq.IdChkEquipo})>
+                    <span class=" glyphicon glyphicon-off"></span> Cancelar
+                </button>
+
+                @Html.Label("Fec Activación:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.IniProgram)
+                @{ if (Model.ChklsxEq.IniProgram.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                    {
+                        @Html.TextBoxFor(model => model.ChklsxEq.IniProgram, new { @class = "form-control", @style = "font-size:14px;", disabled = "true", })
+                    }
+                    else
+                    {
+                        string dato = null;
+                        @Html.TextBox("Fec", dato, new { @class = "form-control", disabled = "true" })
+                    }
+                }
+            </div>
+        </div>
+        <div>
+            <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                <thead>
+                    <tr>
+                        <th class="text-center">Acción</th>
+                        <th class="text-center">Item</th>
+                        <th scope="col">Orden</th>
+                        <th scope="col">Cód Actividad</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Sistema</th>
+                        <th scope="col">Componente del sistema</th>
+                        <th scope="col">Mét de Evalución</th>
+                        <th scope="col">Equipo Parado</th>
+                        <th scope="col">Ponder</th>
+                        <th scope="col">Oper1</th>
+                        <th scope="col">Valor </th>
+                        <th scope="col">Oper2</th>
+                        <th scope="col">Valor </th>
+                        <th scope="col">UoM </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var row in Model.lstChckActEq)
+                    {
+                    <tr>
+                        <td class="text-nowrap">
+                            @Html.ActionLink(" ", "EditActividad", "CatChklstxEquipo", new { idChkEqDet = row.IdDtCheckList, idCkEqEnc = Model.ChklsxEq.IdChkEquipo, IdActiv = row.IdActividad }, new { @class = vClase1 + "glyphicon glyphicon-cog", data_modal = "", title = "Asignar valores" })
+                            @Html.ActionLink(" ", "BorrarActiv", "CatChklstxEquipo", new { idChkEqDet = row.IdDtCheckList, idCkEqEnc = Model.ChklsxEq.IdChkEquipo, IdActiv = row.IdActividad }, new { @class = vClase1 + "glyphicon glyphicon-trash",  title = "Eliminar", onclick = "return confirm('Desea borrar la actividad?');" })                            
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.Item)
+                            @Html.DisplayFor(modelItem => row.Item)
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.Orden)
+                            @Html.DisplayFor(modelItem => row.Orden)
+                        </td>
+
+                        <td class="text-nowrap">
+                            @Html.HiddenFor(modelItem => row.CodActividad)
+                            @Html.DisplayFor(modelItem => row.CodActividad)
+                        </td>
+                        <td style="width:250px">
+                            @Html.HiddenFor(modelItem => row.DescripcionAct)
+                            @Html.DisplayFor(modelItem => row.DescripcionAct)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(modelItem => row.DescripSistema)
+                            @Html.DisplayFor(modelItem => row.DescripSistema)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(modelItem => row.DescripCompo)
+                            @Html.DisplayFor(modelItem => row.DescripCompo)
+                        </td>
+
+                        @{
+                            string tipo = "";
+                            if (row.TipoOperacion == "V") { tipo = "Visible"; }
+                            else { tipo = "Medible"; }
+                            <td class="text-center">
+
+                                @Html.HiddenFor(modelItem => row.TipoOperacion)
+                                @tipo
+
+                            </td>
+                        }
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.EqParado)
+                            @Html.DisplayFor(modelItem => row.EqParado)
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.Ponderacion)
+                            @Html.DisplayFor(modelItem => row.Ponderacion)
+                        </td>
+
+                        <td class="text-center" style="font-size:14px">
+                            @Html.HiddenFor(modelItem => row.OperadorMin)
+                            @Html.DisplayFor(modelItem => row.OperadorMin)
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.RangoMin)
+                            @Html.DisplayFor(modelItem => row.RangoMin)
+                        </td>
+                        <td class="text-center" style="font-size:14px">
+                            @Html.HiddenFor(modelItem => row.OperadorMax)
+                            @Html.DisplayFor(modelItem => row.OperadorMax)
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.RangoMax)
+                            @Html.DisplayFor(modelItem => row.RangoMax)
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.CodUom)
+                            @Html.HiddenFor(modelItem => row.DescripUom)
+                            @Html.DisplayFor(modelItem => row.DescripUom)
+                        </td>
+
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "350px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[0, 'asc']],
+                searching: false
+            });
+        });
+    </script>
+}
+
+

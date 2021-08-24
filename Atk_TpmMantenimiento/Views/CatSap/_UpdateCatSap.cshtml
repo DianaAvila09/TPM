@@ -1,0 +1,166 @@
+﻿@model Entidades.UpdCatSap
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<style>
+    .separa {
+        font-size: 14px;
+        margin-left: 10px
+    }
+
+    .alert {
+        padding: 10px;
+    }
+</style>
+
+@{
+    bool activo = false;
+    string vClase = "disabled";
+    if (Session["CatTpm"] != null)
+    {
+        if ((bool)Session["CatTpm"] == true)
+        {
+            activo = true;
+            vClase = "";
+        }
+    }
+
+    string claseResult = "";
+}
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><img src="~/Imagenes/sap1.bmp" /> Actualización de catálogos de Sap</h4>
+    </div>
+</div>
+
+@using (Ajax.BeginForm("UpdateCatSap", "CatSap", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    LoadingElementId = "loading",
+    UpdateTargetId = "contentModal"
+    //InsertionMode = InsertionMode.Replace
+
+
+}))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="panel-body">
+        <div class="container-fluid" style="padding:10px">
+            <h4> Selecciones los cátalogos que desea actualizar?</h4>
+
+            <div class="container-fluid">
+                <div class="form-check col-md-5">
+                    @{ if (activo)
+                        {
+                            @Html.CheckBoxFor(model => model.Equipos)
+                        }
+                        else
+                        {
+                            @Html.CheckBoxFor(model => model.Equipos, @activo ? (object)new { } : (object)new { @disabled = "disabled" })
+                        }
+                    }
+
+                    <label class="control-label separa"> Equipos</label>
+                </div>
+
+                @{
+                    if (Model.ResultEquipos == 0) { claseResult = "alert-success"; }
+                    else
+                       if (Model.ResultEquipos == -1) { claseResult = "alert-light"; }
+                    else { claseResult = "alert-danger"; }
+                    <div class="col-md-7 alert @claseResult">
+                        <strong>@Model.MsgEquipos </strong>
+                    </div>
+                }
+            </div>
+
+            <div id="todo" class="container-fluid">
+                <div class="form-group  col-md-5">
+                    @Html.CheckBoxFor(model => model.WorkCenter, @activo ? (object)new { } : (object)new { @disabled = "disabled" })
+                    <label class="control-label separa"> Work Center</label>
+                </div>
+                @{
+                    if (Model.ResultWc == 0) { claseResult = "alert-success"; }
+                    else
+                   if (Model.ResultWc == -1) { claseResult = "alert-light"; }
+                    else { claseResult = "alert-danger"; }
+                    <div class="col-md-7 alert @claseResult">
+                        <strong>@Model.MsgWc </strong>
+                    </div>
+                }
+
+            </div>
+
+            <div class="container-fluid">
+                <div class="form-group col-md-5">
+                    @Html.CheckBoxFor(model => model.Estructuras, @activo ? (object)new { } : (object)new { @disabled = "disabled" })
+                    <label class="control-label separa"> Estructuras de Equipos</label>
+                </div>
+                @{
+                    if (Model.ResultEstruc == 0) { claseResult = "alert-success"; }
+                    else
+                    if (Model.ResultEstruc == -1) { claseResult = "alert-light"; }
+                    else { claseResult = "alert-danger"; }
+                    <div class="col-md-7 alert @claseResult">
+                        <strong>@Model.MsgEstruc </strong>
+                    </div>
+                }
+            </div>
+
+            <div class="container-fluid">
+                <div class="form-group col-md-5">
+                    @Html.CheckBoxFor(model => model.Ubicaciones, @activo ? (object)new { } : (object)new { @disabled = "disabled" })
+                    <label class="control-label separa">Ubicaciones(Funct Locational)</label>
+                </div>
+                @{
+                    if (Model.ResultUbica == 0) { claseResult = "alert-success"; }
+                    else
+                    if (Model.ResultUbica == -1) { claseResult = "alert-light"; }
+                    else { claseResult = "alert-danger"; }
+                    <div class="col-md-7 alert @claseResult">
+                        <strong>@Model.MsgUbica </strong>
+                    </div>
+                }
+            </div>
+
+            <div class="container-fluid disabled">
+                <div class="form-group col-md-5">
+                    @Html.CheckBoxFor(model => model.Procedimientos, @activo ? (object)new { } : (object)new { @disabled = "disabled" })
+                    <label class="control-label separa">Procedimientos (Gral Task List)</label>
+                </div>
+                @{
+                    if (Model.ResultProced == 0) { claseResult = "alert-success"; }
+                    else
+                    if (Model.ResultProced == -1) { claseResult = "alert-light"; }
+                    else { claseResult = "alert-danger"; }
+
+                    <div class="col-md-7 alert @claseResult">
+                        <strong>@Model.MsgProced </strong>
+                    </div>
+                }
+            </div>
+
+            <hr />
+            <div class="form-group">
+                <button type="submit" class="btn btn-md btn-success" @vClase>
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span class="submit-text"> Actualizar</span>
+
+                </button>&nbsp;
+
+                <button type="submit" class="btn btn-danger btn-md" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="submit-text"> Cerrar </span>
+                </button>         
+
+                <img src="~/Imagenes/loader.gif" style="display:none; width:50px" id="loading" />
+            </div>
+        </div>
+    </div>
+}

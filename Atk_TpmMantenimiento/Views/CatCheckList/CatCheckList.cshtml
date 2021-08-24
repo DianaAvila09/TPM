@@ -1,0 +1,151 @@
+﻿@model List<Entidades.CheckListEnc>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+@{
+    string vClase = "btn btn-sm btn-primary disabled";
+    if (Session["CatChecklist"] != null)
+    {
+        if ((bool)Session["CatChecklist"] == true)
+        {
+            vClase = "btn btn-sm btn-primary ";
+        }
+    }
+
+}
+@{
+    if (@ViewBag.Error != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error! </strong> @ViewBag.Error
+        </div>
+    }
+}
+<form id="MyForm" asp-controller="CatGrupoActiv">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="media" style="margin:10px">
+                <div class="media-left">
+                    <label class="btn-sm titu">@ViewBag.Message</label>
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Nuevo", "Nuevo", "CatCheckList", new { @class = vClase + " glyphicon glyphicon-file" })
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Actualizar", "CatCheckList", "CatCheckList", new { @class = "btn btn-sm btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+                </div>
+            </div>
+
+            <div>
+                <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Acción</th>
+                            <th class="text-center">Id</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Clasificación</th>
+                            <th scope="col">Equipo parado</th>
+                            <th scope="col">Activo</th>
+                            <th scope="col">Agrego</th>
+                            <th scope="col">Fec Alta</th>
+                            <th scope="col">Modifico</th>
+                            <th scope="col">Fec Actualización</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model)
+                        {
+                            <tr>
+                                <td class="text-nowrap">
+                                    @Html.ActionLink("Editar", "Editar", "CatCheckList", new { Id = row.IdCheckList }, new { @class = vClase + " glyphicon glyphicon-edit" })
+                                    @Html.ActionLink("Actividades", "VerActiv", "CatCheckList", new { Id = row.IdCheckList }, new { @class = "btn btn-sm btn-primary glyphicon glyphicon-list" })
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.IdCheckList)
+                                    @Html.DisplayFor(modelItem => row.IdCheckList)
+
+                                </td>
+                                <td class="text-nowrap">
+                                    @Html.HiddenFor(modelItem => row.CodCheckList)
+                                    @Html.DisplayFor(modelItem => row.CodCheckList)
+                                </td>
+
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.DescripCheckList)
+                                    @Html.DisplayFor(modelItem => row.DescripCheckList)
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.CodClasif)
+                                    @Html.DisplayFor(modelItem => row.CodClasif)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.EqParado)
+                                    @Html.DisplayFor(modelItem => row.EqParado)
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.Activo)
+                                    @Html.DisplayFor(modelItem => row.Activo)
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.UserAlta)
+                                    @Html.DisplayFor(modelItem => row.UserAlta)
+                                </td>
+                                <td class="text-center">
+                                    <div>
+                                        @Html.HiddenFor(modelItem => row.FchAlta)
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchAlta))
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.UserModif)
+                                    @Html.DisplayFor(modelItem => row.UserModif)
+                                </td>
+
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.FchModif)
+                                    @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchModif))
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var t = ('@(ViewBag.Error)');
+            console.log(t);
+            if (t.length != 0) {
+                alert('@ViewBag.Error');
+            }
+        })
+
+            $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[2, 'asc']]
+            });
+        });
+
+
+    </script>
+}

@@ -1,0 +1,8 @@
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Release\cn_HistProduccion.exe.config
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Release\cn_HistProduccion.exe
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Release\cn_HistProduccion.pdb
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Release\sapnco.dll
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Release\sapnco_utils.dll
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Release\cn_HistProduccion.csprojResolveAssemblyReference.cache
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Release\cn_HistProduccion.exe
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Release\cn_HistProduccion.pdb

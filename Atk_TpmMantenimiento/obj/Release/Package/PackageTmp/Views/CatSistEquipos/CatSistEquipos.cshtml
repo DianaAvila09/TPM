@@ -1,0 +1,97 @@
+﻿@model List<Entidades.SistemaManto>
+
+@{
+    string vClase = "btn btn-md btn-primary disabled";
+    if (Session["CatTpm"] != null)
+    {
+        if ((bool)Session["CatTpm"] == true)
+        {
+            vClase = "btn btn-md btn-primary";
+        }
+    }
+}
+<form id="MyForm" asp-controller="CatSistEquipos">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="media" style="margin:10px">
+                <div class="media-left ui-button-text-icon-primary">
+                    <label class="btn-sm titu tituMarg">@ViewBag.Message</label>
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Nuevo", "Nuevo", "CatSistEquipos", new { @class = vClase + " glyphicon glyphicon-file", data_modal = "" })
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Actualizar", "CatSistEquipos", "CatSistEquipos", new { @class = "btn btn-md btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+                </div>
+            </div>
+        </div>
+
+
+        <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width:50px">Editar</th>
+                    <th scope="col" style="width:100px">Código del Sistema</th>
+                    <th scope="col" style="width:200px">Sistema de mantenimiento</th>
+                    <th scope="col" style="width:130px">Depto. de Mantenimiento</th>
+                    <th scope="col">Activo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model)
+
+                {
+                    <tr style="width:50px">
+                        <td>
+                            @Html.ActionLink("Editar", "Editar", "CatSistEquipos", new { Id = row.Id }, new { @class = vClase + " glyphicon glyphicon-edit", data_modal = "" })
+                        </td>
+                        @*<td>
+                                @Html.HiddenFor(modelItem => row.Id)
+                                @Html.DisplayFor(modelItem => row.Id)
+                            </td>*@
+                        <td>
+                            @Html.HiddenFor(modelItem => row.Id)
+                            @Html.HiddenFor(modelItem => row.CodSistema)
+                            @Html.DisplayFor(modelItem => row.CodSistema)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(modelItem => row.Sistema)
+                            @Html.DisplayFor(modelItem => row.Sistema)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(modelItem => row.CodDepartamento)
+                            @Html.DisplayFor(modelItem => row.CodDepartamento)
+                        </td>
+                        <td class="text-center" style="width:50px">
+
+                            @Html.HiddenFor(modelItem => row.Estatus)
+                            @Html.DisplayFor(modelItem => row.Estatus)
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</form>
+
+
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[2, 'asc']]
+            });
+        });
+    </script>
+}

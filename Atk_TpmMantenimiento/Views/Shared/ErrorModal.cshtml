@@ -1,0 +1,44 @@
+﻿@model Entidades.DatosError
+
+<div>
+    <h4>DatosError</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cabecera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cabecera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mensaje1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensaje1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mensaje2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensaje2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

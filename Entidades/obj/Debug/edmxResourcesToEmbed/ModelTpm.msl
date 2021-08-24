@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TpmMttoModelStoreContainer" CdmEntityContainer="TpmMttoEntities">
+    <FunctionImportMapping FunctionImportName="spu_Get_EstrucEquipos" FunctionName="TpmMttoModel.Store.spu_Get_EstrucEquipos" />
+    <FunctionImportMapping FunctionImportName="spu_GetCatCaract" FunctionName="TpmMttoModel.Store.spu_GetCatCaract">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TpmMttoModel.spu_GetCatCaract_Result">
+          <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="AddresPLC" ColumnName="AddresPLC" />
+          <ScalarProperty Name="KeyCaracteristica" ColumnName="KeyCaracteristica" />
+          <ScalarProperty Name="Caracteristica" ColumnName="Caracteristica" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+          <ScalarProperty Name="FlagStatus" ColumnName="FlagStatus" />
+          <ScalarProperty Name="UserModif" ColumnName="UserModif" />
+          <ScalarProperty Name="DtModif" ColumnName="DtModif" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spu_getCatDeptos" FunctionName="TpmMttoModel.Store.spu_getCatDeptos" />
+    <FunctionImportMapping FunctionImportName="spu_getCatFallas" FunctionName="TpmMttoModel.Store.spu_getCatFallas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TpmMttoModel.spu_getCatFallas_Result">
+          <ScalarProperty Name="IdFalla" ColumnName="IdFalla" />
+          <ScalarProperty Name="CodFalla" ColumnName="CodFalla" />
+          <ScalarProperty Name="Descrip" ColumnName="Descrip" />
+          <ScalarProperty Name="CodSistema" ColumnName="CodSistema" />
+          <ScalarProperty Name="CodDepartamento" ColumnName="CodDepartamento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spu_getCatSistemas" FunctionName="TpmMttoModel.Store.spu_getCatSistemas" />
+    <FunctionImportMapping FunctionImportName="spu_GetEquipos" FunctionName="TpmMttoModel.Store.spu_GetEquipos" />
+    <FunctionImportMapping FunctionImportName="spu_GetFocusFt" FunctionName="TpmMttoModel.Store.spu_GetFocusFt" />
+    <FunctionImportMapping FunctionImportName="spu_GetMainWC" FunctionName="TpmMttoModel.Store.spu_GetMainWC" />
+    <FunctionImportMapping FunctionImportName="spu_GetPmStandar" FunctionName="TpmMttoModel.Store.spu_GetPmStandar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TpmMttoModel.spu_GetPmStandar_Result">
+          <ScalarProperty Name="IMPTT_POINT" ColumnName="IMPTT_POINT" />
+          <ScalarProperty Name="IMPTT_MPOBJ" ColumnName="IMPTT_MPOBJ" />
+          <ScalarProperty Name="IMPTT_PSORT" ColumnName="IMPTT_PSORT" />
+          <ScalarProperty Name="IMPTT_PTTXT" ColumnName="IMPTT_PTTXT" />
+          <ScalarProperty Name="IMPTT_MPTYP" ColumnName="IMPTT_MPTYP" />
+          <ScalarProperty Name="IMPTT_BEGRU" ColumnName="IMPTT_BEGRU" />
+          <ScalarProperty Name="IMPTT_ATINN" ColumnName="IMPTT_ATINN" />
+          <ScalarProperty Name="IMPTT_DESIR" ColumnName="IMPTT_DESIR" />
+          <ScalarProperty Name="IMPTT_CJUMP" ColumnName="IMPTT_CJUMP" />
+          <ScalarProperty Name="IMPTT_PYEAR" ColumnName="IMPTT_PYEAR" />
+          <ScalarProperty Name="FEC_UPDATE" ColumnName="FEC_UPDATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spu_GetProduccionAcum" FunctionName="TpmMttoModel.Store.spu_GetProduccionAcum" />
+    <FunctionImportMapping FunctionImportName="spu_GetWorkCenter" FunctionName="TpmMttoModel.Store.spu_GetWorkCenter" />
+    <EntitySetMapping Name="CatClasifFallas">
+      <EntityTypeMapping TypeName="TpmMttoModel.CatClasifFalla">
+        <MappingFragment StoreEntitySet="CatClasifFallas">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodClasif" ColumnName="CodClasif" />
+          <ScalarProperty Name="IdClasif" ColumnName="IdClasif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatComponentes">
+      <EntityTypeMapping TypeName="TpmMttoModel.CatComponente">
+        <MappingFragment StoreEntitySet="CatComponentes">
+          <ScalarProperty Name="Promedio" ColumnName="Promedio" />
+          <ScalarProperty Name="Maximo" ColumnName="Maximo" />
+          <ScalarProperty Name="Minimo" ColumnName="Minimo" />
+          <ScalarProperty Name="FecUltTicket" ColumnName="FecUltTicket" />
+          <ScalarProperty Name="UltTicket" ColumnName="UltTicket" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UltPreventivo" ColumnName="UltPreventivo" />
+          <ScalarProperty Name="UltRevision" ColumnName="UltRevision" />
+          <ScalarProperty Name="TerminaVig" ColumnName="TerminaVig" />
+          <ScalarProperty Name="InicioVig" ColumnName="InicioVig" />
+          <ScalarProperty Name="Equipo" ColumnName="Equipo" />
+          <ScalarProperty Name="Sistema" ColumnName="Sistema" />
+          <ScalarProperty Name="Componente" ColumnName="Componente" />
+          <ScalarProperty Name="CveCompo" ColumnName="CveCompo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatPlantas">
+      <EntityTypeMapping TypeName="TpmMttoModel.CatPlanta">
+        <MappingFragment StoreEntitySet="CatPlantas">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="planta" ColumnName="planta" />
+          <ScalarProperty Name="ClavePlanta" ColumnName="ClavePlanta" />
+          <ScalarProperty Name="idPlanta" ColumnName="idPlanta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatWorkCenters">
+      <EntityTypeMapping TypeName="TpmMttoModel.CatWorkCenter">
+        <MappingFragment StoreEntitySet="CatWorkCenter">
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Lenguaje" ColumnName="Lenguaje" />
+          <ScalarProperty Name="FinVigencia" ColumnName="FinVigencia" />
+          <ScalarProperty Name="InicioVigencia" ColumnName="InicioVigencia" />
+          <ScalarProperty Name="keyValordeOperacion" ColumnName="keyValordeOperacion" />
+          <ScalarProperty Name="FocusFactory" ColumnName="FocusFactory" />
+          <ScalarProperty Name="Administrador" ColumnName="Administrador" />
+          <ScalarProperty Name="keyValorStandar" ColumnName="keyValorStandar" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="CodWorkCenter" ColumnName="CodWorkCenter" />
+          <ScalarProperty Name="IdWorkCenter" ColumnName="IdWorkCenter" />
+          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatWorkCenter1">
+      <EntityTypeMapping TypeName="TpmMttoModel.CatWorkCenter1">
+        <MappingFragment StoreEntitySet="CatWorkCenter1">
+          <ScalarProperty Name="FEC_UPDATE" ColumnName="FEC_UPDATE" />
+          <ScalarProperty Name="CRTX_KTEXT" ColumnName="CRTX_KTEXT" />
+          <ScalarProperty Name="CRTX_SPRAS" ColumnName="CRTX_SPRAS" />
+          <ScalarProperty Name="CRHD_ENDDA" ColumnName="CRHD_ENDDA" />
+          <ScalarProperty Name="CRHD_BEGDA" ColumnName="CRHD_BEGDA" />
+          <ScalarProperty Name="CRHD_STEUS" ColumnName="CRHD_STEUS" />
+          <ScalarProperty Name="CRHD_KTSCH" ColumnName="CRHD_KTSCH" />
+          <ScalarProperty Name="CRHD_VERAN" ColumnName="CRHD_VERAN" />
+          <ScalarProperty Name="CRHD_VGWTS" ColumnName="CRHD_VGWTS" />
+          <ScalarProperty Name="CRHD_VERWE" ColumnName="CRHD_VERWE" />
+          <ScalarProperty Name="CRHD_ARBPL" ColumnName="CRHD_ARBPL" />
+          <ScalarProperty Name="CRHD_OBJID" ColumnName="CRHD_OBJID" />
+          <ScalarProperty Name="CRHD_OBJTY" ColumnName="CRHD_OBJTY" />
+          <ScalarProperty Name="CRHD_WERKS" ColumnName="CRHD_WERKS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEquis">
+      <EntityTypeMapping TypeName="TpmMttoModel.CatEqui">
+        <MappingFragment StoreEntitySet="CatEqui">
+          <ScalarProperty Name="FEC_UPDATE" ColumnName="FEC_UPDATE" />
+          <ScalarProperty Name="KeyPerformanceEfficRateWC" ColumnName="KeyPerformanceEfficRateWC" />
+          <ScalarProperty Name="StandardValueKeyWC" ColumnName="StandardValueKeyWC" />
+          <ScalarProperty Name="StandardTextKeyWC" ColumnName="StandardTextKeyWC" />
+          <ScalarProperty Name="PersonResponsibleWC" ColumnName="PersonResponsibleWC" />
+          <ScalarProperty Name="LocationWorkCenter" ColumnName="LocationWorkCenter" />
+          <ScalarProperty Name="CategoryWorkCenter" ColumnName="CategoryWorkCenter" />
+          <ScalarProperty Name="WorkCenter" ColumnName="WorkCenter" />
+          <ScalarProperty Name="KeyPerformanceEfficRateMWC" ColumnName="KeyPerformanceEfficRateMWC" />
+          <ScalarProperty Name="StandardValueKeyMWC" ColumnName="StandardValueKeyMWC" />
+          <ScalarProperty Name="StandardTextKeyMWC" ColumnName="StandardTextKeyMWC" />
+          <ScalarProperty Name="PersonResponsibleMWC" ColumnName="PersonResponsibleMWC" />
+          <ScalarProperty Name="MainWCLocation" ColumnName="MainWCLocation" />
+          <ScalarProperty Name="MainWCCategory" ColumnName="MainWCCategory" />
+          <ScalarProperty Name="MainWorkCenter" ColumnName="MainWorkCenter" />
+          <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+          <ScalarProperty Name="ControllingArea" ColumnName="ControllingArea" />
+          <ScalarProperty Name="ObjectIdPPWorkCenter" ColumnName="ObjectIdPPWorkCenter" />
+          <ScalarProperty Name="CrObjType" ColumnName="CrObjType" />
+          <ScalarProperty Name="FunctionalLocation" ColumnName="FunctionalLocation" />
+          <ScalarProperty Name="TechnicalInformation" ColumnName="TechnicalInformation" />
+          <ScalarProperty Name="CatalogProfile" ColumnName="CatalogProfile" />
+          <ScalarProperty Name="AccountAssignment" ColumnName="AccountAssignment" />
+          <ScalarProperty Name="TechIdentNumber" ColumnName="TechIdentNumber" />
+          <ScalarProperty Name="IdWorkCenter" ColumnName="IdWorkCenter" />
+          <ScalarProperty Name="PmObjType" ColumnName="PmObjType" />
+          <ScalarProperty Name="PlannerGroup" ColumnName="PlannerGroup" />
+          <ScalarProperty Name="Superordinate" ColumnName="Superordinate" />
+          <ScalarProperty Name="ValidFromDate" ColumnName="ValidFromDate" />
+          <ScalarProperty Name="MaintPlanningPlant" ColumnName="MaintPlanningPlant" />
+          <ScalarProperty Name="NumNextEquipUsage" ColumnName="NumNextEquipUsage" />
+          <ScalarProperty Name="ValidDate" ColumnName="ValidDate" />
+          <ScalarProperty Name="ObjectStatus" ColumnName="ObjectStatus" />
+          <ScalarProperty Name="IndivStatusObject" ColumnName="IndivStatusObject" />
+          <ScalarProperty Name="LengDescrip" ColumnName="LengDescrip" />
+          <ScalarProperty Name="SystemStatus" ColumnName="SystemStatus" />
+          <ScalarProperty Name="StatusInactive" ColumnName="StatusInactive" />
+          <ScalarProperty Name="DescripTechnical" ColumnName="DescripTechnical" />
+          <ScalarProperty Name="MeasuringPoint" ColumnName="MeasuringPoint" />
+          <ScalarProperty Name="MaintenancePlan" ColumnName="MaintenancePlan" />
+          <ScalarProperty Name="ObjectNumber" ColumnName="ObjectNumber" />
+          <ScalarProperty Name="ConsecutiveNum" ColumnName="ConsecutiveNum" />
+          <ScalarProperty Name="ManufModelNum" ColumnName="ManufModelNum" />
+          <ScalarProperty Name="ManufAsset" ColumnName="ManufAsset" />
+          <ScalarProperty Name="TypeTechObj" ColumnName="TypeTechObj" />
+          <ScalarProperty Name="CategoryEqui" ColumnName="CategoryEqui" />
+          <ScalarProperty Name="TecObjAutGrp" ColumnName="TecObjAutGrp" />
+          <ScalarProperty Name="LengEqui" ColumnName="LengEqui" />
+          <ScalarProperty Name="CodEquipo" ColumnName="CodEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="TpmMttoModel.Ticket">
+        <MappingFragment StoreEntitySet="Tickets">
+          <ScalarProperty Name="CausoParo" ColumnName="CausoParo" />
+          <ScalarProperty Name="Notas" ColumnName="Notas" />
+          <ScalarProperty Name="PCReporto" ColumnName="PCReporto" />
+          <ScalarProperty Name="FchClose" ColumnName="FchClose" />
+          <ScalarProperty Name="FchaPromesa" ColumnName="FchaPromesa" />
+          <ScalarProperty Name="WOM" ColumnName="WOM" />
+          <ScalarProperty Name="CodTipoWom" ColumnName="CodTipoWom" />
+          <ScalarProperty Name="FecEntgregaReparacion" ColumnName="FecEntgregaReparacion" />
+          <ScalarProperty Name="FecIniReparacion" ColumnName="FecIniReparacion" />
+          <ScalarProperty Name="WorkerAsignado" ColumnName="WorkerAsignado" />
+          <ScalarProperty Name="FchAccionplan" ColumnName="FchAccionplan" />
+          <ScalarProperty Name="AccionPlan" ColumnName="AccionPlan" />
+          <ScalarProperty Name="UsrAtendio" ColumnName="UsrAtendio" />
+          <ScalarProperty Name="FecStatus" ColumnName="FecStatus" />
+          <ScalarProperty Name="CodStatus" ColumnName="CodStatus" />
+          <ScalarProperty Name="CodTipoFalla" ColumnName="CodTipoFalla" />
+          <ScalarProperty Name="Falla" ColumnName="Falla" />
+          <ScalarProperty Name="CodFalla" ColumnName="CodFalla" />
+          <ScalarProperty Name="CodSistema" ColumnName="CodSistema" />
+          <ScalarProperty Name="CodClasif" ColumnName="CodClasif" />
+          <ScalarProperty Name="Diagnostico" ColumnName="Diagnostico" />
+          <ScalarProperty Name="UsuarioReporto" ColumnName="UsuarioReporto" />
+          <ScalarProperty Name="FchReporte" ColumnName="FchReporte" />
+          <ScalarProperty Name="FallaReportada" ColumnName="FallaReportada" />
+          <ScalarProperty Name="CodEquipo" ColumnName="CodEquipo" />
+          <ScalarProperty Name="CodWorkCenter" ColumnName="CodWorkCenter" />
+          <ScalarProperty Name="CodDepartamento" ColumnName="CodDepartamento" />
+          <ScalarProperty Name="Ticket1" ColumnName="Ticket" />
+          <ScalarProperty Name="IdPlanta" ColumnName="IdPlanta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
