@@ -1356,7 +1356,7 @@ namespace RepositorySql
 
             string cmdSql = " SELECT WorkCenter, ObjectNumber, CodEquipo, DescripTechnical, CostCenter, TecObjAutGrp, IndivStatusObject, FunctionalLocation, ";
             cmdSql = cmdSql + " PlannerGroup, MainWorkCenter, StandardTextKeyWC, TypeTechObj, ManufAsset, ManufModelNum, ValidFromDate, Superordinate, KeyPerformanceEfficRateWC";
-            cmdSql = cmdSql + " FROM[CatEquipos] ";
+            cmdSql = cmdSql + " FROM [CatEquipos] ";
             cmdSql = cmdSql + " Where CodEquipo = '" + pCodEquipo + "'";
 
             OperDatosSql datosSql = new OperDatosSql();
@@ -1491,9 +1491,9 @@ namespace RepositorySql
                            FunctionalLocation, PlannerGroup, MainWorkCenter, StandardTextKeyWC, TypeTechObj, ManufAsset, ManufModelNum, ValidFromDate, 
                            Superordinate, KeyPerformanceEfficRateWC
                            FROM[CatEquipos]
-                           Where ((@CentroCostos = '') or (CostCenter = @CentroCostos)) and Superordinate = ''
+                           Where ((@CentroCostos = '') or (CostCenter = @CentroCostos)) 
                            and CodEquipo not in (Select CodEquipo  FROM[CatEquipos]
-                                                Where ((@CentroCostos = '') or (CostCenter = @CentroCostos)) and Superordinate = ''
+                                                Where ((@CentroCostos = '') or (CostCenter = @CentroCostos)) 
                                                 and(IndivStatusObject in ('DLFL','INAC') or PATINDEX('%DOWN%', upper(FunctionalLocation)) != 0)
                                                 group by CodEquipo)";
 
@@ -1553,19 +1553,18 @@ namespace RepositorySql
             //                  order by WorkCenter";
             string cmdSql = " SELECT DISTINCT ";
 
-            //if (pCtroCostos == "")
-            //{
-            //    cmdSql = cmdSql + " TOP 200 ";
-            //}
+            if (pCtroCostos == "")
+            {
+                cmdSql = cmdSql + " TOP 500 ";
+            }
 
             cmdSql = cmdSql + @" WorkCenter, CodEquipo, IndivStatusObject,FunctionalLocation, TypeTechObj, ObjectNumber, 
                DescripTechnical, MaintPlanningPlant, CostCenter, MainWorkCenter, Superordinate, ValidFromDate, ManufAsset,
                ManufModelNum, PlannerGroup, MainWorkCenter, Superordinate, StandardTextKeyWC
                FROM[CatEquipos]
-                     Where Superordinate = ''
-               and CodEquipo not in (Select DISTINCT CodEquipo
+                     Where CodEquipo not in (Select DISTINCT CodEquipo
                                        FROM [CatEquipos]
-                                             Where Superordinate = ''";
+                                             Where CodEquipo <> ''";
             if (pCtroCostos != "")
             {
                 cmdSql = cmdSql + " and CostCenter = @CentroCostos";
@@ -5532,12 +5531,11 @@ namespace RepositorySql
             string cmdSql = @"Select DISTINCT WorkCenter, CodEquipo, IndivStatusObject,FunctionalLocation, TypeTechObj, ObjectNumber, 
                                DescripTechnical, MainWorkCenter, ManufAsset, ManufModelNum, PlannerGroup, StandardTextKeyWC
                                FROM[CatEquipos]
-                                     Where CostCenter = @centroCostos 
-					                 and Superordinate = ''
+                                     Where CostCenter = @centroCostos
 					                 and WorkCenter is not null
 					                and CodEquipo not in (Select CodEquipo
 										                   FROM [CatEquipos]
-												                 Where CostCenter = @centroCostos and Superordinate = ''
+												                 Where CostCenter = @centroCostos
 										                   and (IndivStatusObject in ('DLFL','INAC') or PATINDEX('%DOWN%', upper(FunctionalLocation)) != 0)
 										                   group by CodEquipo)";
 
@@ -5986,7 +5984,7 @@ namespace RepositorySql
             string cmdSql = @"SELECT Distinct  MaintPlanningPlant as Planta, WorkCenter  
                   FROM [CatEquipos]
                  Where Convert(int,CostCenter) = @CentroCostos
-                 and WorkCenter is not null and  Superordinate = ''
+                 and WorkCenter is not null 
                  and (IndivStatusObject  not in ('DLFL','INAC') or PATINDEX('%DOWN%', upper(FunctionalLocation)) = 0)";
 
             SqlCommand sqlcmd = new SqlCommand(cmdSql);
