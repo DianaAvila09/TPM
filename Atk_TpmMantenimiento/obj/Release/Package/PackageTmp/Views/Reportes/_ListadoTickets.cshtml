@@ -1,0 +1,156 @@
+﻿@model Entidades.ListaTickets
+
+<div class="row">
+    <div>
+        <table id="sort" class="display cell-border compact" style="width:100%; font-size:10pt">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Acción</th>
+                    <th scope="col" class="text-center">Item</th>
+                    <th scope="col" class="text-center">Id Ticket</th>
+                    <th scope="col" class="text-center">Código de Equipo</th>
+                    <th scope="col" class="text-center">Descripción</th>
+                    <th scope="col" class="text-center">Efecto de Falla</th>
+                    <th scope="col" class="text-center">Sistema afectado</th>
+                    <th scope="col" class="text-center">Descripción de falla</th>
+                    <th scope="col" class="text-center">Hasllazgo Seguridad</th>
+                    <th scope="col" class="text-center">Fecha del reporte</th>
+                    <th scope="col" class="text-center">Usuario que reporto</th>
+                    <th scope="col" class="text-center">Plan de Acción</th>
+                    <th scope="col" class="text-center">Atendio Ticket</th>
+                    <th scope="col" class="text-center">Estatus del Ticket</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @{
+                    int r = 1;
+                }
+
+                @foreach (var row in Model.lstTickets)
+                {
+
+                    var clase = string.Empty;
+
+                    //if (row.TipoTicket == "R") { clase = "background: linear-gradient(to bottom, #ff0000 0%, #ffffff 60%)"; }
+                    //if (row.TipoTicket == "A") { clase = "background: linear-gradient(to bottom, #ffff99 0%, #ffffff 60%)"; }
+                    //if (row.TipoTicket == "V") { clase = "background: linear-gradient(to bottom, #ccffcc 0%, #ffffff 60%)"; }
+                    //if (row.TipoTicket == "Z") { clase = "background: linear-gradient(to bottom, #0033cc 0%, #ffffff 60%)"; }
+                    //if (row.TipoTicket == "M") { clase = "background: linear-gradient(to bottom, #ffad33 0%, #ffffff 60%)"; }
+                    //if (row.TipoTicket == "G") { clase = "background: linear-gradient(to bottom, #009900 0%, #ffffff 60%)"; }
+
+                    if (row.TipoTicket == "R") { clase = "background-color: #ff6666"; }
+                    if (row.TipoTicket == "A") { clase = "background-color: #ffffcc"; }
+                    if (row.TipoTicket == "V") { clase = "background-color: #ccffcc"; }
+                    if (row.TipoTicket == "Z") { clase = "background-color: #b3e0ff"; }
+                    if (row.TipoTicket == "M") { clase = "background-color: #ffad33"; }
+                    if (row.TipoTicket == "G") { clase = "background-color: #9ae59a"; }
+                    if (row.TipoTicket == "B") { clase = "background-color: #ffffff"; }
+
+
+                    <tr>
+
+                        <td class="text-center LetraBold" style="width: 70px">
+                            <a href='@Url.Action("Consulta", "Tickets", new { Id = row.IdTicket })' , title="Consultar Detalle">
+                                <img src='@Url.Content("~/Content/Images/ver.jpg")' width="30" height="30" />
+                            </a>
+                            <a href='@Url.Action("Editar", "Tickets", new { Id = row.IdTicket })' , title="Atender Ticket">
+                                <img src='@Url.Content("~/Content/Images/atender.jpg")' width="30" height="30" />
+                            </a>
+                        </td>
+
+                        <td class="text-center LetraBold">
+                            @r.ToString()
+                        </td>
+
+                        @{
+                            string tic = row.IdTicket.ToString("N0");
+                            <td class="text-center LetraBold" style="@clase">
+                                @Html.HiddenFor(modelItem => row.IdTicket)
+                                @tic
+                            </td>
+
+                        }
+                        <td class="text-left LetraBold" style="@clase">
+                            @Html.HiddenFor(modelItem => row.CodSubEquipo)
+                            @Html.DisplayFor(modelItem => row.CodSubEquipo)
+                        </td>
+                        <td class="text-left LetraBold" style="@clase">
+                            @Html.HiddenFor(modelItem => row.SubEquipo)
+                            @Html.DisplayFor(modelItem => row.SubEquipo)
+                        </td>
+
+                        <td class="text-left LetraBold" style="@clase">
+                            @Html.HiddenFor(modelItem => row.CodFalla)
+                            @Html.DisplayFor(modelItem => row.CodFallaDescrip)
+                        </td>
+
+                        <td class="text-left LetraBold">
+                            @Html.HiddenFor(modelItem => row.CodSistema)
+                            @Html.DisplayFor(modelItem => row.CodSistemaDescrip)
+                        </td>
+
+                        <td style="overflow: hidden;    text-overflow: ellipsis;">
+                            @Html.HiddenFor(modelItem => row.FallaReportada)
+                            @Html.DisplayFor(modelItem => row.FallaReportada)
+                        </td>
+                        @{
+                            if (row.HallazgoSeguridad == "SI")
+                            {
+                                <td class="text-center" width="50px">
+
+                                    <img src='@Url.Content("~/Imagenes/safety.png")' width="30" height="30" />
+
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="text-nowrap" width="50px"></td>
+                            }
+                        }
+
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.FchReporte)
+                            @{
+                                if (row.FchReporte.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                {
+                                    @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchReporte))
+                                }
+                            }
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.UsuarioReporto)
+                            @Html.DisplayFor(modelItem => row.UsuarioReporto)
+                        </td>
+
+
+                        <td>
+                            @Html.HiddenFor(modelItem => row.AccionPlan)
+                            @Html.DisplayFor(modelItem => row.AccionPlan)
+                        </td>
+
+
+
+                        <td>
+                            @Html.HiddenFor(modelItem => row.UsrAtendio)
+                            @Html.DisplayFor(modelItem => row.UsrAtendio)
+                        </td>
+                        <td class="text-left">
+                            @Html.HiddenFor(modelItem => row.CodStatus)
+                            @Html.DisplayFor(modelItem => row.CodStatusDescrip)
+                        </td>
+
+                    </tr>
+
+                    r = r + 1;
+
+
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,9 @@
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Release\Atk_wsHistProdxDia.exe.config
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Release\Atk_wsHistProdxDia.exe
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Release\Atk_wsHistProdxDia.pdb
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\obj\Release\Atk_wsHistProdxDia.csprojAssemblyReference.cache
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\obj\Release\Atk_wsHistProdxDia.ProjectInstaller.resources
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\obj\Release\Atk_wsHistProdxDia.csproj.GenerateResource.cache
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\obj\Release\Atk_wsHistProdxDia.csproj.CoreCompileInputs.cache
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\obj\Release\Atk_wsHistProdxDia.exe
+C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\obj\Release\Atk_wsHistProdxDia.pdb

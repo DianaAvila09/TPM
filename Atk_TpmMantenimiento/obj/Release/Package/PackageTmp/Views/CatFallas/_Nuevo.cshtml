@@ -1,0 +1,115 @@
+﻿@model Entidades.AltaFallas
+
+@Scripts.Render("~/bundles/jqueryval")
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+<script>
+
+    $('#modalGenerica').on('shown.bs.modal', function () {
+        $('#fallaMt_CodSistema').focus();
+    })
+</script>
+
+
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-file"></i> @ViewBag.Message</h4>
+    </div>
+</div>
+<br />
+
+<div class="container-fluid">
+    @using (Ajax.BeginForm("Nuevo", "CatFallas", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.Label("Sistema de Mantenimiento: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.HiddenFor(model => model.fallaMt.CodDepartamento)
+                        
+                        @Html.DropDownListFor(model => model.fallaMt.CodSistema, 
+                      new SelectList(Model.lstSisManto, "CodSistema", "Sistema"), "-- Seleccion un valor --", 
+                      new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.fallaMt.CodSistema, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Código: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.fallaMt.CodFalla, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.fallaMt.CodFalla, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Descripción: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.fallaMt.Descrip, new { @class = "form-control", @style = "width:100%" })
+                        @Html.ValidationMessageFor(model => model.fallaMt.Descrip, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Activado: ", htmlAttributes: new { @class = "control-label  col-md-4" })
+                    <div class=" col-md-offset-1 col-md-6">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.fallaMt.StatusFalla)
+                            @Html.ValidationMessageFor(model => model.fallaMt.StatusFalla, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Agrego: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-3">
+                        @Html.HiddenFor(model => model.fallaMt.UsuarioAlta)
+                        @Html.TextBoxFor(model => model.fallaMt.UsuarioAlta, new { @class = "form-control", disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.fallaMt.UsuarioAlta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Fecha de alta: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-3">
+                        @Html.HiddenFor(model => model.fallaMt.FecAlta)
+                        @Html.TextBoxFor(model => model.fallaMt.FecAlta, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", disabled = "true" })
+                        @Html.ValidationMessageFor(model => model.fallaMt.FecAlta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="form-group-lg">
+                    <div class="col-md-offset-4 col-md-10" style="font-family:Arial">
+                        <button type="submit" class="btn btn-md btn-primary  ">
+                            <i class="glyphicon glyphicon-save"></i> Guardar
+                        </button>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(function () {
+                        $(".date-time-picker").datetimepicker({
+                            changeMonth: true,
+                            changeYear: true,
+                            yearRange: "-100:+0",
+                            dateFormat: 'dd/mm/yy',
+                            controlType: 'select',
+                            timeFormat: 'HH:mm',
+                            oneLine: true
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    }
+</div>

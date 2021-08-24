@@ -1,0 +1,6 @@
+C:\Proyectos\TPM_Mantenimiento\tools\bin\Debug\tools.dll
+C:\Proyectos\TPM_Mantenimiento\tools\bin\Debug\tools.pdb
+C:\Proyectos\TPM_Mantenimiento\tools\obj\Debug\tools.csprojAssemblyReference.cache
+C:\Proyectos\TPM_Mantenimiento\tools\obj\Debug\tools.csproj.CoreCompileInputs.cache
+C:\Proyectos\TPM_Mantenimiento\tools\obj\Debug\tools.dll
+C:\Proyectos\TPM_Mantenimiento\tools\obj\Debug\tools.pdb

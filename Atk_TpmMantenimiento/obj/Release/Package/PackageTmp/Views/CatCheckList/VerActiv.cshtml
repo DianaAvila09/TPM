@@ -1,0 +1,208 @@
+﻿@model Entidades.CheckListDet
+@{  
+    string vClase1 = "btn btn-sm btn-primary disabled";
+    if (Session["CatChecklist"] != null)
+    {
+        if ((bool)Session["CatChecklist"] == true)
+        {
+           
+            vClase1 = "btn btn-sm btn-primary ";
+        }
+    }
+}
+
+<form asp-controller="CatCheckList" method="post" action="CatCheckList" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message</h4>
+    </div>
+
+    <div style="background-color:lightblue; padding:5px">
+        @*<div class="row">
+            <div class="col-md-3">
+                @Html.Label("Datos del CheckList", htmlAttributes: new { @class = "control-label" })
+            </div>
+        </div>*@
+        <div class="row">
+            <div class="col-md-1">
+
+                @Html.Label("Id: ", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.Encabezado.IdCheckList)
+                @Html.TextBoxFor(model => model.Encabezado.IdCheckList, new { @class = "form-control text-center", disabled = "true" })
+            </div>
+
+            <div class="col-md-2">
+
+                @Html.Label("Código:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.Encabezado.CodCheckList)
+                @Html.TextBoxFor(model => model.Encabezado.CodCheckList, new { @class = "form-control text-center", disabled = "true" })
+
+            </div>
+            <div class="col-md-4">
+
+                @Html.Label("Descripción:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.Encabezado.DescripCheckList)
+                @Html.TextBoxFor(model => model.Encabezado.DescripCheckList, new { @class = "form-control", @style = "max-width:100%", disabled = "true" })
+
+            </div>
+            <div class="col-md-2">
+                <div>
+                    @Html.Label("Estatus:", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="btn-group">
+                    <label class="btn btn-xs btn-success" style="font-size:14px; width:80px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.Encabezado.Activo, true, new { disabled = "true" })
+                    </label>
+                    <label class="btn btn-xs btn-default text-right" style="font-size:14px; width:80px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.Encabezado.Activo, false, new { disabled = "true" })
+                    </label>
+                </div>
+                @Html.HiddenFor(model => model.Encabezado.Activo)
+            </div>
+            <div class="col-md-2">
+                <div>
+                    @Html.Label("Equipo Parado:", htmlAttributes: new { @class = "control-label" })
+                </div>
+                <div class="btn-group">
+                    <label class="btn btn-xs btn-success" style="font-size:14px; width:50px; text-align:right">
+                        Si @Html.RadioButtonFor(model => model.Encabezado.EqParado, true, new { disabled = "true" })
+                    </label>
+                    <label class="btn btn-xs btn-default" style="font-size:14px; width:50px; text-align:right">
+                        No @Html.RadioButtonFor(model => model.Encabezado.EqParado, false, new { disabled = "true" })
+                    </label>
+                    @Html.HiddenFor(model => model.Encabezado.EqParado)
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #eef3f7;">
+        <br />
+        <div>
+            <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                <thead>
+                    <tr>
+                        <th class="text-center">Acción</th>
+                        <th class="text-center">Item</th>
+                        <th scope="col">Orden</th>
+                        @*<th class="text-center">Id Activ.</th>*@
+                        <th scope="col">Cód Actividad</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Sistema</th>
+                        <th scope="col">Componente del sistema</th>
+                        <th scope="col">Método de Evalución</th>
+                        <th scope="col">Eq. Parado</th>
+                        <th scope="col">Activo (Actividad)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model.lstActChk)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Eliminar", "Eliminar", "CatCheckList", new { idDetChk = row.IdDetCheckList, idChecklst = row.IdCheckList }, new { @class = vClase1 + " glyphicon glyphicon-remove",  onclick = "return confirm('Desea borrar la actividad?');" })
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.IdDetCheckList)
+                                @Html.HiddenFor(modelItem => row.Item)
+                                @Html.DisplayFor(modelItem => row.Item)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.Orden)
+                                @Html.DisplayFor(modelItem => row.Orden)
+                            </td>
+
+                            @*<td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.IdActividad)
+                                    @Html.DisplayFor(modelItem => row.IdActividad)
+                                </td>*@
+                            <td>
+                                @Html.HiddenFor(modelItem => row.CodActividad)
+                                @Html.DisplayFor(modelItem => row.CodActividad)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripAct)
+                                @Html.DisplayFor(modelItem => row.DescripAct)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripSistema)
+                                @Html.DisplayFor(modelItem => row.DescripSistema)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripCompo)
+                                @Html.DisplayFor(modelItem => row.DescripCompo)
+                            </td>
+
+                            @{
+                                string tipo = "";
+                                if (row.TipoOperacion == "V") { tipo = "Visible"; }
+                                else { tipo = "Medible"; }
+                                <td class="text-center">
+
+                                    @Html.HiddenFor(modelItem => row.TipoOperacion)
+                                    @tipo
+
+                                </td>
+                            }
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.EqParado)
+                                @Html.DisplayFor(modelItem => row.EqParado)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.ActivoActiv)
+                                @Html.DisplayFor(modelItem => row.ActivoActiv)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-9" style="font-family:Arial">
+                @*<button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-arrow-left"></span> Regresar
+                    </button>*@
+
+                @Html.ActionLink("Agregar", "EditarActivi", "CatCheckList",
+              new { id = Model.Encabezado.IdCheckList, mensaje = "", ResultOperacion = "" },
+              new { @class = "btn btn-success btn-sm glyphicon glyphicon-plus" + vClase1, @style = "font-size:14px"})
+
+                @Html.ActionLink("Regresar", "CatCheckList", "CatCheckList", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-log-out", @style = "font-size:14px" })
+            </div>
+        </div>
+        <br />
+    </div>
+</form>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[0, 'asc']]
+            });
+        });
+    </script>
+}
+
+

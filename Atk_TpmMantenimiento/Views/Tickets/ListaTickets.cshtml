@@ -1,0 +1,355 @@
+﻿@model Entidades.ListaTickets
+@{
+    Entidades.CatEquipo datEquipo = ViewBag.DatosEqui;
+    string valFiltro = Model.filtro;
+    bool mostrarAviso = (bool)ViewBag.ErrorLogin;
+    string pCtos = ViewBag.CentroCostos;
+}
+
+<form id="MyForm" asp-controller="Tickets" method="post" action="filtrarTickets">
+
+    @Html.AntiForgeryToken()
+
+    <div style="background-color:#85adad; padding-top:10px; padding-bottom:10px; overflow:auto;">
+
+        <div class="form-inline" style="overflow:auto; padding-bottom:10px">
+            <row>
+                <div class="form-group col-md-1">
+                    <label class="text-capitalize form-inline" style="font-size:18pt; color:whitesmoke; padding-right:20px; font-style:italic ">@ViewBag.Message </label>
+                </div>
+
+                <div class="form-group col-md-2">
+                    @Html.Label("Work Center: ")
+                    <div class="form-control" style="width:100%; font-size:12pt; font-weight:bold">
+                        @Html.DisplayFor(model => @datEquipo.WorkCenter)
+                        @Html.HiddenFor(model => @datEquipo.WorkCenter)
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    @Html.Label("Equipo: ")
+                    <div class="form-control" style="width:100%; font-size:12pt; font-weight:bold">
+                        @Html.DisplayFor(model => @datEquipo.DescripTechnical, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.HiddenFor(model => @datEquipo.CodEquipo)
+                    </div>
+                </div>
+
+                <div class="form-group  col-md-4">
+                    @Html.Label("Funct Location: ")
+                    <div class="form-control" style="width:100%; font-size:12pt; font-weight:bold">
+                        @Html.DisplayFor(model => @datEquipo.FunctionalLocation)
+                    </div>
+                </div>
+            </row>
+        </div>
+
+        <div class="form-inline" style="float:left; padding-left:50px; padding-top:10px">
+            <label class="text-capitalize form-inline" style="font-size:10pt; color:whitesmoke"> Tipo de ticket: </label>
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "R" },
+             new { @class = "form-control btn tickCritico", @style = "width:35px" })
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "A" },
+             new { @class = " form-control btn", @style = "background-color: #ffff99; width:35px" })
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "M" },
+             new { @class = " form-control btn", @style = "background-color: #ffad33; width:35px" })
+
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "Z" },
+             new { @class = " form-control btn", @style = "background-color: #b3e0ff; width:35px" })
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "G" },
+             new { @class = " form-control btn", @style = "background-color: #00b33c; width:35px" })
+
+            @*@Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "R" },
+             new { @class = "form-control btn tickCritico", @style = "width:35px", data_toggle = "tooltip", data_placement = "top", Title = "Crítica" })
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "A" },
+             new { @class = " form-control btn", @style = "background-color: #ffff99; width:35px", data_toggle = "tooltip", data_placement = "top", Title = "Alerta" })
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "M" },
+             new { @class = " form-control btn", @style = "background-color: #ffad33; width:35px", data_toggle = "tooltip", data_placement = "top", Title = "Mantenimiento" })
+
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "Z" },
+             new { @class = " form-control btn", @style = "background-color: #b3e0ff; width:35px", data_toggle = "tooltip", data_placement = "top", Title = "Alerta de contención" })
+
+            @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "G" },
+             new { @class = " form-control btn", @style = "background-color: #00b33c; width:35px", data_toggle = "tooltip", data_placement = "top", Title = "Mejoras" })*@
+        </div>
+
+
+        <div>
+            <div style="float:left; padding-left:50px; padding-right:20px" ">
+                <label style="color:white">Histórico Tickets:</label>
+                <div class="btn-group" style="padding-right:10px" data-toggle="buttons-radio">
+                    <label class="btn btn-sm btn-default">
+                        NO @Html.RadioButtonFor(model => model.filtro, "NO", new { value = "NO" })
+                    </label>
+                    <label class="btn btn-sm btn-default">
+                        SI @Html.RadioButtonFor(model => model.filtro, "SI", new { value = "SI" })
+                    </label>
+                    @Html.ValidationMessageFor(model => model.filtro, "", new { @class = "text-danger" })
+                </div>
+                <button type="submit" class="btn btn-success btn-md" style="padding-left:5px;" onclick="return mostrar_procesarl();">
+                    <span class="glyphicon glyphicon-save"></span> Filtrar
+                </button>
+
+            </div>
+
+            <div style="float:left; padding-left:10px">
+                <a href='@Url.Action("AbrirPdf", "Tickets")' target="_blank" class="btn btn-primary glyphicon glyphicon-book " role="button" title="Crear tickets"></a>
+            </div>
+
+            <div style="float:left; padding-left:10px">
+                <a href='@Url.Action("DatosTpmBasico", "Tpm", new { cCostos = pCtos })' class="btn btn-primary glyphicon glyphicon-home "
+                   role="button" title="Pág.Principal" onclick="return mostrar_procesarl();"></a>
+            </div>
+
+            <div style="float:left; padding-left:10px">
+                <a href='@Url.Action("ListaTickets", "Tickets", new { CodEq = @datEquipo.CodEquipo, statusTick = true, showError = false })' class="btn btn-success glyphicon glyphicon-refresh"
+                   role="button" title="Pág.Principal" onclick="return mostrar_procesarl();">Actualizar</a>
+            </div>
+        </div>
+        <!--
+    <div class="form-inline" style="float:left; padding-left:50px; padding-top:10px">
+        <label class="text-capitalize form-inline" style="font-size:10pt; color:whitesmoke"> Fallas en Dispositivos: </label>
+        @Html.ActionLink(" ", "Crear", "Tickets", new { CodWc = @datEquipo.WorkCenter, codEqui = @datEquipo.CodEquipo, equipo = @datEquipo.DescripTechnical, tipoTick = "P" },
+      new { @class = " form-control btn", @style = "background-color: #001a4d; width:35px", data_toggle = "tooltip", data_placement = "top", Title = "Pokayoke" })
+    </div>
+        -->
+    </div>
+    <br />
+
+    
+        <div class="container-fluid">
+            <table id="sort" class="display cell-border compact" style="width:100%; font-size:10pt">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Acción</th>
+                        <th scope="col" class="text-center">Item</th>
+                        <th scope="col" class="text-center">Id Ticket</th>
+                        <th scope="col" class="text-center">Código de Equipo</th>
+                        <th scope="col" class="text-center">Descripción</th>
+                        <th scope="col" class="text-center">Efecto de Falla</th>
+                        <th scope="col" class="text-center">Sistema afectado</th>
+                        <th scope="col" class="text-center">Descripción de falla</th>
+                        <!--<th scope="col" class="text-center">Sensor</th>-->
+                        <th scope="col" class="text-center">Hasllazgo Seguridad</th>
+                        <th scope="col" class="text-center">Fecha del reporte</th>
+                        <th scope="col" class="text-center">Usuario que reporto</th>
+                        <th scope="col" class="text-center">Plan de Acción</th>
+                        <th scope="col" class="text-center">Atendio Ticket</th>
+                        <th scope="col" class="text-center">Estatus del Ticket</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{
+          int r = 1;
+                    }
+
+                    @foreach (var row in Model.lstTickets)
+                    {
+
+                        var clase = string.Empty;
+
+                        //if (row.TipoTicket == "R") { clase = "background: linear-gradient(to bottom, #ff0000 0%, #ffffff 60%)"; }
+                        //if (row.TipoTicket == "A") { clase = "background: linear-gradient(to bottom, #ffff99 0%, #ffffff 60%)"; }
+                        //if (row.TipoTicket == "V") { clase = "background: linear-gradient(to bottom, #ccffcc 0%, #ffffff 60%)"; }
+                        //if (row.TipoTicket == "Z") { clase = "background: linear-gradient(to bottom, #0033cc 0%, #ffffff 60%)"; }
+                        //if (row.TipoTicket == "M") { clase = "background: linear-gradient(to bottom, #ffad33 0%, #ffffff 60%)"; }
+                        //if (row.TipoTicket == "G") { clase = "background: linear-gradient(to bottom, #009900 0%, #ffffff 60%)"; }
+
+                        if (row.TipoTicket == "R") { clase = "background-color: #ff6666"; }
+                        if (row.TipoTicket == "A") { clase = "background-color: #ffffcc"; }
+                        if (row.TipoTicket == "V") { clase = "background-color: #ccffcc"; }
+                        if (row.TipoTicket == "Z") { clase = "background-color: #b3e0ff"; }
+                        if (row.TipoTicket == "M") { clase = "background-color: #ffad33"; }
+                        if (row.TipoTicket == "G") { clase = "background-color: #9ae59a"; }
+                        if (row.TipoTicket == "B") { clase = "background-color: #ffffff"; }
+                        if (row.TipoTicket == "P") { clase = "background-color: #001a4d; color:white"; }
+
+
+                    <tr>
+
+                        <td class="text-center LetraBold" style="width: 70px">
+                            <a href='@Url.Action("Consulta", "Tickets", new { Id = row.IdTicket, Eq = row.CodEquipo })' , title="Consultar Detalle">
+                                <img src='@Url.Content("~/Content/Images/ver.jpg")' width="30" height="30" />
+                            </a>
+                            <a href='@Url.Action("Editar", "Tickets", new { Id = row.IdTicket, Eq = row.CodEquipo })' , title="Atender Ticket">
+                                <img src='@Url.Content("~/Content/Images/atender.jpg")' width="30" height="30" />
+                            </a>
+                        </td>
+
+                        <td class="text-center LetraBold">
+                            @r.ToString()
+                        </td>
+
+                        @{
+                            string tic = row.IdTicket.ToString("N0");
+                            <td class="text-center LetraBold" style="@clase">
+                                @Html.HiddenFor(modelItem => row.IdTicket)
+                                @tic
+                            </td>
+
+                        }
+                        <td class="text-left LetraBold" style="@clase">
+                            @Html.HiddenFor(modelItem => row.CodSubEquipo)
+                            @Html.DisplayFor(modelItem => row.CodSubEquipo)
+                        </td>
+                        <td class="text-left LetraBold" style="@clase">
+                            @Html.HiddenFor(modelItem => row.SubEquipo)
+                            @Html.DisplayFor(modelItem => row.SubEquipo)
+                        </td>
+
+                        <td class="text-left LetraBold" style="@clase">
+                            @Html.HiddenFor(modelItem => row.CodFalla)
+                            @Html.DisplayFor(modelItem => row.CodFallaDescrip)
+                        </td>
+
+                        <td class="text-left LetraBold">
+                            @Html.HiddenFor(modelItem => row.CodSistema)
+                            @Html.DisplayFor(modelItem => row.CodSistemaDescrip)
+                        </td>
+
+                        <td style="overflow: hidden;    text-overflow: ellipsis;">
+                            @Html.HiddenFor(modelItem => row.FallaReportada)
+                            @Html.DisplayFor(modelItem => row.FallaReportada)
+                        </td>
+                        <!--
+    <td class="text-center LetraBold">
+        @Html.HiddenFor(modelItem => row.Sensor)
+        @Html.DisplayFor(modelItem => row.Sensor)
+    </td>
+        -->
+                        @{
+                            if (row.HallazgoSeguridad == "SI")
+                            {
+                                <td class="text-center" width="50px">
+
+                                    <img src='@Url.Content("~/Imagenes/safety.png")' width="30" height="30" />
+
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td class="text-nowrap" width="50px"></td>
+                            }
+                        }
+
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.FchReporte)
+                            @{
+                                if (row.FchReporte.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                {
+                                    @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchReporte))
+                                }
+                            }
+                        </td>
+                        <td class="text-center">
+                            @Html.HiddenFor(modelItem => row.UsuarioReporto)
+                            @Html.DisplayFor(modelItem => row.UsuarioReporto)
+                        </td>
+
+
+                        <td>
+                            @Html.HiddenFor(modelItem => row.AccionPlan)
+                            @Html.DisplayFor(modelItem => row.AccionPlan)
+                        </td>
+
+
+
+                        <td>
+                            @Html.HiddenFor(modelItem => row.UsrAtendio)
+                            @Html.DisplayFor(modelItem => row.UsrAtendio)
+                        </td>
+                        <td class="text-left">
+                            @Html.HiddenFor(modelItem => row.CodStatus)
+                            @Html.DisplayFor(modelItem => row.CodStatusDescrip)
+                        </td>
+
+                    </tr>
+
+                        r = r + 1;
+
+
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+   
+</form>
+@{ if (mostrarAviso)
+    {
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title LetraBold " id="exampleModalLongTitle">@ViewBag.ErrorTitu</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Necesita estar autentificado para poder hacer modificaciones a los tickets..
+                            Si no cuenta con un usuario, por favor solicitelo al administrador del TPM de Mantenimiento
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                //columnDefs: [
+                //    { type: 'date', targets: [3] }
+                //],
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "paging": false,
+                "responsive ": true,
+                "select": true,
+                "fixedHeader": true,
+                "searching": true,
+                "scrollX": true
+
+            });
+
+            //table.on('order.dt search.dt', function () {
+            //    table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+            //        cell.innerHTML = i + 1;
+            //    });
+            //}).draw();
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+
+
+        $('#myModal').modal('show');
+
+    </script>
+}

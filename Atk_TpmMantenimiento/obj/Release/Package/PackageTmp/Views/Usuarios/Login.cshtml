@@ -1,0 +1,63 @@
+﻿@model Entidades.UsuarioTpm
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<style>
+    .colorH {
+        background-color: brown;
+        color: whitesmoke
+    }
+</style>
+
+@*<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">
+        Create Datos
+    </button>*@
+
+@*<div data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">*@
+<!-- Modal -->
+@using (Ajax.BeginForm("Login", "Usuarios", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "frmlogin" }))
+{
+    <div class="container">
+        <br />
+        <h4>@ViewBag.Message</h4>
+        <hr />
+    </div>
+    <div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header colorH">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Crear nuevos datos</h4>
+                    </div>
+                    <div class="modal-body" id="frmLogin">
+                        @Html.Partial("_LoginModal", Model)
+                    </div>
+                    <div class="modal-footer colorH">
+                        @*                     <input type="submit" class="btn btn-primary" value="Submit" />*@
+                        <div class="col-sm-6 form-group">
+                            <button type="submit" class="btn btn-success  btn-md col-sm-offset-4 col-sm-6" onclick="return mostrar_procesar();">
+                                <span class="glyphicon glyphicon-save"></span>
+                                <span class="submit-text"> Entrar </span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div style=" float:none"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+}
+

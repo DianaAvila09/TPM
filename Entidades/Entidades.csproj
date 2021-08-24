@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1FA0BA5-BDCB-4E78-94CE-8F3F9ED5A399}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actividad.cs" />
+    <Compile Include="AltaActivGrpo.cs" />
+    <Compile Include="AltaActividad.cs" />
+    <Compile Include="AltaCheckListDet.cs" />
+    <Compile Include="AltaCheckListEnc.cs" />
+    <Compile Include="AltaChkxEq.cs" />
+    <Compile Include="AltaCodeQr.cs" />
+    <Compile Include="AltaCompo.cs" />
+    <Compile Include="AltaFallas.cs" />
+    <Compile Include="AltaGpoAct.cs" />
+    <Compile Include="AltaPlanManto.cs" />
+    <Compile Include="AltaPMStd.cs" />
+    <Compile Include="AltaRangos.cs" />
+    <Compile Include="AltaSistManto.cs" />
+    <Compile Include="AltaTicket.cs" />
+    <Compile Include="AltaUsuario.cs" />
+    <Compile Include="BarraAvance.cs" />
+    <Compile Include="CantFallasEquipo.cs" />
+    <Compile Include="CapturaChklst.cs" />
+    <Compile Include="CatEquipo.cs" />
+    <Compile Include="CatPMS.cs" />
+    <Compile Include="CatStatusTicket.cs" />
+    <Compile Include="CheckListDet.cs" />
+    <Compile Include="CheckListDt.cs" />
+    <Compile Include="CheckListEnc.cs" />
+    <Compile Include="CheckListEqDt.cs" />
+    <Compile Include="CheckListEqEnc.cs" />
+    <Compile Include="ClasificFalla.cs" />
+    <Compile Include="ClasifCheckList.cs" />
+    <Compile Include="CodeQr.cs" />
+    <Compile Include="Componente.cs" />
+    <Compile Include="Coproducto.cs" />
+    <Compile Include="DatosConfig.cs" />
+    <Compile Include="DatosError.cs" />
+    <Compile Include="DatosTendencia.cs" />
+    <Compile Include="Departamento.cs" />
+    <Compile Include="Empleado.cs" />
+    <Compile Include="Equipo.cs" />
+    <Compile Include="DatosCnxSap.cs" />
+    <Compile Include="DatosCorreo.cs" />
+    <Compile Include="EquipoPadre.cs" />
+    <Compile Include="EquipoTpmBasico.cs" />
+    <Compile Include="EstruturaEquipo.cs" />
+    <Compile Include="Ciclos.cs" />
+    <Compile Include="Falla.cs" />
+    <Compile Include="FamiliaProductos.cs" />
+    <Compile Include="FocusFactory.cs" />
+    <Compile Include="GraficakpiChk.cs" />
+    <Compile Include="KpiPkyk.cs" />
+    <Compile Include="KpiPkykMes.cs" />
+    <Compile Include="KpiTm.cs" />
+    <Compile Include="KpiTicket.cs" />
+    <Compile Include="KpiTop5.cs" />
+    <Compile Include="kpitop5pkyk.cs" />
+    <Compile Include="KpiTpmCumpl.cs" />
+    <Compile Include="GrupoActivDt.cs" />
+    <Compile Include="GrupoActivEnc.cs" />
+    <Compile Include="KpiTpmEfic.cs" />
+    <Compile Include="ListaTickets.cs" />
+    <Compile Include="Mes.cs" />
+    <Compile Include="Meses.cs" />
+    <Compile Include="ParamKpiChklst.cs" />
+    <Compile Include="ParamKpiPkyk.cs" />
+    <Compile Include="ParamKpiTpm.cs" />
+    <Compile Include="ParamRepAtnTickets.cs" />
+    <Compile Include="ParamRepChecklist.cs" />
+    <Compile Include="ParamRepTickets.cs" />
+    <Compile Include="Periodos.cs" />
+    <Compile Include="PlanMantto.cs" />
+    <Compile Include="PlantaSatelite.cs" />
+    <Compile Include="PmStandar.cs" />
+    <Compile Include="ProducNotificada.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RespuestaTick.cs" />
+    <Compile Include="RfcParam.cs" />
+    <Compile Include="RolAcceso.cs" />
+    <Compile Include="SensorActividad.cs" />
+    <Compile Include="SensorBitacora.cs" />
+    <Compile Include="SistemaManto.cs" />
+    <Compile Include="StsBitSensor.cs" />
+    <Compile Include="tblAufk.cs" />
+    <Compile Include="TblSap_CRHD.cs" />
+    <Compile Include="TblSap_EQKT.cs" />
+    <Compile Include="TblSap_EQUI.cs" />
+    <Compile Include="TblSap_IFLO.cs" />
+    <Compile Include="TblSap_EQUZ.cs" />
+    <Compile Include="TblSap_ILOA.cs" />
+    <Compile Include="TblSap_JCDS.cs" />
+    <Compile Include="TblSap_JEST.cs" />
+    <Compile Include="TblSap_TJ02T.cs" />
+    <Compile Include="EquipoTpm.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="Top5WCTick.cs" />
+    <Compile Include="TipoFalla.cs" />
+    <Compile Include="TipoQr.cs" />
+    <Compile Include="TipoWom.cs" />
+    <Compile Include="TpmkpiTop5.cs" />
+    <Compile Include="Turno.cs" />
+    <Compile Include="Uom.cs" />
+    <Compile Include="UpdCatSap.cs" />
+    <Compile Include="UsuarioAcceso.cs" />
+    <Compile Include="UsuarioCtroCostos.cs" />
+    <Compile Include="UsuarioTpm.cs" />
+    <Compile Include="WcReportables.cs" />
+    <Compile Include="WorkCenter.cs" />
+    <Compile Include="WorkCter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

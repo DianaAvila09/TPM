@@ -1,0 +1,38 @@
+﻿@model Entidades.UsuarioAcceso
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<style>
+    .modal-content {
+        width: 500px !important;
+        margin: 30px auto !important;
+    }
+</style>
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-user"></i> Log-Out del sistema</h4>
+    </div>
+</div>
+<hr />
+
+<div class="container" style="padding:10px">
+    @using (Ajax.BeginForm("FinSesion2", "Usuarios", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p>
+            A salido del sistema.
+            Saludos.
+        </p>
+        <hr />
+        <button type="submit" class="btn btn-danger">
+            <span class="glyphicon glyphicon-remove"></span>
+            <span class="submit-text"> Cerrar </span>
+        </button>
+    }
+</div>
+

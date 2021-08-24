@@ -1,0 +1,161 @@
+﻿@model List<Entidades.UsuarioTpm>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+@{
+    string vClase = "btn btn-md btn-primary disabled";
+    if (Session["CatTpm"] != null)
+    {
+        if ((bool)Session["CatTpm"] == true)
+        {
+            vClase = "btn btn-primary";
+        }
+    }
+
+}
+<form id="MyForm" asp-controller="CatPlanesMantto">
+    <div class="row">
+        <div class="container-fluid">
+
+            <div class="media" style="margin:10px">
+                <div class="media-left">
+                    <label class="btn-sm titu">@ViewBag.Message</label>
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Nuevo", "Nuevo", "Usuarios", new { @class = vClase + " glyphicon glyphicon-file", data_modal = "" })
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Actualizar", "CatUsuarios", "Usuarios", new { @class = "btn btn-md btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+                </div>
+            </div>
+
+            <div>
+                <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Acción</th>
+                            <th class="text-center">Id #</th>
+                            <th class="text-center" scope="col">Núm. Control</th>
+                            <th class="text-center" scope="col">Nombre</th>
+                            <th class="text-center" scope="col">Activo en TPM</th>
+                            <th scope="col">Centro Costos</th>
+                            <th scope="col">Desripción Ctro.Ctos.</th>
+                            <th class="text-center" scope="col">Roll</th>
+                            <th scope="col">Descripción Roll</th>
+                            <th class="text-center" scope="col">Roll Activo</th>
+                            <th class="text-center" scope="col">Fec. de Alta</th>
+                            <th class="text-center" scope="col">Agrego</th>
+                            <th class="text-center" scope="col">Acceso Cat. Tpm</th>
+                            <th class="text-center" scope="col">Acceso Editar Ticket</th>
+                            <th class="text-center" scope="col">Acceso Cat. Checklist</th>
+                            <th class="text-center" scope="col">Acceso Captura Checklist</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", "Usuarios", new { Id = row.Id }, new { @class = vClase + " glyphicon glyphicon-edit", data_modal = "" })
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.Id)
+                                @Html.DisplayFor(modelItem => row.Id)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.NumControl)
+                                @Html.DisplayFor(modelItem => row.NumControl)
+                            </td>
+                            <td class="cortarText180">
+                                @Html.HiddenFor(modelItem => row.Nombre)
+                                @Html.DisplayFor(modelItem => row.Nombre)
+                            </td>
+
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.StatusEmpTpm)
+                                @Html.DisplayFor(modelItem => row.StatusEmpTpm)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.CentroCostos)
+                                @Html.DisplayFor(modelItem => row.CentroCostos)
+                            </td>
+                            <td class="text-nowrap">
+
+                                @Html.HiddenFor(modelItem => row.DesripCCostos)
+                                @Html.DisplayFor(modelItem => row.DesripCCostos)
+
+                            </td>
+
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.ClaveRol)
+                                @Html.DisplayFor(modelItem => row.ClaveRol)
+                            </td>
+                            <td class="text-nowrap">
+                                @Html.HiddenFor(modelItem => row.DespcripRol)
+                                @Html.DisplayFor(modelItem => row.DespcripRol)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.EstatusRol)
+                                @Html.DisplayFor(modelItem => row.EstatusRol)
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    @Html.HiddenFor(modelItem => row.FecAlta)
+                                    @Convert.ToString(string.Format("{0:dd/MM/yyyy}", row.FecAlta))
+                                </div>
+                            </td>
+
+                            <td>
+                                @Html.HiddenFor(modelItem => row.Agrego)
+                                @Html.DisplayFor(modelItem => row.Agrego)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.CatTpm)
+                                @Html.DisplayFor(modelItem => row.CatTpm)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.EditarTicket)
+                                @Html.DisplayFor(modelItem => row.EditarTicket)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.CatChecklist)
+                                @Html.DisplayFor(modelItem => row.CatChecklist)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.CapturaChecklist)
+                                @Html.DisplayFor(modelItem => row.CapturaChecklist)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[2, 'asc'], [5, 'asc']]
+            });
+        });
+
+
+    </script>
+}

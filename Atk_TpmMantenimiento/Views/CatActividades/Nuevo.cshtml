@@ -1,0 +1,179 @@
+﻿@model Entidades.AltaActividad
+
+
+<form asp-controller="CatActividades" method="post" action="Nuevo" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"> @ViewBag.Message</h4>
+    </div>
+    <div style="background-color: #eef3f7;">
+        <br />
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.HiddenFor(Model => Model.Activi.CodDepartamento)
+                @Html.Label("Sist de Mantenimiento: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.Activi.CodSistema,
+                    new SelectList(Model.lstSisManto, "CodSistema", "keySistemas"), "-- Seleccion un valor --",
+                    new { id = "lstSistMantto", @class = "selectCodSist show-tick form-control" })
+                    @Html.ValidationMessageFor(model => model.Activi.CodSistema, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Componente: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.Activi.IdComponente,
+                    new SelectList(Model.lstCompo, "IdComponente", "DescripCompo"), "-- Seleccion un valor --",
+                    new { id = "lstCompo", @class = "selectIdCompo form-control", @style="font-size:14px" })
+                    @Html.ValidationMessageFor(model => model.Activi.IdComponente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Descripción: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.Activi.DescripcionAct, 3, 80,
+              new { @class = "form-control", placeholder = "Escriba la actividad a realizar",
+                    @style = "font-size:14px; max-width:100% !important; resize:none;" })
+                @Html.ValidationMessageFor(model => model.Activi.DescripcionAct, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group col-md-8">
+            @Html.Label("Descripción: ", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.Activi.DescripcionAct, new { @class = "form-control", @style = "max-width:100%;" })
+                @Html.ValidationMessageFor(model => model.Activi.DescripcionAct, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group col-md-8">
+            @Html.Label("Regla: caracteres (Sistemas) - Caracteres (Accion) - caracteres (componentes) ", htmlAttributes: new { @class = "control-label col-md-8 alert alert-success" })
+        </div>
+        <br />
+        <div class="form-group col-md-8">
+            @Html.Label("Código: ", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.Activi.CodActividad, new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(model => model.Activi.CodActividad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Tipo: ", htmlAttributes: new { @class = "control-label  col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Visual @Html.RadioButtonFor(model => model.Activi.TipoOperacion, "V")
+                    </label>
+                    <label class="btn btn-md btn-default" style="font-size:14px; width:100px; text-align:right">
+                        Medible @Html.RadioButtonFor(model => model.Activi.TipoOperacion, "M")
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Equipo Parado: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Si @Html.RadioButtonFor(model => model.Activi.EqParado, true)
+                    </label>
+                    <label class="btn btn-md btn-default" style="font-size:14px; width:100px; text-align:right">
+                        No @Html.RadioButtonFor(model => model.Activi.EqParado, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Estatus actividad: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.Activi.Activo, true)
+                    </label>
+                    <label class="btn btn-md btn-default text-right" style="font-size:14px; width:100px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.Activi.Activo, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br />
+        @Html.HiddenFor(model => model.Activi.UserAlta)
+        @Html.HiddenFor(model => model.Activi.UserModif)
+        @Html.HiddenFor(model => model.Activi.FchAlta)
+        @Html.HiddenFor(model => model.Activi.FchModif)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8" style="font-family:Arial">
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-save"></span> Guardar
+                </button>
+                @Html.ActionLink("Cancelar", "CatActividades", "CatActividades", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:16px" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <h4 class="bg-info white-text"> @ViewBag.msg</h4>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script>
+        $('#CodSistema').focus();
+
+        $(document).ready(function () {
+            $('#lstSistMantto').attr('data-live-search', true);
+            $('.selectCodSist').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Sistema ]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+        });
+
+        $(document).ready(function ()    {
+            $("#lstSistMantto").change(function () {
+                $("#lstCompo").empty();
+                $.ajax(
+                    {
+                    type: 'POST',
+                    url: '@Url.Action("GetCatCompoSistema", "CatActividades")',
+                        dataType: 'json',
+                    data: { pCodSistema: $("#lstSistMantto").val(), pCodDepartamento: '@Model.Activi.CodDepartamento' },
+                    success: function (citys)
+                    {
+                        $.each(citys, function (i, city)
+                        {
+                            $("#lstCompo").append('<option value="'
+                                + city.Value + '">'
+                                + city.Text + '</option>');
+                        });
+                    },
+
+                    error: function (ex)
+                    {
+                        alert('Falla al obtener datos' + ex);
+                        }
+                    });
+
+                return false;
+            });
+        });
+    </script>
+}

@@ -1,0 +1,81 @@
+﻿@model Entidades.AltaSistManto
+
+@{
+    Layout = null;
+}
+
+@*<form asp-controller="CatSistEquipos" method="post" action="Create">*@
+<section>
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+        <div class="modal-shadow text-center">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    @*<h4 class="modal-title" id="myModalLabel">@ViewBag.Message</h4>*@
+
+                    <h2>@ViewBag.Message</h2>
+
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    @*<hr />*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SistManto.CodSistema, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SistManto.CodSistema, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SistManto.CodSistema, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SistManto.Sistema, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.SistManto.Sistema, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SistManto.Sistema, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Departamento: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.SistManto.CodDepartamento, new SelectList(Model.lstDeptos, "CodDepartamento", "Descrip"), "-- Seleccion un valor --", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SistManto.CodDepartamento, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SistManto.Estatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.SistManto.Estatus)
+                                @Html.ValidationMessageFor(model => model.SistManto.Estatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-4">
+                            <input type="submit" value="Guardar" class="btn btn-primary" onclick="return mostrar_procesar();" />
+                        </div>
+                    </div>
+                </div>
+                @*</form>*@
+            </div>
+
+            <div>
+                @Html.ActionLink("Regresar", "CatSistEquipos", "CatSistEquipos", new { @class = "btn btn-primary", onclick = "return mostrar_procesar();" })
+            </div>
+        </div>
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

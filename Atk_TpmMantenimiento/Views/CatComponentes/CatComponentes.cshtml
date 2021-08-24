@@ -1,0 +1,135 @@
+﻿@model List<Entidades.Componente>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+
+@{
+    string vClase = "btn btn-sm btn-primary disabled";
+    if (Session["CatChecklist"] != null)
+    {
+        if ((bool)Session["CatChecklist"] == true)
+        {
+            vClase = "btn btn-sm btn-primary ";
+        }
+    }
+
+}
+<form id="MyForm" asp-controller="CatActividades">
+    <div class="row">
+        <div class="container-fluid">
+
+            <div class="media" style="margin:10px">
+                <div class="media-left">
+                    <label class="btn-sm titu">@ViewBag.Message</label>
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Nuevo", "Nuevo", "Componentes", new { @class = vClase + " glyphicon glyphicon-file" })
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Actualizar", "CatComponentes", "Componentes", new { @class = "btn btn-sm btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+                </div>
+            </div>
+
+            <div>
+                <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Acción</th>
+                            <th class="text-center">Id Componente</th>
+                            <th scope="col">Descripción</th>
+                            @*<th scope="col">Codigo Sist.</th>*@
+                            <th scope="col">Sistema</th>
+                            @*<th scope="col">Codigo Depto</th>*@
+                            <th scope="col">Depto</th>
+                            <th scope="col">WorkCenter</th>
+                            <th scope="col">Activo</th>
+                            <th scope="col">Agrego</th>
+                            <th scope="col">Fec Alta</th>
+                            <th scope="col">Fec Modif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Editar", "Editar", "CatComponentes", new { Id = row.IdComponente }, new { @class = vClase + " glyphicon glyphicon-edit" })
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.IdComponente)
+                                @Html.DisplayFor(modelItem => row.IdComponente)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripCompo)
+                                @Html.DisplayFor(modelItem => row.DescripCompo)
+                            </td>
+                            @*<td class="text-center">
+            @Html.HiddenFor(modelItem => row.CodSistema)
+            @Html.DisplayFor(modelItem => row.CodSistema)
+        </td>*@
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.DescripSist)
+                                @Html.DisplayFor(modelItem => row.DescripSist)
+                            </td>
+                            @*<td class="text-center">
+            @Html.HiddenFor(modelItem => row.CodDepartamento)
+            @Html.DisplayFor(modelItem => row.CodDepartamento)
+        </td>*@
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.DescripDepto)
+                                @Html.DisplayFor(modelItem => row.DescripDepto)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.WorkCenter)
+                                @Html.DisplayFor(modelItem => row.WorkCenter)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.StatusCompo)
+                                @Html.DisplayFor(modelItem => row.StatusCompo)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.Usuario)
+                                @Html.DisplayFor(modelItem => row.Usuario)
+                            </td>
+                            <td class="text-center">
+                                <div>
+                                    @Html.HiddenFor(modelItem => row.FchAlta)
+                                    @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchAlta))
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.FchModif)
+                                @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchModif))
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[1, 'asc']]
+            });
+        });
+
+
+    </script>
+    }
+

@@ -1,0 +1,82 @@
+﻿@model List<Entidades.Departamento>
+<form asp-controller="CatDeptos">
+
+    <div class="row">
+        <div class="container-fluid">
+            <label class="btn-sm tituMarg">Catálogo de Departamentos</label>
+
+            <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+
+                <thead>
+                    <tr>
+                        <th class="text-center">Id #</th>
+                        <th scope="col">Id Planta</th>
+                        <th scope="col">Planta Satélite</th>
+                        <th scope="col">Codigo Departamento</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Centro Costos</th>
+                        <th scope="col">Estatus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.Id)
+                                @Html.DisplayFor(modelItem => row.Id)
+
+                            </td>
+                            <td class="text-nowrap">
+                                @Html.HiddenFor(modelItem => row.IdPlanta)
+                                @Html.DisplayFor(modelItem => row.IdPlanta)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.PlantaSatelite)
+                                @Html.DisplayFor(modelItem => row.PlantaSatelite)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.CodDepartamento)
+                                @Html.DisplayFor(modelItem => row.CodDepartamento)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.Descrip)
+                                @Html.DisplayFor(modelItem => row.Descrip)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.CentroCostos)
+                                @Html.DisplayFor(modelItem => row.CentroCostos)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.Estatus)
+                                @Html.DisplayFor(modelItem => row.Estatus)
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "paging": false,
+                "responsive ": true,
+                "select": true,
+                "fixedHeader": true,
+                "scrollCollapse": true,
+                "scrollX": true,
+                "order": [[1, 'asc']]
+            });
+        });
+    </script>
+
+
+}
+

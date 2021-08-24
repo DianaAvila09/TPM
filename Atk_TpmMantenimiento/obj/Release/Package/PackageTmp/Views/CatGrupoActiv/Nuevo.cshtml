@@ -1,0 +1,100 @@
+﻿@model Entidades.GrupoActivEnc
+
+
+<form asp-controller="CatGrupoActiv" method="post" action="Nuevo" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"> @ViewBag.Message</h4>
+    </div>
+    <div style="background-color: #eef3f7;">
+        <br />
+        <div class="form-group col-md-9">
+            @Html.Label("Código: ", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.CodGrupo, new { @class = "form-control", @style = "text-transform:uppercase" })
+                @Html.ValidationMessageFor(model => model.CodGrupo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-9">
+            @Html.Label("Descripción: ", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.DescripGpo, new { @class = "form-control", @style = "max-width:100%;" })
+                @Html.ValidationMessageFor(model => model.DescripGpo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Ejecutar con Equipo detenido: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Si @Html.RadioButtonFor(model => model.EqParado, true)
+                    </label>
+                    <label class="btn btn-md btn-default" style="font-size:14px; width:100px; text-align:right">
+                        No @Html.RadioButtonFor(model => model.EqParado, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Estatus del Grupo: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.Activo, true)
+                    </label>
+                    <label class="btn btn-md btn-default text-right" style="font-size:14px; width:100px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.Activo, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br />
+        @Html.HiddenFor(model => model.CodDepartamento)
+        @Html.HiddenFor(model => model.UserAlta)
+        @Html.HiddenFor(model => model.UserModif)
+        @Html.HiddenFor(model => model.FchAlta)
+        @Html.HiddenFor(model => model.FchModif)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-9" style="font-family:Arial">
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-save"></span> Guardar
+                </button>
+                @Html.ActionLink("Cancelar", "CatGrupoActiv", "CatGrupoActiv", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:16px" })
+            </div>
+        </div>
+        <br />
+        @{
+            if (ViewBag.result == "B")
+            {
+                <div class="alert alert-success">
+                    <strong>@ViewBag.msg</strong>
+                </div>
+            }
+            if (ViewBag.result == "M")
+            {
+                <div class="alert alert-danger">
+                    <strong>@ViewBag.msg</strong>
+                </div>
+            }
+        }
+
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script>
+        $('#CodGrupo').focus();
+    </script>
+}

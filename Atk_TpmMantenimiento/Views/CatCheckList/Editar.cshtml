@@ -1,0 +1,158 @@
+﻿@model Entidades.AltaCheckListEnc
+
+<form asp-controller="CatCheckList" method="post" action="Editar" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message</h4>
+    </div>
+    <div class="form-group" style="background-color:#abc2d4; padding:5px">
+
+        @Html.Label("Id:", htmlAttributes: new { @class = "control-label col-md-1" })
+        <div class="col-md-1">
+            @Html.HiddenFor(model => model.EncCheckList.IdCheckList)
+            @Html.TextBoxFor(model => model.EncCheckList.IdCheckList, new { @class = "form-control text-center", disabled = "true" })
+        </div>
+
+        @Html.Label("Código:", htmlAttributes: new { @class = "control-label col-md-1" })
+        <div class="col-md-2">
+            @Html.HiddenFor(model => model.EncCheckList.CodCheckList)
+            @Html.TextBoxFor(model => model.EncCheckList.CodCheckList, new { @class = "form-control text-center", disabled = "true" })
+        </div>
+        <br />
+    </div>
+
+    <div style="background-color: #eef3f7;">
+        <br />
+        <div class="form-group">
+            <div class="col-md-9">
+                @Html.Label("Descripción:", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.EncCheckList.DescripCheckList, new { @class = "form-control", @style = "max-width:100%;" })
+                    @Html.ValidationMessageFor(model => model.EncCheckList.DescripCheckList, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+            
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Clasificación:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.EncCheckList.CodClasif,
+                        new SelectList(Model.lstClasif, "CodClasif", "CodClasif"), "-- Seleccion un valor --",
+                        new { id = "lstClasif", @class = "selectClasif show-tick form-control " })
+
+                        @Html.ValidationMessageFor(model => model.EncCheckList.CodClasif, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <br />
+
+
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Equipo Parado:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="btn-group">
+                        <label class="btn btn-xs btn-success" style="font-size:14px; width:70px; text-align:right">
+                            Si @Html.RadioButtonFor(model => model.EncCheckList.EqParado, true)
+                        </label>
+                        <label class="btn btn-xs btn-default" style="font-size:14px; width:80px; text-align:right">
+                            No @Html.RadioButtonFor(model => model.EncCheckList.EqParado, false)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Estatus:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="btn-group">
+                        <label class="btn btn-xs btn-success" style="font-size:14px; text-align:right">
+                            Activo @Html.RadioButtonFor(model => model.EncCheckList.Activo, true)
+                        </label>
+                        <label class="btn btn-xs btn-default text-right" style="font-size:14px; text-align:right">
+                            Inactivo @Html.RadioButtonFor(model => model.EncCheckList.Activo, false)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Agrego:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-3">
+                        @Html.HiddenFor(model => model.EncCheckList.UserAlta)
+                        @Html.TextBoxFor(model => model.EncCheckList.UserAlta, new { @class = "form-control", disabled = "true" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Fecha de alta:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-3">
+                        @Html.HiddenFor(model => model.EncCheckList.FchAlta)
+                        @Html.TextBoxFor(model => model.EncCheckList.FchAlta, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", disabled = "true" })
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Modifico:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-3">
+                        @Html.HiddenFor(model => model.EncCheckList.UserModif)
+                        @Html.TextBoxFor(model => model.EncCheckList.UserModif, new { @class = "form-control", disabled = "true" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-9">
+                    @Html.Label("Actualizacion:", htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-3">
+                        @Html.HiddenFor(model => model.EncCheckList.FchModif)
+                        @Html.TextBoxFor(model => model.EncCheckList.FchModif, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", disabled = "true" })
+
+                    </div>
+                </div>
+            </div>
+        @Html.HiddenFor(mode => Model.EncCheckList.CodDepartamento)
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-9" style="font-family:Arial">
+                    <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-save"></span> Guardar
+                    </button>
+                    @Html.ActionLink("Cancelar", "CatCheckList", "CatCheckList", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:14px" })
+                </div>
+            </div>
+            <br />
+
+        </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script>
+        $('#EncCheckList.DescripCheckList').focus();
+
+        $(document).ready(function () {
+            $('#lstClasif').attr('data-live-search', true);
+            $('.selectClasif').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona clasificación ]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+        });
+
+    </script>
+}

@@ -1,0 +1,82 @@
+﻿@model Entidades.UsuarioTpm
+<div class="container">
+    <br />
+    <h4>@ViewBag.Message</h4>
+    <hr />
+</div>
+
+<form asp-controller="Usuarios" method="post" action="Login">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @Html.AntiForgeryToken()
+
+    
+
+        <div class="container-fluid form-horizontal">
+            <row>
+                <div class="col-sm-2 media-left">
+                    <img src="~/Imagenes/llave.jpg" width="250" />
+                </div>
+
+                <div class="col-sm-6" style="float:left">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NumControl, new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-4">
+                            @Html.TextBoxFor(model => model.NumControl, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.NumControl, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, new { @class = "col-sm-3 control-label" })
+                        <div class="col-sm-4">
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nombre, new { @class = "col-sm-3 control-label" })
+                        <div class="form-control col-sm-6">
+                            @Html.HiddenFor(model => model.Nombre)
+                            @Html.DisplayFor(model => model.Nombre)
+                        </div>
+                    </div>
+
+                    @{
+                        if (ViewBag.Result != null)
+                        {
+
+                            if (ViewBag.Result)
+                            {
+                                <div class="col-sm-6| form-group">
+                                    <div class="alert alert-success">Bienvenido, su usuario fue correcto</div>
+                                </div>}
+                            else
+                            {
+                                <div class="col-sm-6 form-group">
+                                    <div class="alert alert-danger">Datos incorrectos</div>
+                                </div>
+                            }
+                        }
+                    }
+
+                    <div class="col-sm-6 form-group">
+                        <button type="submit" class="btn btn-success  btn-md col-sm-offset-4 col-sm-6" onclick="return mostrar_procesar();">
+                            <span class="glyphicon glyphicon-save"></span>
+                            <span class="submit-text"> Entrar </span>
+                        </button>
+                    </div>
+
+                </div>
+                <div style=" float:none"></div>
+            </row>
+            test
+        </div>
+
+
+</form>
+
+@section Scripts {
+  @*  @Scripts.Render("~/bundles/jqueryval")*@
+}

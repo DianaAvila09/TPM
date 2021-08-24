@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TpmMttoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CatClasifFallas">
+    <Key>
+      <PropertyRef Name="IdClasif" />
+    </Key>
+    <Property Name="IdClasif" Type="int" Nullable="false" />
+    <Property Name="CodClasif" Type="varchar" MaxLength="5" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="35" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="CatComponentes">
+    <Key>
+      <PropertyRef Name="CveCompo" />
+    </Key>
+    <Property Name="CveCompo" Type="numeric" Precision="7" Scale="0" Nullable="false" />
+    <Property Name="Componente" Type="varchar" MaxLength="70" />
+    <Property Name="Sistema" Type="varchar" MaxLength="10" />
+    <Property Name="Equipo" Type="varchar" MaxLength="10" />
+    <Property Name="InicioVig" Type="date" />
+    <Property Name="TerminaVig" Type="date" />
+    <Property Name="UltRevision" Type="date" />
+    <Property Name="UltPreventivo" Type="date" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+    <Property Name="UltTicket" Type="varchar" MaxLength="10" />
+    <Property Name="FecUltTicket" Type="datetime" />
+    <Property Name="Minimo" Type="numeric" Precision="10" Scale="3" />
+    <Property Name="Maximo" Type="numeric" Precision="10" Scale="3" />
+    <Property Name="Promedio" Type="numeric" Precision="10" Scale="3" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TpmMtto.dbo.CatEqui' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CatEqui">
+    <Key>
+      <PropertyRef Name="ObjectNumber" />
+    </Key>
+    <Property Name="CodEquipo" Type="varchar" MaxLength="18" />
+    <Property Name="LengEqui" Type="varchar" MaxLength="2" />
+    <Property Name="TecObjAutGrp" Type="varchar" MaxLength="4" />
+    <Property Name="CategoryEqui" Type="varchar" MaxLength="1" />
+    <Property Name="TypeTechObj" Type="varchar" MaxLength="10" />
+    <Property Name="ManufAsset" Type="varchar" MaxLength="30" />
+    <Property Name="ManufModelNum" Type="varchar" MaxLength="20" />
+    <Property Name="ConsecutiveNum" Type="varchar" MaxLength="10" />
+    <Property Name="ObjectNumber" Type="varchar" MaxLength="22" Nullable="false" />
+    <Property Name="MaintenancePlan" Type="varchar" MaxLength="12" />
+    <Property Name="MeasuringPoint" Type="varchar" MaxLength="12" />
+    <Property Name="DescripTechnical" Type="varchar" MaxLength="40" />
+    <Property Name="StatusInactive" Type="varchar" MaxLength="1" />
+    <Property Name="SystemStatus" Type="varchar" MaxLength="5" />
+    <Property Name="LengDescrip" Type="varchar" MaxLength="2" />
+    <Property Name="IndivStatusObject" Type="varchar" MaxLength="4" />
+    <Property Name="ObjectStatus" Type="varchar" MaxLength="30" />
+    <Property Name="ValidDate" Type="date" />
+    <Property Name="NumNextEquipUsage" Type="varchar" MaxLength="10" />
+    <Property Name="MaintPlanningPlant" Type="varchar" MaxLength="10" />
+    <Property Name="ValidFromDate" Type="date" />
+    <Property Name="Superordinate" Type="varchar" MaxLength="18" />
+    <Property Name="PlannerGroup" Type="varchar" MaxLength="10" />
+    <Property Name="PmObjType" Type="varchar" MaxLength="2" />
+    <Property Name="IdWorkCenter" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="TechIdentNumber" Type="varchar" MaxLength="25" />
+    <Property Name="AccountAssignment" Type="varchar" MaxLength="12" />
+    <Property Name="CatalogProfile" Type="varchar" MaxLength="9" />
+    <Property Name="TechnicalInformation" Type="varchar" MaxLength="30" />
+    <Property Name="FunctionalLocation" Type="varchar" MaxLength="40" />
+    <Property Name="CrObjType" Type="varchar" MaxLength="2" />
+    <Property Name="ObjectIdPPWorkCenter" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="ControllingArea" Type="varchar" MaxLength="4" />
+    <Property Name="CostCenter" Type="varchar" MaxLength="10" />
+    <Property Name="MainWorkCenter" Type="varchar" MaxLength="8" />
+    <Property Name="MainWCCategory" Type="varchar" MaxLength="4" />
+    <Property Name="MainWCLocation" Type="varchar" MaxLength="10" />
+    <Property Name="PersonResponsibleMWC" Type="varchar" MaxLength="3" />
+    <Property Name="StandardTextKeyMWC" Type="varchar" MaxLength="7" />
+    <Property Name="StandardValueKeyMWC" Type="varchar" MaxLength="4" />
+    <Property Name="KeyPerformanceEfficRateMWC" Type="varchar" MaxLength="3" />
+    <Property Name="WorkCenter" Type="varchar" MaxLength="8" />
+    <Property Name="CategoryWorkCenter" Type="varchar" MaxLength="4" />
+    <Property Name="LocationWorkCenter" Type="varchar" MaxLength="10" />
+    <Property Name="PersonResponsibleWC" Type="varchar" MaxLength="3" />
+    <Property Name="StandardTextKeyWC" Type="varchar" MaxLength="7" />
+    <Property Name="StandardValueKeyWC" Type="varchar" MaxLength="4" />
+    <Property Name="KeyPerformanceEfficRateWC" Type="varchar" MaxLength="3" />
+    <Property Name="FEC_UPDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CatPlantas">
+    <Key>
+      <PropertyRef Name="idPlanta" />
+    </Key>
+    <Property Name="idPlanta" Type="int" Nullable="false" />
+    <Property Name="ClavePlanta" Type="varchar" MaxLength="10" />
+    <Property Name="planta" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="CatWorkCenter">
+    <Key>
+      <PropertyRef Name="CodWorkCenter" />
+    </Key>
+    <Property Name="Planta" Type="varchar" MaxLength="4" />
+    <Property Name="TipoObjeto" Type="varchar" MaxLength="2" />
+    <Property Name="IdWorkCenter" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="CodWorkCenter" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Categoria" Type="varchar" MaxLength="4" />
+    <Property Name="keyValorStandar" Type="varchar" MaxLength="4" />
+    <Property Name="Administrador" Type="varchar" MaxLength="3" />
+    <Property Name="FocusFactory" Type="varchar" MaxLength="7" />
+    <Property Name="keyValordeOperacion" Type="varchar" MaxLength="4" />
+    <Property Name="InicioVigencia" Type="date" />
+    <Property Name="FinVigencia" Type="date" />
+    <Property Name="Lenguaje" Type="varchar" MaxLength="2" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="FechaUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CatWorkCenter1">
+    <Key>
+      <PropertyRef Name="CRHD_ARBPL" />
+    </Key>
+    <Property Name="CRHD_WERKS" Type="varchar" MaxLength="4" />
+    <Property Name="CRHD_OBJTY" Type="varchar" MaxLength="2" />
+    <Property Name="CRHD_OBJID" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="CRHD_ARBPL" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CRHD_VERWE" Type="varchar" MaxLength="4" />
+    <Property Name="CRHD_VGWTS" Type="varchar" MaxLength="4" />
+    <Property Name="CRHD_VERAN" Type="varchar" MaxLength="3" />
+    <Property Name="CRHD_KTSCH" Type="varchar" MaxLength="7" />
+    <Property Name="CRHD_STEUS" Type="varchar" MaxLength="4" />
+    <Property Name="CRHD_BEGDA" Type="date" />
+    <Property Name="CRHD_ENDDA" Type="date" />
+    <Property Name="CRTX_SPRAS" Type="varchar" MaxLength="2" />
+    <Property Name="CRTX_KTEXT" Type="varchar" MaxLength="50" />
+    <Property Name="FEC_UPDATE" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'TpmMtto.dbo.TicketEvidencias' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TicketEvidencias">
+          <Property Name="ticket" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="evidencia" Type="varbinary(max)" />
+          <Property Name="eviden_pte" Type="varbinary(max)" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TpmMtto.dbo.Tickets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tickets">
+    <Key>
+      <PropertyRef Name="WOM" />
+    </Key>
+    <Property Name="IdPlanta" Type="int" />
+    <Property Name="Ticket" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="CodDepartamento" Type="varchar" MaxLength="10" />
+    <Property Name="CodWorkCenter" Type="varchar" MaxLength="10" />
+    <Property Name="CodEquipo" Type="varchar" MaxLength="18" />
+    <Property Name="FallaReportada" Type="varchar(max)" />
+    <Property Name="FchReporte" Type="datetime" />
+    <Property Name="UsuarioReporto" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Diagnostico" Type="varchar(max)" />
+    <Property Name="CodClasif" Type="varchar" MaxLength="5" />
+    <Property Name="CodSistema" Type="varchar" MaxLength="10" />
+    <Property Name="CodFalla" Type="varchar" MaxLength="10" />
+    <Property Name="Falla" Type="varchar" MaxLength="10" />
+    <Property Name="CodTipoFalla" Type="varchar" MaxLength="5" />
+    <Property Name="CodStatus" Type="varchar" MaxLength="5" />
+    <Property Name="FecStatus" Type="datetime" />
+    <Property Name="UsrAtendio" Type="varchar" MaxLength="10" />
+    <Property Name="AccionPlan" Type="varchar(max)" />
+    <Property Name="FchAccionplan" Type="datetime" />
+    <Property Name="WorkerAsignado" Type="varchar" MaxLength="10" />
+    <Property Name="FecIniReparacion" Type="datetime" />
+    <Property Name="FecEntgregaReparacion" Type="datetime" />
+    <Property Name="CodTipoWom" Type="varchar" MaxLength="10" />
+    <Property Name="WOM" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FchaPromesa" Type="datetime" />
+    <Property Name="FchClose" Type="datetime" />
+    <Property Name="PCReporto" Type="varchar" MaxLength="30" />
+    <Property Name="Notas" Type="varchar(max)" />
+    <Property Name="CausoParo" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'TpmMtto.dbo.UsersMtto' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="UsersMtto">
+          <Property Name="IdTrabajador" Type="numeric" Precision="6" Scale="0" />
+          <Property Name="Usuario" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre" Type="varchar" MaxLength="35" />
+          <Property Name="Area" Type="varchar" MaxLength="15" />
+          <Property Name="Password" Type="varchar" MaxLength="10" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="Fallas" Type="varchar" MaxLength="1" />
+          <Property Name="Calidad" Type="varchar" MaxLength="1" />
+          <Property Name="Tickets" Type="varchar" MaxLength="1" />
+          <Property Name="Admin" Type="varchar" MaxLength="1" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'TpmMtto.dbo.Usuarios' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Usuarios">
+          <Property Name="IdTrabajador" Type="numeric" Precision="6" Scale="0" />
+          <Property Name="Usuario" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre" Type="varchar" MaxLength="35" />
+          <Property Name="Area" Type="varchar" MaxLength="15" />
+          <Property Name="Clave" Type="varchar" MaxLength="10" />
+          <Property Name="Status" Type="varchar" MaxLength="1" />
+        </EntityType>-->
+  <Association Name="FK_Tickets_CatPlantas">
+    <End Role="CatPlantas" Type="Self.CatPlantas" Multiplicity="0..1" />
+    <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatPlantas">
+        <PropertyRef Name="idPlanta" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="IdPlanta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spu_Get_EstrucEquipos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pCtroCtos" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spu_GetCatCaract" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spu_getCatDeptos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spu_getCatFallas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodDepartamento" Type="varchar" Mode="In" />
+    <Parameter Name="CodSistema" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spu_getCatSistemas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodDepartamento" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spu_GetEquipos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pCtroCtos" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="spu_GetFocusFt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spu_GetMainWC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spu_GetPmStandar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="spu_GetProduccionAcum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pFi" Type="date" Mode="In" />
+    <Parameter Name="pFf" Type="date" Mode="In" />
+  </Function>
+  <Function Name="spu_GetWorkCenter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="TpmMttoModelStoreContainer">
+    <EntitySet Name="CatClasifFallas" EntityType="Self.CatClasifFallas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatComponentes" EntityType="Self.CatComponentes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatPlantas" EntityType="Self.CatPlantas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatWorkCenter" EntityType="Self.CatWorkCenter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatWorkCenter1" EntityType="Self.CatWorkCenter1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatEqui" EntityType="Self.CatEqui" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CatEqui].[CodEquipo] AS [CodEquipo], 
+    [CatEqui].[LengEqui] AS [LengEqui], 
+    [CatEqui].[TecObjAutGrp] AS [TecObjAutGrp], 
+    [CatEqui].[CategoryEqui] AS [CategoryEqui], 
+    [CatEqui].[TypeTechObj] AS [TypeTechObj], 
+    [CatEqui].[ManufAsset] AS [ManufAsset], 
+    [CatEqui].[ManufModelNum] AS [ManufModelNum], 
+    [CatEqui].[ConsecutiveNum] AS [ConsecutiveNum], 
+    [CatEqui].[ObjectNumber] AS [ObjectNumber], 
+    [CatEqui].[MaintenancePlan] AS [MaintenancePlan], 
+    [CatEqui].[MeasuringPoint] AS [MeasuringPoint], 
+    [CatEqui].[DescripTechnical] AS [DescripTechnical], 
+    [CatEqui].[StatusInactive] AS [StatusInactive], 
+    [CatEqui].[SystemStatus] AS [SystemStatus], 
+    [CatEqui].[LengDescrip] AS [LengDescrip], 
+    [CatEqui].[IndivStatusObject] AS [IndivStatusObject], 
+    [CatEqui].[ObjectStatus] AS [ObjectStatus], 
+    [CatEqui].[ValidDate] AS [ValidDate], 
+    [CatEqui].[NumNextEquipUsage] AS [NumNextEquipUsage], 
+    [CatEqui].[MaintPlanningPlant] AS [MaintPlanningPlant], 
+    [CatEqui].[ValidFromDate] AS [ValidFromDate], 
+    [CatEqui].[Superordinate] AS [Superordinate], 
+    [CatEqui].[PlannerGroup] AS [PlannerGroup], 
+    [CatEqui].[PmObjType] AS [PmObjType], 
+    [CatEqui].[IdWorkCenter] AS [IdWorkCenter], 
+    [CatEqui].[TechIdentNumber] AS [TechIdentNumber], 
+    [CatEqui].[AccountAssignment] AS [AccountAssignment], 
+    [CatEqui].[CatalogProfile] AS [CatalogProfile], 
+    [CatEqui].[TechnicalInformation] AS [TechnicalInformation], 
+    [CatEqui].[FunctionalLocation] AS [FunctionalLocation], 
+    [CatEqui].[CrObjType] AS [CrObjType], 
+    [CatEqui].[ObjectIdPPWorkCenter] AS [ObjectIdPPWorkCenter], 
+    [CatEqui].[ControllingArea] AS [ControllingArea], 
+    [CatEqui].[CostCenter] AS [CostCenter], 
+    [CatEqui].[MainWorkCenter] AS [MainWorkCenter], 
+    [CatEqui].[MainWCCategory] AS [MainWCCategory], 
+    [CatEqui].[MainWCLocation] AS [MainWCLocation], 
+    [CatEqui].[PersonResponsibleMWC] AS [PersonResponsibleMWC], 
+    [CatEqui].[StandardTextKeyMWC] AS [StandardTextKeyMWC], 
+    [CatEqui].[StandardValueKeyMWC] AS [StandardValueKeyMWC], 
+    [CatEqui].[KeyPerformanceEfficRateMWC] AS [KeyPerformanceEfficRateMWC], 
+    [CatEqui].[WorkCenter] AS [WorkCenter], 
+    [CatEqui].[CategoryWorkCenter] AS [CategoryWorkCenter], 
+    [CatEqui].[LocationWorkCenter] AS [LocationWorkCenter], 
+    [CatEqui].[PersonResponsibleWC] AS [PersonResponsibleWC], 
+    [CatEqui].[StandardTextKeyWC] AS [StandardTextKeyWC], 
+    [CatEqui].[StandardValueKeyWC] AS [StandardValueKeyWC], 
+    [CatEqui].[KeyPerformanceEfficRateWC] AS [KeyPerformanceEfficRateWC], 
+    [CatEqui].[FEC_UPDATE] AS [FEC_UPDATE]
+    FROM [dbo].[CatEqui] AS [CatEqui]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tickets" EntityType="Self.Tickets" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tickets].[IdPlanta] AS [IdPlanta], 
+    [Tickets].[Ticket] AS [Ticket], 
+    [Tickets].[CodDepartamento] AS [CodDepartamento], 
+    [Tickets].[CodWorkCenter] AS [CodWorkCenter], 
+    [Tickets].[CodEquipo] AS [CodEquipo], 
+    [Tickets].[FallaReportada] AS [FallaReportada], 
+    [Tickets].[FchReporte] AS [FchReporte], 
+    [Tickets].[UsuarioReporto] AS [UsuarioReporto], 
+    [Tickets].[Diagnostico] AS [Diagnostico], 
+    [Tickets].[CodClasif] AS [CodClasif], 
+    [Tickets].[CodSistema] AS [CodSistema], 
+    [Tickets].[CodFalla] AS [CodFalla], 
+    [Tickets].[Falla] AS [Falla], 
+    [Tickets].[CodTipoFalla] AS [CodTipoFalla], 
+    [Tickets].[CodStatus] AS [CodStatus], 
+    [Tickets].[FecStatus] AS [FecStatus], 
+    [Tickets].[UsrAtendio] AS [UsrAtendio], 
+    [Tickets].[AccionPlan] AS [AccionPlan], 
+    [Tickets].[FchAccionplan] AS [FchAccionplan], 
+    [Tickets].[WorkerAsignado] AS [WorkerAsignado], 
+    [Tickets].[FecIniReparacion] AS [FecIniReparacion], 
+    [Tickets].[FecEntgregaReparacion] AS [FecEntgregaReparacion], 
+    [Tickets].[CodTipoWom] AS [CodTipoWom], 
+    [Tickets].[WOM] AS [WOM], 
+    [Tickets].[FchaPromesa] AS [FchaPromesa], 
+    [Tickets].[FchClose] AS [FchClose], 
+    [Tickets].[PCReporto] AS [PCReporto], 
+    [Tickets].[Notas] AS [Notas], 
+    [Tickets].[CausoParo] AS [CausoParo]
+    FROM [dbo].[Tickets] AS [Tickets]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Tickets_CatPlantas" Association="Self.FK_Tickets_CatPlantas">
+      <End Role="CatPlantas" EntitySet="CatPlantas" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

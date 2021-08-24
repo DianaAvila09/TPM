@@ -1,0 +1,26 @@
+﻿Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe
+No se pudieron encontrar instaladores públicos con el atributo RunInstallerAttribute.Yes en el ensamblado C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe.
+Confirmando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe
+No se pudieron encontrar instaladores públicos con el atributo RunInstallerAttribute.Yes en el ensamblado C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe.
+Quitar el archivo InstallState porque no hay instaladores.
+Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe
+Instalando el servicio Atk_wsCatFuntLocation...
+El servicio Atk_wsCatFuntLocation se ha instalado correctamente.
+Creando el origen de EventLog Atk_wsCatFuntLocation en el registro Application...
+Confirmando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatFuntLocation\bin\Debug\Atk_wsCatFuntLocation.exe

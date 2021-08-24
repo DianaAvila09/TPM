@@ -1,0 +1,219 @@
+﻿@model Entidades.AltaPMStd
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap-select")
+@Styles.Render("~/Content/Bootstrap-Select/css")
+<script>
+
+     $(document).ready(function ()    {
+         $("#lstEquipos").change(function () {
+             $("#PmStd_WorkCenter").empty();
+                $.ajax(
+                    {
+                    type: 'POST',
+                    url: '@Url.Action("GetWorkCenter", "CatPmStd")',
+                    dataType: 'json',
+                    data: { pEquipo: $("#lstEquipos").val() },
+                    success: function (result)
+                    {
+                        $("#PmStd_WorkCenter").val(result);
+                    },
+                    error: function (ex)
+                    {
+                        alert('Falla de datos' + ex);
+                        }
+                    });
+
+                return false;
+            });
+        });
+    
+
+    $('#modalGenerica').on('shown.bs.modal',
+        function () {
+            $('#lstEquipos').focus();
+        });
+
+    $(document).ready(function () {
+        // Enable Live Search.
+        $('#lstEquipos').attr('data-live-search', true);
+        $('#lstSistMantto').attr('data-live-search', true);
+        $('#lstCiclos').attr('data-live-search', true);
+
+        $('.selectEquipo').selectpicker(
+            {
+                width: '100%',
+                title: '[ Selecciona un Equipo ]',
+                //style: 'btn-success',
+                size: 8
+            });
+
+        $('.selectCodSist').selectpicker(
+            {
+                width: '100%',
+                title: '[ Selecciona un Sistema ]',
+                //style: 'btn-success',
+                size: 10
+            });
+
+        $('.selectCiclos').selectpicker(
+            {
+                width: '100%',
+                title: '[ Selecciona un periodo ]',
+                size: 10
+            });
+
+    });
+</script>
+
+<style>
+    .modal-content {
+        width: 700px !important;
+        margin: 30px auto !important;
+    }
+</style>
+
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-file"></i> @ViewBag.Message</h4>
+    </div>
+</div>
+<br />
+
+<div class="container-fluid">
+    @using (Ajax.BeginForm("Nuevo", "CatPmStd", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="panel-body">
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <div class="dropdown">
+                        @Html.Label("Equipo: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-7">
+                            @Html.DropDownListFor(model => model.PmStd.CodEquipo,
+                          new SelectList(Model.lstEquipos, "CodEquipo", "Cod_Descrip"), "-- Seleccion un valor --",
+                          new {id = "lstEquipos", @class = "selectEquipo show-tick form-control" })
+                            @Html.ValidationMessageFor(model => model.PmStd.CodEquipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Work Center: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                       
+                        @Html.TextBoxFor(model => model.PmStd.WorkCenter, new { id = "PmStd_WorkCenter", @class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.PmStd.WorkCenter, "", new { @class = "text-danger", @disabled = "disabled" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Sistema de Mantenimiento: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                        @Html.HiddenFor(model => model.PmStd.CodSistemas)
+                        @Html.DropDownListFor(model => model.PmStd.CodSistemas,
+                      new SelectList(Model.lstSistMantto, "CodSistema", "Sistema"), "-- Seleccion un valor --",
+                       new { id = "lstSistMantto", @class = "selectCodSist show-tick form-control", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.PmStd.CodSistemas, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.Label("Periodo: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                        @Html.HiddenFor(model => model.PmStd.CodCiclo)
+                        @Html.DropDownListFor(model => model.PmStd.CodCiclo, new SelectList(Model.lstCiclos, "CodCiclo", "Descripcion"), "-- Seleccion un valor --",
+                       new { id = "lstCiclos", @class = "selectCiclos show-tick form-control", @disabled = "disabled"})
+                        @Html.ValidationMessageFor(model => model.PmStd.CodCiclo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    @Html.Label("Piezas por Minuto(PPM): ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                        @Html.TextBoxFor(model => model.PmStd.Ppm, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PmStd.Ppm, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Activado: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-offset-1 col-md-5">
+                        <div>
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.PmStd.Estatus)
+                                @Html.ValidationMessageFor(model => model.PmStd.Estatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.Label("Fec de Actualización", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                        @Html.HiddenFor(model => model.PmStd.FecModif)
+                        @Html.TextBoxFor(model => model.PmStd.FecModif, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.PmStd.FecModif, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Fec de Alta", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                        @Html.HiddenFor(model => model.PmStd.FecAlta)
+                        @Html.TextBoxFor(model => model.PmStd.FecAlta, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.PmStd.FecAlta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Agrego: ", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-5">
+                        @Html.HiddenFor(model => model.PmStd.UsuarioAlta)
+                        @Html.EditorFor(model => model.PmStd.UsuarioAlta, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        @Html.ValidationMessageFor(model => model.PmStd.UsuarioAlta, "", new { @class = "text-danger" })
+
+                        @Html.HiddenFor(model => model.PmStd.CentroCostos)
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="form-group-lg">
+                    <div class="col-md-offset-5 col-md-10" style="font-family:Arial">
+                        <button type="submit" class="btn btn-md btn-primary  ">
+                            <i class="glyphicon glyphicon-save"></i> Guardar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $(".date-time-picker").datetimepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-100:+0",
+                        dateFormat: 'dd/mm/yy',
+                        controlType: 'select',
+                        timeFormat: 'HH:mm',
+                        oneLine: true
+                    });
+                });
+            </script>
+
+        </div>
+    }
+</div>
+

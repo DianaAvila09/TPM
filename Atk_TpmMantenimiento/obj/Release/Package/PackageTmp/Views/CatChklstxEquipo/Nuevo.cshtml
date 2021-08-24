@@ -1,0 +1,235 @@
+﻿@model Entidades.AltaChkxEq
+
+<form id="MyForm" asp-controller="CatChklstxEquipo" action="Nuevo" method="post" class="form-horizontal">
+
+    <div>
+        <div class="alert bg-primary white-text" style="margin:0px; border:0px; height:40px">
+            <h4 class="bg-primary white-text"> @ViewBag.Message</h4>
+        </div>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div style="background-color: #abc2d4;">
+            <br />
+            <div class="form-group ">
+                @Html.Label("Equipo:", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-4">
+                    @{
+                        for (int i = 0; i < Model.lstListAct.Count; i++)
+                        {
+                            @Html.HiddenFor(model => Model.lstListAct[i].IdActividad);
+                            @Html.HiddenFor(model => Model.lstListAct[i].CodActividad);
+                            @Html.HiddenFor(model => Model.lstListAct[i].CodCheckList);
+                            @Html.HiddenFor(model => Model.lstListAct[i].CodSistema);
+                            @Html.HiddenFor(model => Model.lstListAct[i].DescripAct);
+
+                        }
+
+                    }
+
+                    @Html.DropDownListFor(model => model.ChklsxEq.CodEquipo, new SelectList(Model.lstEquipos, "CodEquipo", "DescripTechnical"),
+       "-- Seleccion un valor --", new { id = "lstEquipo", @class = "selectEquipo show-tick form-control" })
+                    @Html.ValidationMessageFor(model => model.ChklsxEq.CodEquipo, "", new { @class = "text-danger" })
+                </div>
+                <br />
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Checklist:", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.ChklsxEq.IdCheckList,
+    new SelectList(Model.lstChecklst, "IdCheckList", "DescripCheckList"), "-- Seleccion un valor --",
+    new { id = "lstChklst", @class = "selectChklst show-tick form-control" })
+
+                    @Html.ValidationMessageFor(model => model.ChklsxEq.CodChkList, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Nombre:", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.ChklsxEq.ChkEquipo, new { @class = "form-control", @style = "max-width:100%;" })
+                    @Html.ValidationMessageFor(model => model.ChklsxEq.ChkEquipo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Periodo: ", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.ChklsxEq.IdFrecuencia,
+    new SelectList(Model.lstCiclos, "CodCiclo", "Descripcion"), "-- Seleccion un valor --",
+    new { id = "lstCiclos", @class = "selectCiclos show-tick form-control" })
+                    @Html.ValidationMessageFor(model => model.ChklsxEq.IdFrecuencia, "", new { @class = "text-danger" })
+                </div>
+                @Html.Label("Frecuencia: ", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-1">
+                    @Html.TextBoxFor(model => model.ChklsxEq.Frecuencia, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ChklsxEq.Frecuencia, "", new { @class = "text-danger" })
+                </div>
+                @Html.Label("Estatus:", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="btn-group">
+                    <label class="btn btn-xs btn-success" style="font-size:14px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, true)
+                    </label>
+                    <label class="btn btn-xs btn-default text-right" style="font-size:14px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, false)
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-offset-1 col-md-12">
+
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md" formaction=@Url.Action("Nuevo", "CatChklstxEquipo",new {accion = "VerActiv"})>
+                    <span class="glyphicon glyphicon-save"></span> Ver Actividades
+                </button>
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md" formaction=@Url.Action("Nuevo", "CatChklstxEquipo",new {accion = "Guardar"})>
+                    <span class="glyphicon glyphicon-save"></span> Guardar Nuevo
+                </button>
+
+                @Html.ActionLink("Cancelar", "CatChklstxEquipo", "CatChklstxEquipo", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:16px" })
+
+            </div>
+
+            @Html.HiddenFor(model => model.ChklsxEq.CodDepartamento)
+            @Html.HiddenFor(model => model.ChklsxEq.UserAlta)
+            @Html.HiddenFor(model => model.ChklsxEq.UserModif)
+            @Html.HiddenFor(model => model.ChklsxEq.FchAlta)
+            @Html.HiddenFor(model => model.ChklsxEq.FchModif)
+
+        </div>
+        <div>
+            <hr />
+
+            <div class="form-group">
+                @Html.Label("Clasificación:", htmlAttributes: new { @class = "control-label col-md-1" })
+                <div class="col-md-2" style="">
+                    @Html.TextBoxFor(model => model.ChklsxEq.CodClasif, new { @class = "form-control", @style = "background-color:White; font-weight:bold; font-size:14pt", disabled = "true" })
+
+                </div>
+            </div>
+
+            <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                <thead>
+                    <tr>
+                        <th class="text-center">Item</th>
+                        <th scope="col">Orden</th>
+                        <th scope="col">Cód Actividad</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Sistema</th>
+                        <th scope="col">Componente del sistema</th>
+                        <th scope="col">Método de Evalución</th>
+                        <th scope="col">Eq. Parado</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model.lstListAct)
+                    {
+                        <tr>
+
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.Item)
+                                @Html.DisplayFor(modelItem => row.Item)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.Orden)
+                                @Html.DisplayFor(modelItem => row.Orden)
+                            </td>
+
+                            <td>
+                                @Html.HiddenFor(modelItem => row.CodActividad)
+                                @Html.DisplayFor(modelItem => row.CodActividad)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripAct)
+                                @Html.DisplayFor(modelItem => row.DescripAct)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripSistema)
+                                @Html.DisplayFor(modelItem => row.DescripSistema)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => row.DescripCompo)
+                                @Html.DisplayFor(modelItem => row.DescripCompo)
+                            </td>
+
+                            @{
+                                string tipo = "";
+                                if (row.TipoOperacion == "V") { tipo = "Visible"; }
+                                else { tipo = "Medible"; }
+                                <td class="text-center">
+
+                                    @Html.HiddenFor(modelItem => row.TipoOperacion)
+                                    @tipo
+
+                                </td>
+                            }
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.EqParado)
+                                @Html.DisplayFor(modelItem => row.EqParado)
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <br />
+    </div>
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script>
+
+        $('#ChklsxEq.CodEquipo').focus();
+
+        $(document).ready(function () {
+            $('#lstEquipo').attr('data-live-search', true);
+            $('#lstChklst').attr('data-live-search', true);
+            $('.selectEquipo').selectpicker(
+                {
+                    width: '100%',
+                    title: '[Selecciona un Equipo]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+            $('.selectChklst').selectpicker(
+                {
+                    width: '100%',
+                    title: '[Selecciona un Checklist]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+            $('#lstCiclos').attr('data-live-search', true);
+            $('.selectCiclos').selectpicker(
+                {
+                    width: '100%',
+                    title: '[Selecciona una frecuencia]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+
+        });
+
+
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "250px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[1, 'asc']],
+                "searching": false
+            });
+        });
+    </script>
+}

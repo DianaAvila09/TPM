@@ -1,0 +1,16 @@
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe.config
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.pdb
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\sapnco.dll
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\sapnco_utils.dll
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.exe
+D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.pdb
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe.config
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.pdb
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\sapnco_utils.dll
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.csproj.CoreCompileInputs.cache
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.csproj.CopyComplete
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.exe
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.pdb
+C:\Proyectos\web_ReportesProduccion\cn_HistProduccion\obj\Debug\cn_HistProduccion.csprojAssemblyReference.cache

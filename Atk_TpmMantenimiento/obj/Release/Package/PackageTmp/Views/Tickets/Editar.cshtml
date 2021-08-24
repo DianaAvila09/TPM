@@ -1,0 +1,442 @@
+﻿<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+@model Entidades.AltaTicket
+
+<form asp-controller="Tickets" method="post" action="Editar">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @{
+       string pEquipo = Model.Ticket.CodEquipo;
+       string tipo = Model.Ticket.TipoTicket;
+       string clase = string.Empty;
+       if (tipo == "R") { clase = "background-color: #ff6666"; }
+       if (tipo == "A") { clase = "background-color: #ffff99"; }
+       if (tipo == "M") { clase = "background-color: #ffad33"; }
+       if (tipo == "L") { clase = "background-color: #ffffff"; }
+       if (tipo == "Z") { clase = "background-color: #b3e0ff"; }
+       if (tipo == "G") { clase = "background-color: #9ae59a"; }
+       if (tipo == "P") { clase = "background-color: #001a4d; color:white"; }
+
+        <div class="container-fluid" style="font-size:18px; border-bottom: 2px solid black; font-weight:bold; padding: 5px; @clase">
+
+            <div class="form-inline">
+                <div style="float:left">
+                    @Html.Label("Atención del ticket: ")
+                    @Html.HiddenFor(model => model.Ticket.IdTicket)
+                    @Html.HiddenFor(model => model.Ticket.TipoTicket)
+                    @Html.DisplayFor(model => model.Ticket.IdTicket)
+                </div>
+
+                <div class="text-right">
+                    <label>@ViewBag.Message</label>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+    <div class="container-fluid" style="padding:3px; background-color:#d9d9d9; color:black; font-size: 12px; border-bottom:2px solid black;">
+        <div class="row">
+            <div class="col-sm-1">
+                @Html.Label("Planta: ")
+                <div class="form-control colorImportante LetraBold">
+                    @Html.HiddenFor(model => model.Ticket.IdPlanta)
+                    @Html.HiddenFor(model => model.Ticket.Planta)
+                    @Html.DisplayFor(model => model.Ticket.Planta)
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                @Html.Label("Work Center: ")
+                <div class="form-control colorImportante LetraBold">
+                    @Html.HiddenFor(model => model.Ticket.CodWorkCenter)
+                    @Html.DisplayFor(model => model.Ticket.CodWorkCenter)
+                </div>
+            </div>
+            <div class="col-sm-4">
+                @Html.Label("Equipo: ")
+                <div class="form-control colorImportante LetraBold">
+                    @Html.HiddenFor(model => model.Ticket.CodEquipo)
+                    @Html.HiddenFor(model => model.Ticket.CodSubEquipo)
+                    [@Html.DisplayFor(model => model.Ticket.CodSubEquipo)]
+
+                    @Html.DisplayFor(model => model.Ticket.CodEquipoDescrip)
+                </div>
+            </div>
+
+            <div class="col-sm-2 col-sm-offset-0">
+                @Html.Label("Status: ")
+                <div class="form-control colorImportante LetraBold">
+                    @Html.HiddenFor(model => model.Ticket.CodStatus)
+                    @Html.DisplayFor(model => model.Ticket.CodStatusDescrip)
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-success  btn-sm">
+                    <span class="glyphicon glyphicon-save"></span>
+                    <span class="submit-text"> Guardar </span>
+                </button>
+                @Html.ActionLink(" Cancelar", "ListaTickets", "Tickets", new { CodEq = pEquipo, statusTick = false, showError = false }, new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove" })
+            </div>
+
+            @Html.HiddenFor(model => model.Ticket.FchAtendido)
+            @Html.HiddenFor(model => model.Ticket.FchAsignacion)
+            @Html.HiddenFor(model => model.Ticket.FchWom);
+
+            @Html.HiddenFor(model => model.Ticket.UsrAtendio)
+            @Html.HiddenFor(model => model.Ticket.UsrAsigno)
+            @Html.HiddenFor(model => model.Ticket.UsrAsignoWom)
+            @Html.HiddenFor(model => model.Ticket.UsrEntrReparacion)
+            @Html.HiddenFor(model => model.Ticket.UsrCerroTicket)
+
+
+        </div>
+    </div>
+
+    <div class="container-fluid" style="padding:5px; background-color:lightsteelblue; color:black; font-size: 12px;">
+        <div class="row">
+            <div class="col-sm-5">
+                @Html.Label("Descripción de la falla reportada:")
+                <div>
+                    @Html.TextAreaFor(model => model.Ticket.FallaReportada,4, 80, new { @class = "form-control colorImportante LetraBold", @style = "max-width:100% !important; resize:none;", @readonly = true })
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="col-sm-3">
+                    @Html.Label("Fecha de reporte: ")
+                    <div class="form-control colorImportante LetraBold">
+                        @Html.DisplayFor(model => model.Ticket.FchReporte)
+                    </div>
+                    <!--
+    @Html.Label("Sensor: ")
+    <div class="form-control colorImportante LetraBold">
+        @Html.DisplayFor(model => model.Ticket.Sensor)
+    </div>
+        -->
+                </div>
+
+                <div class="col-sm-3">
+                    @Html.Label("Reporto: ")
+                    <div class="form-control colorImportante LetraBold">
+                        @Html.DisplayFor(model => model.Ticket.UsuarioReporto)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <div>
+                            @Html.Label("Se considera como ")
+                            @Html.Label("\"HALLAZGO DE SEGURIDAD\":  ")
+                            <div class="form-group">
+                                <label class="btn-sm btn-danger">
+                                    SI @Html.RadioButtonFor(model => model.Ticket.HallazgoSeguridad, "SI", new { disabled = "disabled" })
+                                </label>
+                                <label class="btn-sm btn-default">
+                                    NO @Html.RadioButtonFor(model => model.Ticket.HallazgoSeguridad, "NO", new { disabled = "disabled" })
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @{
+                    if (Model.Ticket.HallazgoSeguridad == "SI")
+                    {
+                        <div class="col-sm-1">
+                            <img src="~/Imagenes/SafetyGrande.png" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-2">
+
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+        <hr style="margin:5px" />
+
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="=row">
+                    <div class="col-sm-6" style="padding:4px;">
+                        @Html.Label("Departamento Responsable: ")
+                        <div class="form-control">
+                            [@Html.DisplayFor(model => model.Ticket.CodDepartamento)]
+                            @Html.DisplayFor(model => model.Ticket.Depto)
+                        </div>
+                    </div>
+                    <div class="col-sm-6" style="padding:4px;">
+                        @Html.Label("Atendio:")
+                        <div class="form-control">
+                            @Html.HiddenFor(model => model.Ticket.UsrAtendio)
+                            @Html.DisplayFor(model => model.Ticket.UsrAtendio)
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="=row">
+                    <div class="col-sm-4" style="padding:4px;">
+                        @Html.Label("Modo de efecto de falla: ")
+                        <div class="font-weight-bold">
+                            @Html.DropDownListFor(model => model.Ticket.CodClasif, new SelectList(Model.lstClasifFalla, "CodClasif", "Descripcion"), new { id = "Model.lstClasifFalla", @class = "selectCodClasif show-tick form-control" })
+                            @Html.ValidationMessageFor(model => model.Ticket.CodClasif, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="padding:4px;">
+                        @Html.Label("Sistema del equipo: ")
+                        <div>
+                            @Html.DropDownListFor(model => model.Ticket.CodSistema,
+                          new SelectList(Model.lstSistMantto, "CodSistema", "Sistema"),
+                          new { id = "lstSistMantto", @class = "selectCodSist show-tick form-control" })
+                            @Html.ValidationMessageFor(model => model.Ticket.CodSistema, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" style="padding:4px;">
+                        @Html.Label("Código de falla: ")
+                        <div class="font-weight-bold">
+                            @Html.DropDownListFor(model => model.Ticket.CodFalla,
+                          new SelectList(Model.lstFallas, "CodFalla", "Descrip"),
+                          new { id = "codFalla", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Ticket.CodFalla, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="=row">
+                       
+
+                    <div class="col-sm-3">
+                        <br />
+                        <div>
+                            @Html.Label("Causo paro de producción:")
+                            <div class="form-group">
+                                <label class="btn-sm btn-danger">
+                                    SI @Html.RadioButtonFor(model => model.Ticket.CausoParo, "SI")
+                                </label>
+                                <label class="btn-sm btn-default">
+                                    NO @Html.RadioButtonFor(model => model.Ticket.CausoParo, "NO")
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <br />
+                        @Html.Label("Tiempo de paro:")
+                        <div>
+                            @Html.EditorFor(model => model.Ticket.TiempoReparacion, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <br />
+                        @Html.Label("Unidad:")
+                        <div>
+                            @Html.DropDownListFor(model => model.Ticket.UnidadTiempoRep, new SelectList(Model.lstCatCiclos, "CodCiclo", "Descripcion"), new { id = "lstCatCiclos", @class = "selectCatCiclos show-tick form-control" })
+                            @*@Html.ValidationMessageFor(model => model.Ticket.UnidadTiempoRep, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-11" style="padding:4px;">
+                        @Html.Label("Diagnostico Técnico:")
+                        <div>
+                            @Html.TextAreaFor(model => model.Ticket.Diagnostico, 6, 80, new { @class = "form-control", @style = "max-width:100% !important; resize:none;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr style="margin:10px" />
+
+        <div class="row">
+            <div class="col-sm-6">
+
+                @Html.Label("Plan de acción:")
+                <div>
+                    @Html.TextAreaFor(model => model.Ticket.AccionPlan, 4, 80, new { @class = "form-control", @style = "max-width:100% !important; resize:none;" })
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="=row">
+                    <div class="col-sm-6">
+                        @Html.Label("Fecha del Plan de acción:")
+                        @Html.TextBoxFor(model => model.Ticket.FchAccionplan, new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @*@Html.ValidationMessageFor(model => model.Ticket.FchAccionplan, "", new { @class = "text-danger" })*@
+
+                    </div>
+
+                    <div class="col-sm-6">
+                        @Html.Label("Asignado a:")
+                        @Html.EditorFor(model => model.Ticket.WorkerAsignado, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="=row">
+                    <div class="col-sm-6">
+                        @Html.Label("Fecha de inicio de reparación:")
+
+                        @Html.TextBoxFor(model => model.Ticket.FecIniReparacion, new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @*@Html.ValidationMessageFor(model => model.Ticket.FecIniReparacion, "", new { @class = "text-danger" })*@
+
+
+                    </div>
+
+                    <div class="col-sm-6">
+                        @Html.Label("Fecha de Entrega de reparación:")
+
+                        @Html.TextBoxFor(model => model.Ticket.FecEntgregaReparacion, new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @*@Html.ValidationMessageFor(model => model.Ticket.FecEntgregaReparacion, "", new { @class = "text-danger" })*@
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr style="margin:10px" />
+        <div class="row">
+
+            <div class="col-sm-2">
+                @Html.Label("Num WOM asignada en Sap: ")
+
+                @Html.EditorFor(model => model.Ticket.WOM, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+            <div class="form-group col-sm-2">
+                @Html.Label("Fecha promesa de entrega:")
+
+                @Html.TextBoxFor(model => model.Ticket.FchaPromesa, new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                @* @Html.ValidationMessageFor(model => model.Ticket.FchaPromesa, "", new { @class = "text-danger" })*@
+
+            </div>
+
+            <div class="form-group col-sm-2">
+                @Html.Label("Fecha de cierre del ticket:")
+
+                @Html.TextBoxFor(model => model.Ticket.FchClose, new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                @*@Html.ValidationMessageFor(model => model.Ticket.FchClose, "", new { @class = "text-danger" })*@
+
+            </div>
+        </div>
+        <hr style="margin:10px" />
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                @Html.Label("Observaciones:")
+                <div>
+                    @Html.TextAreaFor(model => model.Ticket.Notas, 3, 80, new { @class = "form-control", @style = "max-width:100% !important; resize:none;" })
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+@section Scripts {
+
+    @* @Scripts.Render("~/bundles/jqueryval")*@
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#Model.lstClasifFalla').attr('data-live-search', true);
+            $('#lstSistMantto').attr('data-live-search', true);
+            $('#codFalla').attr('data-live-search', true);
+
+            $('.selectCodClasif').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona una Clasificación ]',
+                    size: 7
+                });
+
+            $('.selectCodSist').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Sistema ]',
+                    size: 7
+                });
+
+            $('.selectFalla').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona una Falla]',
+                    size: 7
+                });
+
+
+
+            $("#lstSistMantto").change(function () {
+                 $("#codFalla").empty();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GetFallas", "Tickets")',
+                    dataType: 'json',
+                    data: { pCodSistema: $("#lstSistMantto").val(), pCodDepartamento: '@Model.Ticket.CodDepartamento' },
+                    success: function (fuctFalla)
+                    {
+                        $.each(fuctFalla, function (i, fallax) {
+                            $("#codFalla").append('<option value="'
+                                + fallax.Value + '">'
+                                + fallax.Text + '</option>');
+                        });
+                                          },
+
+                    error: function (ex) {
+                        alert('Falla de datos' + ex);
+                    }
+                });
+
+                return false;
+            });
+        });
+
+        $(document).ready(function () {
+            $(function () {
+                $(".date-time-picker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0",
+                    dateFormat: 'dd/mm/yy',
+                    controlType: 'select',
+                    timeFormat: 'hh:mm TT',
+                    oneLine: true,
+                });
+            });
+
+            jQuery(function ($) {
+                $.validator.addMethod('date',
+                    function (value, element) {
+                        if (this.optional(element)) {
+                            return true;
+                        }
+
+                        var ok = true;
+                        try {
+                            $.datepicker.parseDate('dd/mm/yyyy', value);
+                        }
+                        catch (err) {
+                            ok = false;
+                        }
+                        return ok;
+                    });
+            });
+        });
+    </script>
+}

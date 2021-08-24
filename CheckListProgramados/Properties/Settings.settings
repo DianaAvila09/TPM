@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Tpm_CheckListProgramados.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ATKSV020\ATK_PUE_PRD_001</Value>
+    </Setting>
+    <Setting Name="BDSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmMtto</Value>
+    </Setting>
+    <Setting Name="UserSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TpmManto</Value>
+    </Setting>
+    <Setting Name="PwdSql" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tpmsql2019</Value>
+    </Setting>
+    <Setting Name="To" Type="System.String" Scope="User">
+      <Value Profile="(Default)">victor.rodriguez1@magna.com</Value>
+    </Setting>
+    <Setting Name="From" Type="System.String" Scope="User">
+      <Value Profile="(Default)">victor.rodriguez1@magna.com</Value>
+    </Setting>
+    <Setting Name="Subject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Programacion de Checklist</Value>
+    </Setting>
+    <Setting Name="HoraEjecu" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="RutaLog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\atkApps\AtkTpmMantto\Atk_TaskCheckListProgCc11204\Log\LogCkLstProg.txt</Value>
+    </Setting>
+    <Setting Name="Planta" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="Depto" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PREN</Value>
+    </Setting>
+    <Setting Name="CtroCostosSap" Type="System.String" Scope="User">
+      <Value Profile="(Default)">11204</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

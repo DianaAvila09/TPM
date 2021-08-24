@@ -1,0 +1,83 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+<script type="text/javascript">
+    $(function () {
+        $('#modalGenerica').modal('show');
+    });
+</script>
+<style>
+    .modal-content {
+        width: 500px !important;
+        margin: 30px auto !important;
+    }
+</style>
+
+@*<div id='modalGenerica' class='modal fade in' tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='contentModal'></div>
+
+                <div class="container-fluid bg-primary">
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+                        </button>
+                        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-user"></i> @ViewBag.Message</h4>
+
+                    </div>
+                </div>
+                <br />
+                <div class="container-fluid">
+
+                    @using (Ajax.BeginForm("FinSesion", "Usuarios", new AjaxOptions() { HttpMethod = "POST" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<div id='modalGenerica' class='modal fade in' tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='contentModal'></div>
+                <div class="container-fluid" style="background-color:#ff6666">
+                    <div class="modal-header darken-3 white-text">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+                        </button>
+                        <h3 class="title " id="myModalLabel"><i class="glyphicon glyphicon-user"></i>@ViewBag.Message</h3>
+                    </div>
+                </div>
+
+                <div class="container-fluid text-center" style="padding:10px">
+                    <br />
+                    <img src="~/Imagenes/SessionEnd.png" width="150" height="150" />
+                    <div></div>
+                    <br />
+                    <div class="alert alert-danger">
+                        <strong>
+                            Su sesión a sido finalizada!!
+                            Intente entrar otra vez
+                        </strong>
+                    </div>
+
+                    <hr />
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <span class="submit-text"> Cerrar </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    location.href = "Login";
+</script>

@@ -1,0 +1,2 @@
+C:\Proyectos\TPM_Mantenimiento\BL_CheckProgram\obj\Debug\BL_ChecklistProgram.csprojAssemblyReference.cache
+C:\Proyectos\TPM_Mantenimiento\BL_CheckProgram\obj\Debug\BL_ChecklistProgram.csproj.CoreCompileInputs.cache

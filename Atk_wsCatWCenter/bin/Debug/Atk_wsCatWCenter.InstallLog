@@ -1,0 +1,13 @@
+﻿Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsCatWCenter\bin\Debug\Atk_wsCatWCenter.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatWCenter\bin\Debug\Atk_wsCatWCenter.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatWCenter\bin\Debug\Atk_wsCatWCenter.exe
+Instalando el servicio Atk_wsCatWCenter...
+El servicio Atk_wsCatWCenter se ha instalado correctamente.
+Creando el origen de EventLog Atk_wsCatWCenter en el registro Application...
+Confirmando ensamblado 'C:\Proyectos\TPM_Mantenimiento\Atk_wsCatWCenter\bin\Debug\Atk_wsCatWCenter.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatWCenter\bin\Debug\Atk_wsCatWCenter.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\Atk_wsCatWCenter\bin\Debug\Atk_wsCatWCenter.exe

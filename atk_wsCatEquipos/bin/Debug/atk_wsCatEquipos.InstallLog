@@ -1,0 +1,34 @@
+﻿Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Instalando el servicio Atk_wsCatEquiposSap...
+Creando el origen de EventLog Atk_wsCatEquiposSap en el registro Application...
+Deshaciendo ensamblado 'C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Restaurando el registro de eventos al estado anterior para el origen Atk_wsCatEquiposSap.
+Desinstalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Quitando el origen de EventLog Atk_wsCatEquiposSap.
+Se está quitando el servicio Atk_wsCatEquiposSap del sistema...
+El servicio Atk_wsCatEquiposSap se ha quitado correctamente del sistema.
+Instalando ensamblado 'C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe
+Instalando el servicio Atk_wsCatEquiposSap...
+El servicio Atk_wsCatEquiposSap se ha instalado correctamente.
+Creando el origen de EventLog Atk_wsCatEquiposSap en el registro Application...
+Confirmando ensamblado 'C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.InstallLog
+   assemblypath = C:\Proyectos\TPM_Mantenimiento\atk_wsCatEquipos\bin\Debug\atk_wsCatEquipos.exe

@@ -1,0 +1,322 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title </title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Scripts/DataTables/js/jquery.3.1.1.js"></script>
+    <script src="~/Scripts/DataTables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/DataTables/js/stringMonthYear.js"></script>
+    <script src="~/Scripts/DataTables/js/dataTables.select.min.js"></script>
+    <script src="~/Scripts/DataTables/js/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/DataTables/js/dataTables.fixedColumns.min.js"></script>
+    <script src="~/Scripts/modalform.js"></script>
+
+    <link href="~/Content/fonts.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/dataTables.foundation.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTables/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Imagenes/TPM-RNP.ico" type="image/ico">
+
+    <style>
+        .modal-content {
+            width: 800px !important;
+            margin: 30px auto !important;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+            .dropdown-submenu > .dropdown-menu {
+                top: 0;
+                left: 100%;
+                margin-top: -6px;
+                margin-left: -1px;
+                -webkit-border-radius: 0 6px 6px 6px;
+                -moz-border-radius: 0 6px 6px 6px;
+                border-radius: 0 6px 6px 6px;
+            }
+
+            .dropdown-submenu:hover > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-submenu > a:after {
+                display: block;
+                content: " ";
+                float: right;
+                width: 0;
+                height: 0;
+                border-color: transparent;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-left-color: #cccccc;
+                margin-top: 5px;
+                margin-right: -10px;
+            }
+
+            .dropdown-submenu:hover > a:after {
+                border-left-color: #ffffff;
+            }
+
+            .dropdown-submenu.pull-left {
+                float: none;
+            }
+
+                .dropdown-submenu.pull-left > .dropdown-menu {
+                    left: -100%;
+                    margin-left: 10px;
+                    -webkit-border-radius: 6px 0 6px 6px;
+                    -moz-border-radius: 6px 0 6px 6px;
+                    border-radius: 6px 0 6px 6px;
+                }
+    </style>
+
+</head>
+
+<body>
+    <div class="navbar  navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#85adad">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="#" class="navbar-brand" style="margin:0; border:0px; padding:0px">
+                    <img src="~/Imagenes/magna_logo_1.jpg" alt="Autotek Ind. de México" style="padding-top:5px; padding-right:3px; padding-left:3px;" />
+                </a>
+
+                @{
+                    string area = ViewBag.Title;
+                    string costos = ViewBag.TitleCC;
+                }
+                <div class="navbar-brand">
+                    @Html.ActionLink(area, "DatosTpmBasico", "Tpm", new {}, new { @style = "color:White; font-style: oblique;", onclick = "return mostrar_procesarl();" })
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Resumen de Tickets", "ReportesTicket", "Reportes")</li>
+                            <li>@Html.ActionLink("Reporte de Atención de Tickets", "RepAtenciontickets", "Reportes")</li>
+                            <li class="divider"> </li>
+                            <li>@Html.ActionLink("Consulta de CheckList ", "ReporteCheckList", "Reportes")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">KPI´s<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">TPM<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("KPI Cumplimiento", "KpiCumpli", "KpiTpm")</li>
+                                    <li>@Html.ActionLink("KPI Eficiencia", "KpiEfic", "KpiTpm")</li>
+
+
+                                    <li>@Html.ActionLink("Análisis de Tickets", "KpiTickets", "KpiTpm")</li>
+                                    <!--<li>@Html.ActionLink("Análisis de Sensores/Pokayokes", "KpiPkyk", "KpiTpm")</li>-->
+                                </ul>
+                            </li>
+                            <li class="divider"> </li>
+
+                            <li>@Html.ActionLink("KPI MTTR y MTBF por área", "KpiTm", "KpiTpm")</li>
+                            <li>@Html.ActionLink("CheckList", "kpiCheckList", "KpiTpm")</li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Catálogos Sap
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Equipos", "CatEquipos", "CatSap", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Work Center", "CatWorkCenter", "CatSap", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Estructura de Equipos", "EstructuraEquipos", "CatSap", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Ubicaciones de los equipos (Function location)", "CatFunctionalLocation", "CatSap", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Procedimientos de mantenimiento", "", "", new { @class = "btn disabled linkdeshabilitado" }) </li>
+                            <li>@Html.ActionLink("MRO's", "", "", new { @class = "btn disabled linkdeshabilitado" })</li>
+                            <li class="ui-menu-divider"></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catálogos TPM<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Planes (PM)", "CatPlanesMantto", "CatPlanesMantto", "", new { onclick = "return mostrar_procesarl();" }) </li>
+                            <li>@Html.ActionLink("Sistemas", "CatSistEquipos", "CatSistEquipos", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Fallas", "CatFallas", "CatFallas", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("PM Standar", "CatPMStd", "CatPMStd", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Departamentos", "CatDeptos", "CatDeptos", "", new { onclick = "return mostrar_procesarl();" })</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">CheckList<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Componentes de sistemas", "CatComponentes", "CatComponentes", "", new { onclick = "return mostrar_procesarl();" }) </li>
+                            <li>@Html.ActionLink("Actividades", "CatActividades", "CatActividades", "", new { onclick = "return mostrar_procesarl();" }) </li>
+                            <li>@Html.ActionLink("Grupos Actividades", "CatGrupoActiv", "CatGrupoActiv", "", new { onclick = "return mostrar_procesarl();" }) </li>
+                            <li>@Html.ActionLink("Cat Checklist", "CatCheckList", "CatCheckList", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Asignar Checklist", "CatChklstxEquipo", "CatChklstxEquipo", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Generar un Checklist", "CatCapChkxEquipo", "CaptChklst", "", new { onclick = "return mostrar_procesarl();" })</li>
+                            <li>@Html.ActionLink("Ejecutar Checklist Programados", "ChklistProgram", "CaptChklst", "", new { onclick = "return mostrar_procesarl();" })</li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+
+                            @Html.DropDownListFor(x => ViewBag,
+                           new SelectList(ViewBag.Opciones, "CtroCostos", "WorkCenter"),
+                            new { id = "lstCentroCostos", @class = "show-tick form-control" })
+
+                        </a>
+                    </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Usuario: @Session["UserName"] </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown">Sistema<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li> <a href="@Url.Action("Login", "Usuarios")" data-modal=""><span class="glyphicon glyphicon-log-in"> </span>LogIn</a></li>
+                            <li> <a href="@Url.Action("LogOut", "Usuarios")" data-modal=""><span class="glyphicon glyphicon-log-out"></span>LogOut</a></li>
+                            <!--<li> <a href="@Url.Action("FinSesion", "Usuarios")"><span class="glyphicon glyphicon-new-window"></span>Cerrar Sesion</a></li>-->
+
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configuración<span class="caret"></span> </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Parametros del sistema", "", "", new { @class = "btn disabled linkdeshabilitado" })</li>
+                                    <li>@Html.ActionLink("Catálogo de usuarios", "CatUsuarios", "Usuarios", "", new { onclick = "return mostrar_procesarl();" })</li>
+                                    <li class="divider"> </li>
+                                    <li> <a href="@Url.Action("UpdateCatSap", "CatSap")" data-modal=""><img src="~/Imagenes/SAP.png" />Actualizar catálogos desde Sap</a></li>
+                                    <li> <a href="@Url.Action("Crear", "CodeQr")" onclick="return mostrar_procesarl();"><img src="~/Imagenes/qrcode.png" width="40" />Códigos QR</a></li>
+                                    <li class="divider"> </li>
+                                    <li>@Html.ActionLink("Soporte", "Contact", "Home")</li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    @*Div para cuerpo del pantallas*@
+    <br />
+    <div class="container-fluid">
+        @RenderBody()
+        <hr style="margin:7px" />
+        <footer>
+            <div class="alert-success">
+                <p>&copy; @DateTime.Now.Year - <strong>Magna, Cosma Mx </strong> Tecnologías de la Información</p>
+            </div>
+        </footer>
+    </div>
+
+    @*  Div para la edicion de datos *@
+    <div>
+        <span id="procesando_div" style="display: none; position: absolute; text-align:center" class="overlay">
+            <label id="msg"> </label>
+            <img id="procesando_gif" runat="server" src="@Url.Content("~/Imagenes/loader.gif")" alt="Prueba" align="middle" class="overlayContent" />
+
+        </span>
+    </div>
+
+    @*  Div para gif de lectura de datos *@
+    <div>
+        <span id="procesando_divl" style="display: none ; position: absolute; text-align: center" class="overlay_l">
+            @* <label class="text-center" id="msg">Procesando </label>*@
+            <img id="procesando_gif" runat="server" src="@Url.Content("~/Imagenes/loader.gif")" alt="Prueba" align="middle" class="overlayContent_l" />
+        </span>
+    </div>
+
+
+    @* Div para mostrar las vistas parciales *@
+    <div id='modalGenerica' class='modal fade in' tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='contentModal'></div>
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+
+        // Mostrar gif en escritura para evitar el click repetido
+        function mostrar_procesar() {
+            document.getElementById('procesando_div').style.display = "";
+            setTimeout("document.images['procesando_gif'].src='@Url.Content("~/Imagenes/loader.gif")'", 1000);
+        }
+
+
+        // Mostrar gif de lectura de datos
+        function mostrar_procesarl() {
+            document.getElementById('procesando_divl').style.display = "";
+            setTimeout("document.images['procesando_gif'].src='@Url.Content("~/Imagenes/loader.gif")'", 1000);
+        }
+
+        // Controlar submenus
+        $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+                   $('ul.dropdown-menu [data-toggle=dropdown]').parent().removeClass('open');
+            $(this).parent().addClass('open');
+
+            var menu = $(this).parent().find("ul");
+            var menupos = $(menu).offset();
+
+            if (menupos.left + menu.width() > $(window).width())
+            {
+                var newpos = -$(menu).width();
+                menu.css({ left: newpos });
+            }
+            else {
+                var newpos = $(this).parent().width();
+                menu.css({ left: newpos });
+                }
+        });
+
+        $(document).ready(function ()    {
+            $("#lstCentroCostos").change(function () {
+                var dato = $("#lstCentroCostos").val();
+                $.ajax(
+                    {
+                    type: 'POST',
+                    url: '@Url.Action("CambiaCtroCosto", "Usuarios")',
+                        dataType: 'json',
+                        data: { pCtroCosto: dato },
+                    success: function (resultado)
+                        {
+                        window.location.reload();
+                        $("#lstCentroCostos").val(dato);
+                        }
+                    });                
+                return false;
+            });
+        });
+
+    </script>
+
+</body>
+</html>

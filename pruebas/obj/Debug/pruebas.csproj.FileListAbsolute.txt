@@ -1,0 +1,2 @@
+C:\Proyectos\TPM_Mantenimiento\pruebas\obj\Debug\pruebas.csprojAssemblyReference.cache
+C:\Proyectos\TPM_Mantenimiento\pruebas\obj\Debug\pruebas.csproj.CoreCompileInputs.cache

@@ -1,0 +1,292 @@
+﻿@model Entidades.ParamRepTickets
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+<form asp-controller="Reportes" method="post" action="ReportesTicket">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="container-fluid bg-success">
+        <row>
+            <h4 class="btn-sm titu">@ViewBag.Message</h4>
+        </row>
+        <row>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    @Html.Label("Periodo a consultar:")
+                    <div>
+                        @Html.TextBoxFor(m => Model.FecInicial, "{0:dd/MM/yyyy}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @Html.TextBoxFor(m => Model.FecFinal, "{0:dd/MM/yyyy}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div>
+                    @Html.Label("Status del ticket:")
+                </div>
+                <div class="btn-group" data-toggle="buttons-radio" style="border:solid 1px white; width:100%">
+                    <div class="col-sm-3">
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "NVO") Sin atención
+                        </div>
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "ATN") Revisados
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "PROC") En proceso
+                        </div>
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "LPP") Terminados
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "CER") Cerrados
+                        </div>
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "CNC") Cancelados
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            @Html.RadioButtonFor(m => Model.Estatus, "TODO") todos
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    @Html.Label("Hallazgo Seguridad:")
+                </div>
+                <div class="form-group" style="border:solid 1px white; padding:5px; width:170px">
+                    @Html.RadioButtonFor(m => Model.Hallazgo, "SI") Si
+                    @Html.RadioButtonFor(m => Model.Hallazgo, "NO") No
+                    @Html.RadioButtonFor(m => Model.Hallazgo, "AMBOS") Ambos
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    @Html.Label("Causo Paro:")
+                </div>
+                <div class="form-group" style="border:solid 1px white; padding:5px; width:170px">
+                    @Html.RadioButtonFor(m => Model.CausoParo, "SI") Si
+                    @Html.RadioButtonFor(m => Model.CausoParo, "NO") No
+                    @Html.RadioButtonFor(m => Model.CausoParo, "AMBOS") Ambos
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <br />
+                <button type="submit" class="btn btn-success btn-md">
+                    <span class="glyphicon glyphicon-list-alt"></span>Reporte
+                </button>
+                @Html.ActionLink("Excel", "ToExcel", "Reportes", new { pParo = Model.CausoParo, pHazllgo = Model.Hallazgo, pDpto = Model.Depto, pFi = Model.FecInicial, pFf = Model.FecFinal, pStus = Model.Estatus  },
+              new { @class = "btn btn-sm btn-success  glyphicon glyphicon-refresh"})
+            </div>
+        </row>
+    </div>
+    <br />
+    <div>
+        <div class="row">
+            <div>
+                <table id="sort" class="display cell-border compact" style="width:100%; font-size:10pt">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Item</th>
+                            <th scope="col" class="text-center">Id Ticket</th>
+                            <th scope="col" class="text-center">Work Center</th>
+                            <th scope="col" class="text-center">Código de Equipo</th>
+                            <th scope="col" class="text-center">Descripción</th>
+                            <th scope="col" class="text-center">Falla</th>
+                            <th scope="col" class="text-center">Sistema afectado</th>
+                            <th scope="col" class="text-center">Descripción de falla</th>
+                            <!-- <th scope="col" class="text-center">Pokayoke Sensor</th>-->
+                            <th scope="col" class="text-center">Hasllazgo Seguridad</th>
+                            <th scope="col" class="text-center">Fecha del reporte</th>
+                            <th scope="col" class="text-center">Quien reporto</th>
+                            <th scope="col" class="text-center">Responsable</th>
+                            @*<th scope="col" class="text-center">Atendio Ticket</th>*@
+                            <th scope="col" class="text-center">Estatus del Ticket</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int r = 1;
+                        }
+
+                        @foreach (var row in Model.LstTickets)
+                        {
+                            var clase = string.Empty;
+
+                            if (row.TipoTicket == "R") { clase = "background-color: #ff6666"; }
+                            if (row.TipoTicket == "A") { clase = "background-color: #ffffcc"; }
+                            if (row.TipoTicket == "V") { clase = "background-color: #ccffcc"; }
+                            if (row.TipoTicket == "Z") { clase = "background-color: #b3e0ff"; }
+                            if (row.TipoTicket == "M") { clase = "background-color: #ffad33"; }
+                            if (row.TipoTicket == "G") { clase = "background-color: #9ae59a"; }
+                            if (row.TipoTicket == "P") { clase = "background-color: #001a4d; color:white;"; }
+
+                        <tr>
+
+                            <td class="text-center">
+                                @r.ToString()
+                            </td>
+
+                            @{
+                                string tic = row.IdTicket.ToString("N0");
+                                <td class="text-center" style="width:100px;  @clase">
+
+                                    @Html.HiddenFor(modelItem => row.IdTicket)
+
+                                    <a style="font-weight:bold; padding:10px" target="_blank" rel="noopener noreferrer"
+                                       href='@Url.Action("Editar", "Tickets", new { Id = row.IdTicket, eq = row.CodEquipo })'
+                                       onclick="return mostrar_procesarl();">
+                                        @tic
+                                    </a>
+
+                                </td>
+
+                            }
+                            <td class="text-left text-nowrap" style="@clase">
+                                @Html.HiddenFor(modelItem => row.CodWorkCenter)
+                                @Html.DisplayFor(modelItem => row.CodWorkCenter)
+                            </td>
+                            <td class="text-left" style="@clase">
+                                @Html.HiddenFor(modelItem => row.CodSubEquipo)
+                                @Html.DisplayFor(modelItem => row.CodSubEquipo)
+                            </td>
+                            <td class="text-left" style="@clase">
+                                @Html.HiddenFor(modelItem => row.SubEquipo)
+                                @Html.DisplayFor(modelItem => row.SubEquipo)
+                            </td>
+
+                            <td class="text-left" style="@clase">
+                                @Html.HiddenFor(modelItem => row.CodFalla)
+                                @Html.DisplayFor(modelItem => row.CodFallaDescrip)
+                            </td>
+
+                            <td class="text-left">
+                                @Html.HiddenFor(modelItem => row.CodSistema)
+                                @Html.DisplayFor(modelItem => row.CodSistemaDescrip)
+                            </td>
+
+                            <td style="width:350px">
+                                @Html.HiddenFor(modelItem => row.FallaReportada)
+                                @Html.DisplayFor(modelItem => row.FallaReportada)
+                            </td>
+                            <!--
+    <td>
+        @Html.HiddenFor(modelItem => row.Sensor)
+        @Html.DisplayFor(modelItem => row.Sensor)
+    </td>
+        -->
+                            @{
+                                if (row.HallazgoSeguridad == "SI")
+                                {
+                                    <td class="text-center" width="50px">
+                                        <img src='@Url.Content("~/Imagenes/safety.png")' width="30" height="30" />
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="text-nowrap" width="50px"></td>
+                                }
+                            }
+
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.FchReporte)
+                                @{
+                                    if (row.FchReporte.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                    {
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy HH:mm}", row.FchReporte))
+                                    }
+                                }
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.UsuarioReporto)
+                                @Html.DisplayFor(modelItem => row.UsuarioReporto)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => row.WorkerAsignado)
+                                @Html.DisplayFor(modelItem => row.WorkerAsignado)
+                            </td>
+                            <td class="text-left">
+                                @Html.HiddenFor(modelItem => row.CodStatus)
+                                @Html.DisplayFor(modelItem => row.CodStatusDescrip)
+                            </td>
+
+                        </tr>
+
+                            r = r + 1;
+
+
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[9, 'desc']]
+                
+            });
+        });
+
+
+        $(document).ready(function () {
+            $(function () {
+                $(".date-time-picker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-100:+0",
+                    dateFormat: 'dd/mm/yy',
+                    controlType: 'select',
+                    //timeFormat: 'hh:mm TT',
+                    oneLine: true,
+                    showTimepicker: false,
+                });
+            });
+
+            jQuery.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (isChrome) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+        });
+
+                                                        //$(document).ready(function () {
+                                                        //    $('#FecIni').focus();
+                                                        //})
+    </script>
+
+}

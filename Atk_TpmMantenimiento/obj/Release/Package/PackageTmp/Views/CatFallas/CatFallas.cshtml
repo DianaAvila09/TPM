@@ -1,0 +1,141 @@
+﻿@model List<Entidades.Falla>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+
+@{
+    string vClase = "btn btn-md btn-primary disabled";
+    if (Session["CatTpm"] != null)
+    {
+        if ((bool)Session["CatTpm"] == true)
+        {
+            vClase = "btn btn-primary";
+        }
+    }
+
+}
+<form id="MyForm" asp-controller="CatFallas">
+    <div class="row">
+        <div class="container-fluid">
+
+            <div class="media" style="margin:10px">
+                <div class="media-left">
+                    <label class="btn-sm titu">@ViewBag.Message</label>
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Nuevo", "Nuevo", "CatFallas", new { @class = vClase + " glyphicon glyphicon-file", data_modal = "" })
+                </div>
+                <div class="media-left">
+                    @Html.ActionLink("Actualizar", "CatFallas", "CatFallas", new { @class = "btn btn-md btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+                </div>
+            </div>
+
+            <div>
+                <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Acción</th>
+                            <th class="text-center">Id #</th>
+                            <th scope="col">Código Sistema</th>
+                            <th scope="col">Sistema</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Falla Activa</th>
+                            <th scope="col">Sistema Activo</th>
+                            <th scope="col">Fecha de Alta</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Fecha actualización</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Editar", "Editar", "CatFallas", new { Id = row.IdFalla }, new { @class = vClase + " glyphicon glyphicon-edit", data_modal = "" })
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.IdFalla)
+                                    @Html.DisplayFor(modelItem => row.IdFalla)
+                                    @Html.HiddenFor(modelItem => row.CodDepartamento)
+                                    @Html.HiddenFor(modelItem => row.departamento)
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.CodSistema)
+                                    @Html.DisplayFor(modelItem => row.CodSistema)
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.Sistema)
+                                    @Html.DisplayFor(modelItem => row.Sistema)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.CodFalla)
+                                    @Html.DisplayFor(modelItem => row.CodFalla)
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.Descrip)
+                                    @Html.DisplayFor(modelItem => row.Descrip)
+                                </td>
+                                <td class="text-center">
+
+                                    @Html.HiddenFor(modelItem => row.StatusFalla)
+                                    @Html.DisplayFor(modelItem => row.StatusFalla)
+
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.StsSistema)
+                                    @Html.DisplayFor(modelItem => row.StsSistema)
+                                </td>
+
+                                <td class="text-center">
+                                    <div>
+                                        @Html.HiddenFor(modelItem => row.FecAlta)
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", row.FecAlta))
+                                    </div>
+                                </td>
+
+                                <td>
+                                    @Html.HiddenFor(modelItem => row.UsuarioAlta)
+                                    @Html.DisplayFor(modelItem => row.UsuarioAlta)
+                                </td>
+
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => row.FecActualizacion)
+                                    @{
+                                        if (row.FecActualizacion.ToString("MM/dd/yyyy").Substring(0, 10) != "01/01/0001")
+                                        {
+                                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", row.FecActualizacion))
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true
+            });
+        });
+
+
+    </script>
+}

@@ -1,0 +1,140 @@
+
+**** Log file opened by process 145888 at 2021-05-10 17:41:13 (UTC-05:00 Central Daylight Time (Mexico))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Debug\Atk_wsHistProdxDia.exe
+Working directory: C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Debug
+Operating system: Windows 8 Enterprise 64-bit 
+Processor: 12x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ESTLPTSIS13, IP address: 172.19.218.200, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2021-05-10 17:41:13.816 [Thread 6]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:13.818 [Thread 4]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:13.819 [Thread 5]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:13.819 [Thread 7]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:13.819 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:13.820 [Thread 11]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:20.921 [Thread 4]
+SAP.Middleware.Connector.RfcInvalidStateException: cannot unregister the given destination configuration
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:26.954 [Thread 7]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:33.053 [Thread 8]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:40.203 [Thread 7]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:41:45.862 [Thread 42]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:31.626 [Thread 7]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.241 [Thread 42]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.755 [Thread 43]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.756 [Thread 38]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.756 [Thread 40]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.756 [Thread 41]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.756 [Thread 45]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 48]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 50]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 51]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 52]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 53]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 54]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.757 [Thread 55]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.758 [Thread 56]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.758 [Thread 57]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.764 [Thread 49]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.900 [Thread 26]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.908 [Thread 44]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.915 [Thread 39]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.915 [Thread 47]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.916 [Thread 46]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.922 [Thread 20]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:34.929 [Thread 37]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:36.365 [Thread 19]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+>> Error entry 2021-05-10 17:44:45.644 [Thread 4]
+SAP.Middleware.Connector.RfcInvalidParameterException: cannot unregister null
+   at SAP.Middleware.Connector.RfcDestinationManager.UnregisterDestinationConfiguration(IDestinationConfiguration config)
+
+**** Log file opened by process 71448 at 2021-05-10 17:46:51 (UTC-05:00 Central Daylight Time (Mexico))
+
+SAP .NET Connector 3.0 with file version 3.0.18.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Debug\Atk_wsHistProdxDia.exe
+Working directory: C:\atkApps\TPM_Mantenimiento\Atk_wsHistProdxDia\bin\Debug
+Operating system: Windows 8 Enterprise 64-bit 
+Processor: 12x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 713
+Hostname: ESTLPTSIS13, IP address: 172.19.218.200, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2021-05-10 17:46:51.899 [Thread 4]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   at SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)

@@ -1,0 +1,148 @@
+**** Log file opened by process 17248 at 2017-02-23 15:35:06 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.vshost.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-02-23 15:35:06.718 [Thread 8]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination Htp_001 -- no destination configuration registered
+   en SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 9264 at 2017-02-23 15:39:34 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-02-23 15:39:34.871 [Thread 1]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination Htp_001 -- no destination configuration registered
+   en SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 4824 at 2017-02-23 15:40:29 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-02-23 15:40:29.852 [Thread 1]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination Htp_001 -- no destination configuration registered
+   en SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 11164 at 2017-02-23 15:43:11 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-02-23 15:43:11.882 [Thread 1]
+Failure to create pool for destination Prod_001 (ORIGINAL) [NAME=Prod_001]
+SAP.Middleware.Connector.RfcCommunicationException: Connection parameter ASHOST or MSHOST missing
+   en SAP.Middleware.Connector.CpicConnection.parseConnParameters(Dictionary`2 options, Boolean forRepository)
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+>> Error entry 2017-02-23 15:43:11.892 [Thread 1]
+[NAME=Prod_001]
+SAP.Middleware.Connector.RfcCommunicationException: Connection parameter ASHOST or MSHOST missing
+   en SAP.Middleware.Connector.CpicConnection.parseConnParameters(Dictionary`2 options, Boolean forRepository)
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   en SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   en SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   en SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+>> Error entry 2017-02-23 15:43:11.892 [Thread 1]
+SAP.Middleware.Connector.RfcCommunicationException: Connection parameter ASHOST or MSHOST missing
+   en SAP.Middleware.Connector.CpicConnection.parseConnParameters(Dictionary`2 options, Boolean forRepository)
+   en SAP.Middleware.Connector.CpicConnection.ConnectAsClient(Dictionary`2 options, Boolean forRepository)
+   en SAP.Middleware.Connector.RfcConnection.ConnectAsClient(RfcDestination destination, Boolean forRepository)
+   en SAP.Middleware.Connector.RfcConnectionPool..ctor(RfcDestination destination, Boolean forRepositoryCalls)
+   en SAP.Middleware.Connector.RfcConnectionPool.GetPool(RfcDestination destination, Boolean forRepository, Boolean create)
+   en SAP.Middleware.Connector.RfcDestination.GetClient(Boolean forRepository)
+   en SAP.Middleware.Connector.RfcDestination.SetAttributeValues(RfcSystemAttributes attribs)
+   en SAP.Middleware.Connector.RfcDestination.get_SystemAttributes()
+   en SAP.Middleware.Connector.RfcRepository.GetRepositoryForDestination(RfcDestination destination)
+**** Log file opened by process 15172 at 2017-02-23 17:21:42 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-02-23 17:21:42.377 [Thread 1]
+[ASHOST=10.99.32.1 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Htp_001]
+SAP.Middleware.Connector.RfcAbapException: NO_DATA
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 18140 at 2017-02-23 17:27:33 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-02-23 17:27:33.286 [Thread 1]
+[ASHOST=10.99.32.1 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Htp_001]
+SAP.Middleware.Connector.RfcAbapException: NO_DATA
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)
+**** Log file opened by process 22660 at 2017-03-09 16:11:30 (UTC-06:00 Hora estándar central (México))
+
+SAP .NET Connector 3.0 with file version 3.0.15.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug\cn_HistProduccion.vshost.exe
+Working directory: D:\Proyectos\web_ReportesProduccion\cn_HistProduccion\bin\Debug
+Operating system: Windows 7 Professional 64-bit Service Pack 1
+Processor: 8x AMD64 (or x64)
+SAP release: 721, Kernel release: 721, Kernel patch level: 418
+Hostname: ATKWL016, IP address: 10.99.62.236, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-03-09 16:11:30.127 [Thread 8]
+[ASHOST=10.99.32.1 SYSNR=00 SYSID=P40 USER=ATK_RP_USER PASSWD=******** CLIENT=100 LANG=EN POOL_SIZE=10 NAME=Htp_001]
+SAP.Middleware.Connector.RfcAbapException: NO_DATA
+   en SAP.Middleware.Connector.RfcConnection.ThrowRfcErrorMsg()
+   en SAP.Middleware.Connector.RfcConnection.RfcReceive(RfcFunction function)
+   en SAP.Middleware.Connector.RfcFunction.RfcDeserialize(RfcConnection conn, IRfcIOStream stream)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn, IRfcIOStream stream, RFCID rid)
+   en SAP.Middleware.Connector.RfcFunction.RfcCallReceive(RfcConnection conn)
+   en SAP.Middleware.Connector.RfcFunction.Invoke(RfcDestination destination)

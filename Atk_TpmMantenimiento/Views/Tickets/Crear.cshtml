@@ -1,0 +1,260 @@
+﻿@model Entidades.AltaTicket
+
+@{
+    string tipo = Model.Ticket.TipoTicket;
+    string cl = string.Empty;
+    if (tipo == "R") { cl = "background-color: #ff9999"; }
+    if (tipo == "A") { cl = "background-color: #ffff99"; }
+    if (tipo == "M") { cl = "background-color: #ffad33"; }
+    if (tipo == "L") { cl = "background-color: #ffffff"; }
+    if (tipo == "Z") { cl = "background-color: #b3e0ff"; }
+    if (tipo == "G") { cl = "background-color: #00b33c"; }
+    if (tipo == "P") { cl = "background-color: #001a4d; color:white; "; }
+}
+
+<form asp-controller="Tickets" method="post" action="Guardar" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div style="@cl">
+        <h4 class="alert"> @ViewBag.Message</h4>
+    </div>
+    <div style="background-color:#d9d9d9; font-size:12px; border: 2px solid black; padding:10px">
+        <div class="form-group">
+            <div class="col-md-5 form-inline" style="padding:5px">
+                @Html.Label("Work Center: ")
+
+                @Html.HiddenFor(model => model.Ticket.CodEquipo)
+                @Html.HiddenFor(model => model.Ticket.TipoTicket)
+                @Html.HiddenFor(model => model.Ticket.CodWorkCenter)
+                <div class="form-control colorImportante LetraBold" style="width:100%">
+                    [ @Html.DisplayFor(model => model.Ticket.CodWorkCenter) ]
+                    @Html.DisplayFor(model => model.Ticket.CodEquipoDescrip, "", new { style = "max-width:100%" })
+
+                </div>
+            </div>
+            <div class="col-sm-4 form-inline ">
+                @Html.Label("Fecha de reporte: ")
+                <div class="form-control colorImportante LetraBold" style="width:100%">
+                    @Html.HiddenFor(model => model.Ticket.FchReporte)
+                    @Html.DisplayFor(model => model.Ticket.FchReporte, new { htmlAttributes = new { @style = "color:dimgray", @readonly = true } })
+                </div>
+            </div>
+            <div class="col-sm-2 form-inline" style="vertical-align:middle">
+                @Html.ActionLink(" Cancelar", "ListaTickets", "Tickets", new { CodEq = Model.Ticket.CodEquipo, statusTick = false, showError = false }, new { @class = "btn btn-danger btn-sm glyphicon glyphicon-arrow-left", onclick = "return mostrar_procesar();" })
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color:lightsteelblue">
+        @*<div class="form-horizontal">*@
+
+        <div class="form-group">
+            @Html.Label("Núm de empleado: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.TextBoxFor(model => model.Ticket.UsuarioReporto, new { id = "numControl", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Ticket.UsuarioReporto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Nombre: ", htmlAttributes: new { @class = "control-label col-sm-2" })
+            <div class="col-md-2">
+                @Html.HiddenFor(model => model.Ticket.NombreReporto)
+                @Html.TextBoxFor(model => model.Ticket.NombreReporto, new { @class = "form-control", @style = "max-width:100%", disabled = true })
+                @Html.ValidationMessageFor(model => model.Ticket.NombreReporto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Equipo: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.DropDownListFor(model => model.Ticket.CodSubEquipo,
+new SelectList(Model.lstExtrEqui, "CodEquipo", "Cod_Descrip"),
+new { id = "lstExtrEqui", @class = "selectCodEquipo show-tick form-control" })
+                @Html.ValidationMessageFor(model => model.Ticket.CodSubEquipo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.Label("Sistema del equipo: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.Ticket.CodSistema,
+new SelectList(Model.lstSistMantto, "CodSistema", "Sistema"),
+new { id = "lstSistMantto", @class = "selectCodSist show-tick form-control" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.Label("Código de falla: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownList("Ticket.CodFalla",
+new SelectList(Model.lstFallas, "CodFalla", "Descrip"), "[ Selecciona una Falla ]",
+new { id = "codFalla", @class = "selectcodFalla form-control", @style = "max-width:100%; font-size:14px" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.Label("Descripción de falla a reportar: ", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-7">
+                @Html.TextAreaFor(model => model.Ticket.FallaReportada, 3, 80,
+new
+     {
+         @class = "form-control",
+         placeholder = "Explique la falla",
+    @style = "font-size:14px; max-width:100% !important; resize:none;"
+     })
+                @Html.ValidationMessageFor(model => model.Ticket.FallaReportada, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <!--
+    @{
+        if (Model.Ticket.TipoTicket == "P")
+        {
+            <div class="form-group">
+                @Html.Label("Núm de Sensor: ", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.Ticket.Sensor, new { id = "numControl", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Ticket.Sensor, "", new { @class = "text-danger" })
+                </div>
+            </div>}
+    }
+        -->
+        <br />
+        <div class="form-group">
+            <div class="col-md-5">
+
+                @Html.Label("Se considera como \"hallazgo de seguridad\":  ", htmlAttributes: new { @class = "control-label" })
+                <label class="btn btn-sm btn-danger">
+                    SI @Html.RadioButtonFor(model => model.Ticket.HallazgoSeguridad, "SI")
+                </label>
+                <label class="btn btn-sm btn-default">
+                    NO @Html.RadioButtonFor(model => model.Ticket.HallazgoSeguridad, "NO")
+                </label>
+
+            </div>
+
+        </div>
+
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="font-family:Arial">
+                <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md" onclick="return mostrar_procesar();">
+                    <span class="glyphicon glyphicon-save"></span> Guardar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+
+    <script>
+
+        function recargar() {
+            $('#codFalla').attr('data-live-search', true);
+            $('.selectcodFalla').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona una Falla ]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+        };
+
+        $(document).ready(function () {
+            // Enable Live Search.
+            //$('#codFalla').attr('data-live-search', true);
+            $('#lstExtrEqui').attr('data-live-search', true);
+            $('#lstSistMantto').attr('data-live-search', true);
+
+            //$('.selectcodFalla').selectpicker(
+            //    {
+            //        width: '100%',
+            //        title: '[ Selecciona una Falla ]',
+            //        //style: 'btn-success',
+            //        size: 10
+            //    });
+
+            $('.selectCodSist').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Sistema ]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+
+            $('.selectCodEquipo').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Equipo ]',
+                    size: 10
+                });
+
+        });
+
+        $(document).ready(function ()    {
+            $("#lstSistMantto").change(function () {
+                $("#codFalla").empty();
+                $.ajax(
+                    {
+                    type: 'POST',
+                    url: '@Url.Action("GetFallas", "Tickets")',
+                    dataType: 'json',
+                    data: { pCodSistema: $("#lstSistMantto").val(), pCodDepartamento: '@Model.Ticket.CodDepartamento' },
+                    success: function (citys)
+                    {
+                        $.each(citys, function (i, city)
+                        {
+                            $("#codFalla").append('<option value="'
+                                + city.Value + '">'
+                                + city.Text + '</option>');
+                        });
+                        //recargar();
+
+                    },
+
+                    error: function (ex)
+                    {
+                        alert('Falla de datos' + ex);
+                        }
+                    });
+
+                return false;
+            });
+        });
+
+        $(document).ready(function ()    {
+            $("#numControl").change(function () {
+                $("#name").empty();
+                $.ajax(
+                    {
+                    type: 'POST',
+                    url: '@Url.Action("GetEmpleado", "Tickets")',
+                    dataType: 'json',
+                        data: { pClave: $("#numControl").val()},
+                    success: function (dato)
+                    {
+                        //alert(dato);
+                        //$("#Ticket_NombreReporto").val(dato);
+                        document.getElementById("Ticket_NombreReporto").value = dato;
+                    },
+                    error: function (ex)
+                    {
+                        alert('Empleado no Existe' + ex);
+                        }
+                    });
+
+                return false;
+            });
+        });
+    </script>
+}

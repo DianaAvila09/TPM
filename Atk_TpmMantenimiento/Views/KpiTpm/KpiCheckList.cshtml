@@ -1,0 +1,234 @@
+﻿@model Entidades.ParamKpiChklst
+
+@{
+    var datosEjex = ViewBag.Datosx;
+    var datosEjey = ViewBag.Datosy;
+    var dateHoy = DateTime.Now.Millisecond;
+}
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+
+<form asp-controller="Reportes" method="post" action="KpiCheckList">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="container-fluid bg-success">
+
+        <h4 class="btn-sm titu">@ViewBag.Message</h4>
+
+        <row>
+
+            <div class="form-inline">
+               
+                    @Html.Label("Periodo a consultar:")
+                    
+                        <div class="form-group">
+                            @Html.Label("Año:")
+                            @Html.TextBoxFor(m => Model.AnioIni, new { @type = "number", @class = "form-control", @style = "width:90px" })
+                            <div>
+                                @Html.ValidationMessageFor(model => model.AnioIni, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @Html.Label("Mes:")
+                        @Html.DropDownListFor(model => model.MesIni,
+                                      new SelectList(Model.lstMesIni, "Mes", "DescripMes"),
+                                      new { @class = "form-control", @style = "width:100px" })
+                        @Html.ValidationMessageFor(model => model.MesIni, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.Label(" al   ")
+                            @Html.Label("Año:")
+                            @Html.TextBoxFor(m => Model.AnioFin, new { @type = "number", @class = "form-control", @style = "width:90px" })
+                            <div>
+                                @Html.ValidationMessageFor(model => model.AnioFin, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @Html.Label("Mes:")
+                        @Html.DropDownListFor(model => model.MesFin,
+                                      new SelectList(Model.lstMesFin, "Mes", "DescripMes"),
+                                     new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MesFin, "", new { @class = "text-danger" })
+                    
+       
+
+                    @Html.Label("Equipo: ")
+                    @Html.DropDownListFor(model => model.CodEquipo,
+new SelectList(Model.lstEqPadres, "CodEquipo", "Cod_Descrip"), "-- Seleccion un equipo --",
+new { id = "lstEquipos", @class = "selectEquipo show-tick form-control" })
+                    @Html.ValidationMessageFor(model => model.CodEquipo, "", new { @class = "text-danger" })
+
+
+            
+                <button id="grafica" type="submit" class="btn btn-success btn-md" onclick="return mostrar_procesar();">
+                    <span class="glyphicon glyphicon-list-alt"></span>Reporte
+                </button>
+                @*@Html.ActionLink("Excel", "ToExcel", "Reportes", new { @class = "btn btn-sm btn-success  glyphicon glyphicon-open-file", @style = "font-size:12pt" })*@
+            </div>
+        </row>
+    </div>
+    <br />
+    <br />
+    <div>
+        <label class="btn-sm titu">Gráfica de Cumplimiento del peridodo: @ViewBag.Periodo</label>
+    </div>
+    <div class="row">
+        <div id="main" style="width: 80%; height: 500px;">
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+
+    <script src="~/Scripts/echarts.min.js?V1@{@dateHoy}"></script>
+    <script type="text/javascript">
+
+        var datosx =  @Html.Raw(Json.Encode(@datosEjex));
+        var datosy =  @Html.Raw(Json.Encode(@datosEjey));
+        // Based on the prepared dom, initialize the echarts instance
+        var my
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            legend: {},
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                   // console.log(params.length);
+                    // let indexColor = params[1].color;
+                    var returnData = "";
+                    returnData += "Periodo: " + params[0].value["Periodo"]+" </br>";
+                    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[0].color + '"></span>';
+                    returnData += params[0].seriesName + ":  " + params[0].value.Puntuales + "% </br>";
+                    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[1].color + '"></span>';
+                    returnData += params[1].seriesName + ":  " + params[1].value.Retardados + "% </br>";
+                    returnData += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + params[2].color + '"></span>';
+                    returnData += params[2].seriesName + ":  " + params[2].value.Pendientes + "% </br>";
+                    return returnData;
+                },
+                textStyle: {
+                    fontSize: '8'
+                }
+
+            },
+            toolbox: {
+                show: true,
+                feature: {
+                    mark: {
+                        show: true,
+                        Showtitle: 'Lineal'
+                    },
+                    dataView: {
+                        readOnly: false,
+                        title: 'Ver datos',
+                        lang: ['Datos', 'Cerrar', 'Salir']
+                    },
+
+                    magicType: {
+                        show: true,
+                        type: ['line', 'bar', 'stack'],
+                        title: {
+                            line: 'Lineal',
+                            bar: 'Barras',
+                            stack: 'Apliado'
+
+                        }
+                    },
+                    restore: {
+                        show: true,
+                        title: 'Reiniciar'
+                    },
+                    saveAsImage: {
+                        show: true,
+                        title: 'Guardar Imagen'
+                    }
+                }
+            },
+            dataset: {
+                //dimensions: ['product', '2015', '2016', '2017'],
+                dimensions: datosx,
+                source: datosy
+
+            },
+
+            // Declare X axis, which is a category axis, mapping
+            // to the first column by default.
+            xAxis: {
+                type: 'category'
+            },
+            // Declare Y axis, which is a value axis.
+            yAxis: [{
+                type: "value",
+                name: "%",
+                axisLabel: {
+                    formatter: "{value} %"
+                }
+            }],
+
+            // Declare several series, each of them mapped to a
+            // column of the dataset by default.
+            series: [
+                {
+                    name: 'Puntuales',
+                    type: 'bar',
+                    stack: true,
+                    color: '#66ff66',
+                    label: {
+                        show: true,
+                        color:'black',
+                        fontWeight: 'bold',
+                        formatter: function (params) {
+                            var returnData = '';
+                            if (params.value.Puntuales != 0) {
+                               returnData = params.value.Puntuales + '%';
+                                
+                            }
+                            return returnData;
+                        }
+                    }
+                },
+                {
+                    name:'Retardados',
+                    type: 'bar',
+                    stack: true,
+                    color: '#ffff66',
+                    label: {
+                        show: true,
+                        color: 'black',
+                        fontWeight: 'bold',
+                        formatter: function (params) {
+                            var returnData = '';
+                            if (params.value.Retardados != 0) {
+                                returnData = params.value.Retardados + '%';
+                            }
+                            return returnData;
+                        }
+                    }
+                },
+                {
+                    name:'Pendientes',
+                    type: 'bar',
+                    stack: true,
+                    color: '#ff6666',
+                    label: {
+                        show: true,
+                        color: 'black',
+                        fontWeight: 'bold',
+                        formatter: function (params) {
+                            var returnData = '';
+                            if (params.value.Pendientes  != 0) {
+                               returnData = params.value.Pendientes + '%';                            
+                            }
+                            return returnData;
+                        }
+                    }
+                }
+            ]
+
+        };
+
+
+        // Use the configuration items and data just specified to display the chart.
+        myChart.setOption(option);
+    </script>
+}

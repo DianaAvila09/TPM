@@ -1,0 +1,85 @@
+﻿@model Entidades.CheckListEqEnc
+
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap-select")
+@Styles.Render("~/Content/Bootstrap-Select/css")
+
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<script>
+    $.validator.methods.date = function (value, element) {
+        return this.optional(element) || moment(value, "DD/MM/YYYY HH:mm", true).isValid();
+    }
+
+    $('#modalGenerica').on('shown.bs.modal', function () {
+        $('#IniProgram').focus();
+    })
+
+</script>
+<style>
+    .modal-content {
+        width: 600px !important;
+        margin: 10px auto !important;
+        height: 250px;
+    }
+</style>
+
+<div class="container-fluid bg-primary">
+    <div class="modal-header light-blue darken-3 white-text">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text"><i class="glyphicon glyphicon-remove white-text"></i></span>
+        </button>
+        <h4 class="title " id="myModalLabel"><i class="glyphicon glyphicon-calendar"></i> @ViewBag.Message</h4>
+    </div>
+</div>
+<div class="container-fluid">
+
+    @using (Ajax.BeginForm("Activar", "CatChklstxEquipo", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.IdChkEquipo)
+
+
+        <div class="panel-body" style="padding:10px; background-color:#abc2d4;">
+            <div class="form-horizontal">
+                <div class="form-group">
+
+                    @Html.Label("Fecha de Activación:", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(model => model.IniProgram, new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                        @*@Html.ValidationMessageFor(model => model.IniProgram, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    @Html.Label("Fecha de Activación:", new { @class = "control-label" })
+                    @Html.HiddenFor(model => model.IniProgram)
+                    @Html.TextBoxFor(model => model.IniProgram, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control date-time-picker", onkeydown = "return true", onpaste = "return false" })
+                </div>*@
+                <hr />
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-10" style="font-family:Arial">
+                        <button type="submit" class="btn btn-md btn-primary">
+                            <i class="glyphicon glyphicon-save"></i> Guardar Activar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(function () {
+                    $(".date-time-picker").datetimepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-100:+0",
+                        dateFormat: 'dd/mm/yy',
+                        controlType: 'select',
+                        timeFormat: 'HH:mm',
+                        oneLine: true
+                    });
+                });
+            </script>
+        </div>
+    }
+</div>
+

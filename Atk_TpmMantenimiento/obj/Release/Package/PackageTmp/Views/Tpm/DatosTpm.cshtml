@@ -1,0 +1,199 @@
+﻿@model List<Entidades.EquipoTpm>
+
+
+<form asp-controller="CatSistemas" method="post" action="Guardar">
+    <div class="row">
+        <div class="container-fluid">
+            <div>
+                <div class="text-left pull-left">
+                    <label id="titulo" class="text-capitalize" style="font-size:18pt">@ViewBag.Message</label>
+                </div>
+                <div class="text-right pull-right form-group">
+                </div>
+
+                <table id="sort" class="display compact cell-border" style="width:100%">
+                    <thead>
+                        <tr style="background-color:lightsteelblue">
+                            <th class="text-center">Item #</th>
+                            <th scope="col">Work Center </th>
+                            <th scope="col">Equipo</th>
+                            <th scope="col">Descripción </th>
+                            <th scope="col">Sistema Mantto.</th>
+                            <th scope="col">Periodo</th>
+                            <th scope="col">Frecuencia</th>
+                            <th scope="col">Núm. de fallas</th>
+                            <th scope="col">PM Standar</th>
+                            <th scope="col">PM Real</th>
+                            <th scope="col">% Avance del ciclo</th>
+                            <th scope="col">Avance</th>
+                            <th scope="col">Ticket Ult.Falla</th>
+                            <th scope="col">Responsable</th>
+                            <th scope="col">Ubicación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            string item = "";
+                            int cont = 1;
+                        }
+                        @foreach (var dr in Model)
+
+                        {
+                            <tr>
+                                @{
+                                    item = cont.ToString().PadLeft(3, '0');
+
+                                }
+                                <td class="text-center ">
+                                    @item
+                                </td>
+                                <td style="font-size:10pt; font-weight:bold" class="text-nowrap text-center ">
+                                    @Html.HiddenFor(modelItem => dr.WorkCenter)
+                                    @Html.DisplayFor(modelItem => dr.WorkCenter)
+                                </td>
+                                <td style="font-size:10pt; font-weight:bold" class="text-nowrap">
+                                    @Html.HiddenFor(modelItem => dr.CodEquipo)
+                                    @Html.DisplayFor(modelItem => dr.CodEquipo)
+                                </td>
+                                <td style="font-size:10pt; font-weight:bold" class="text-nowrap">
+                                    @Html.HiddenFor(modelItem => dr.DescripTechnical)
+                                    @Html.DisplayFor(modelItem => dr.DescripTechnical)
+                                </td>
+                                <td style="font-size:10pt" class="text-nowrap">
+                                    @Html.HiddenFor(modelItem => dr.Sistema)
+                                    @Html.DisplayFor(modelItem => dr.Sistema)
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => dr.Ciclo)
+                                    @Html.DisplayFor(modelItem => dr.Ciclo)
+                                </td>
+                                <td class="text-center">
+                                    @Html.HiddenFor(modelItem => dr.Frecuencia)
+                                    @Html.DisplayFor(modelItem => dr.Frecuencia)
+                                </td>
+                                @{
+                                    string dato = " ";
+                                    if (dr.numfallas != 0) { dato = dr.numfallas.ToString("N0"); }
+
+                                    <td class="text-center">
+                                        @* @Html.HiddenFor(modelItem => dr.numfallas)*@
+                                        @dato
+                                    </td>
+                                }
+
+                                @*<td>
+                                        @Html.HiddenFor(modelItem => dr.numfallas)
+                                        @Html.DisplayFor(modelItem => dr.numfallas)
+                                    </td>*@
+                                @{
+                                    if (dr.PmStandar == 0)
+                                    {
+                                        dato = dr.PmStandar.ToString("N0");
+                                        <td class="text-center">
+                                            @Html.HiddenFor(modelItem => dr.PmStandar)
+                                            @dato
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>@Html.HiddenFor(modelItem => dr.PmStandar)</td>
+                                    }
+                                }
+
+                                @{
+                                    if (dr.PmReal == 0)
+                                    {
+                                        dato = dr.PmReal.ToString("N0");
+                                        <td class="text-center">
+                                            @Html.HiddenFor(modelItem => dr.PmReal)
+                                            @dato
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            @Html.HiddenFor(modelItem => dr.PmReal)
+                                        </td>
+                                    }
+                                }
+                                <td>
+                                    @Html.HiddenFor(modelItem => dr.PorcAvance)
+                                    @Html.DisplayFor(modelItem => dr.PorcAvance)
+                                </td>
+                                <td>
+                                    <div class="progress" style="width:250px; height:35px; margin:auto">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:70%;">
+                                            0% - 70%
+                                        </div>
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+                                            70%-90%
+                                        </div>
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:10%">
+                                            10%
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    @*@Html.HiddenFor(modelItem => dr.UltFalla)
+                                        @Html.DisplayFor(modelItem => dr.UltFalla)*@
+
+                                    @{ string tic = string.IsNullOrEmpty(dr.UltFalla) ? " " : dr.UltFalla;}
+
+                                    @Html.ActionLink("123456", "Editar", "CatPlanesMantto", new { Id = dr.UltFalla })
+                                </td>
+                                <td>
+                                    @Html.HiddenFor(modelItem => dr.MainWorkCenter)
+                                    @Html.DisplayFor(modelItem => dr.MainWorkCenter)
+                                </td>
+                                <td style="font-size:10pt" class="text-nowrap">
+                                    @Html.HiddenFor(modelItem => dr.FunctionalLocation)
+                                    @Html.DisplayFor(modelItem => dr.FunctionalLocation)
+                                </td>
+
+                            </tr>
+                            cont = cont + 1;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "600px",
+                "scrollCollapse": true,
+                "paging": false,
+                "responsive": true,
+                "scrollX": true,
+                "fixedHeader": true,
+                "cell-border": true 
+
+            });
+
+            $('#sort tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            table.on('order.dt search.dt', function () {
+                table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw(); 
+
+        });
+    </script>
+
+}

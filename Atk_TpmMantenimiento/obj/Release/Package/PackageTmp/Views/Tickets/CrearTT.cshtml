@@ -1,0 +1,26 @@
+﻿@model Entidades.AltaTicket
+
+@{
+    string tipo = Model.Ticket.TipoTicket;
+    string cl = string.Empty;
+    if (tipo == "R") { cl = "background-color: #ff9999"; }
+    if (tipo == "A") { cl = "background-color: #ffff99"; }
+    if (tipo == "M") { cl = "background-color: #ffad33"; }
+    if (tipo == "L") { cl = "background-color: #ffffff"; }
+    if (tipo == "Z") { cl = "background-color: #b3e0ff"; }
+    if (tipo == "G") { cl = "background-color: #00b33c"; }
+}
+
+<form asp-controller="Tickets" method="post" action="Guardar" class="form-horizontal">
+    <div class="form-group">
+        @Html.Label("Núm de empleado: ", htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.Ticket.UsuarioReporto, new { id = "numControl", @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Ticket.UsuarioReporto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-sm-2 form-inline" style="vertical-align:middle">
+        @Html.ActionLink(" Cancelar", "ListaTickets", "Tickets", new { CodEq = Model.Ticket.CodEquipo, statusTick = false, showError = false }, new { @class = "btn btn-danger btn-sm glyphicon glyphicon-arrow-left", onclick = "return mostrar_procesar();" })
+    </div>
+</form>

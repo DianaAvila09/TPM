@@ -1,0 +1,113 @@
+﻿@model List<Entidades.SistemaManto>
+@{
+    int item = 1;
+    bool Editar = ViewBag.Editar;
+}
+<form asp-controller="CatSistemas" method="post" action="Guardar">
+    <div class="row">
+        <div class="container-fluid">
+            <div>
+                <div class="text-left pull-left">
+                    <label id="titulo" class="text-capitalize" style="font-size:18pt">Catálogo de Sistemas de Equipos</label>
+                </div>
+                <div class="text-right pull-right form-group">
+
+                    @{
+                        if (!Editar)
+                        {
+
+                            @Html.ActionLink("Editar", "Editar", "CatSistemas", new { @Id = 1, @class = "btn btn-primary btn-large ", onclick = "return mostrar_procesar();" })
+                            @Html.ActionLink("Nuevo", "Create", "CatSistemas", new { @class = "btn btn-primary btn-large ", onclick = "return mostrar_procesar();" })
+
+                        }
+                        else
+                        {
+
+                            @*@Html.ActionLink("Editar", "Editar", "CatSistemas", null, new { @class = "btn btn-primary btn-large", @disabled = "disabled" })*@
+                            @Html.ActionLink("Cancelar", "CatSistManto", "CatSistemas", null, new { @class = "btn btn-primary btn-large", onclick = "return mostrar_procesar();" })
+                            <input type="submit" value="Guardar" class="btn btn-primary btn-large" />
+                        }
+                    }
+
+                </div>
+
+            </div>
+
+            <table id="sort" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">Item #</th>
+                        <th scope="col">Código del Sistema</th>
+                        <th scope="col">Sistema de mantenimiento</th>
+                        <th scope="col">Area de Mantenimiento</th>
+                        <th scope="col">Estatus</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                        <tr>
+
+                            <td>@item</td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model[i].Id)
+                                @Html.HiddenFor(modelItem => Model[i].CodSistema)
+                                @Html.DisplayFor(modelItem => Model[i].CodSistema)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model[i].Sistema)
+                                @Html.DisplayFor(modelItem => Model[i].Sistema)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model[i].CodDepartamento)
+                                @Html.DisplayFor(modelItem => Model[i].CodDepartamento)
+                            </td>
+
+                            <td>
+                                @*@Html.HiddenFor(modelItem => Model[i].Estatus)*@
+                                @{
+                                    if (Editar)
+                                    {
+                                        <label class="container">
+
+                                            @Html.EditorFor(modelItem => Model[i].Estatus)
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <label class="container">
+                                            @Html.DisplayFor(modelItem => Model[i].Estatus)
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    }
+                                }
+
+                            </td>
+                        </tr>
+                        item = item + 1;
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "scrollCollapse": true,
+                "paging": false,
+                "responsive ": true,
+                "select": true,
+                "fixedHeader": true,
+                 "order": [[2, 'asc']]
+            });
+        });
+    </script>
+}

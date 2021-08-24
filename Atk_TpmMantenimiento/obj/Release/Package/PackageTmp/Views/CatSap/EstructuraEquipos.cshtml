@@ -1,0 +1,76 @@
+﻿@model List<Entidades.EstruturaEquipo>
+
+<div class="row">
+    <div class="container-fluid">
+        <div class="media" style="margin:10px">
+            <div class="media-left ui-button-text-icon-primary">
+                <label class="btn-sm titu">Estructura de Equipos en Sap, Centro de costos:  @ViewBag.TitleCC</label>
+            </div>
+
+            <div class="media-left">
+                @Html.ActionLink("Actualizar", "EstructuraEquipos", "CatSap", new { @class = "btn btn-md btn-success  glyphicon glyphicon-refresh", onclick = "return mostrar_procesarl();" })
+            </div>
+            <div class="media-left">
+                <label class="form-control">Fecha de actualizacion: @Model[0].FecUpdate </label>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+            <thead>
+                <tr>
+                    <th scope="col">Functional Location Superior</th>
+                    <th scope="col">Funcional Location</th>
+                    <th scope="col">Descripción Funct. Locat.</th>
+
+                    @*<th scope="col">Id Equipo</th>*@
+                    <th scope="col">Código Equipo</th>
+                    <th scope="col">Descripción Equipo</th>
+                    <th scope="col">Planner Group</th>
+                    <th scope="col">Work Center</th>
+                    <th scope="col">Main Work Center</th>
+                    <th scope="col">Status Equipo</th>
+                    @*<th scope="col">CentroCosto</th>*@
+                </tr>
+            <thead />
+            <tbody>
+                @foreach (var dr in Model)
+                {
+                    <tr>
+                        @* <td>@dr.IdObjeto</td>*@
+                        <td class="text-nowrap">@dr.SuperiorFuncLoc</td>
+                        <td class="text-nowrap">@dr.FuncionalLoc</td>
+                        <td class="text-nowrap">@dr.Descripcion</td>
+
+                        @*<td  class="text-nowrap">@dr.IdEquipo</td>*@
+                        <td class="text-center">@dr.CodEquipo</td>
+                        <td class="text-nowrap">@dr.Equipodesc</td>
+                        <td class="text-center"> @dr.PlannerGroup</td>
+                        <td class="text-center text-nowrap">@dr.WorkCenter</td>
+                        <td class="text-center text-nowrap">@dr.MainWorkCenter</td>
+                        <td>@dr.EquipoStatus</td>
+                        @*<td>@dr.CentroCosto.Replace("00000", "")</td>*@
+                    </tr>
+                }
+            <tbody />
+        </table>
+
+
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "450px",
+                "paging": false,
+                "responsive ": true,
+                "select": true,
+                "fixedHeader": true,
+                "scrollCollapse": true,
+                "scrollX": true,                
+            });
+        });
+    </script>
+}

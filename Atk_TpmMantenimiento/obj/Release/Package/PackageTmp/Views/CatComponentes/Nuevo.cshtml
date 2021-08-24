@@ -1,0 +1,116 @@
+﻿@model Entidades.AltaCompo
+
+<link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+<form asp-controller="Componentes" method="post" action="Nuevo" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px;">
+        <h4 class="bg-primary white-text"> @ViewBag.Message</h4>
+    </div>
+    <div style="background-color: #eef3f7;">
+
+        <br />
+
+        <div class="form-group col-md-8">
+            @Html.Label("Descripción: ", htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-6">
+                @Html.TextBoxFor(model => model.compo.DescripCompo, new { @class = "form-control", @style = "max-width:100%;" })
+                @Html.ValidationMessageFor(model => model.compo.DescripCompo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-8">
+
+                @Html.HiddenFor(Model => Model.compo.CodDepartamento)
+                @Html.Label("Sist Mantenimiento: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.compo.CodSistema,
+                    new SelectList(Model.lstSisManto, "CodSistema", "Sistema"), "-- Seleccion un valor --",
+                    new { id = "lstSistMantto", @class = "selectCodSist show-tick form-control" })
+
+                    @Html.ValidationMessageFor(model => model.compo.CodSistema, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Estatus: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="btn-group col-md-4">
+                    <label class="btn btn-md btn-success" style="font-size:14px; width:100px; text-align:right">
+                        Activo @Html.RadioButtonFor(model => model.compo.StatusCompo, true)
+                    </label>
+                    <label class="btn btn-md btn-default text-right" style="font-size:14px; width:100px; text-align:right">
+                        Inactivo @Html.RadioButtonFor(model => model.compo.StatusCompo, false)
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Agrego: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.compo.Usuario)
+                    @Html.TextBoxFor(model => model.compo.Usuario, new { @class = "form-control", disabled = "true" })
+                    @Html.ValidationMessageFor(model => model.compo.Usuario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8">
+                @Html.Label("Fecha de alta: ", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.compo.FchAlta)
+                    @Html.TextBoxFor(model => model.compo.FchAlta, "{0:dd/MM/yyyy HH:mm}", new { @class = "form-control  date-time-picker", onkeydown = "return true", onpaste = "return false", disabled = "true" })
+                    @Html.ValidationMessageFor(model => model.compo.FchAlta, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    </div>
+
+            <br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-9" style="font-family:Arial">
+                    <button id="Enviar" name="Enviar" type="submit" class="btn btn-success btn-md">
+                        <span class="glyphicon glyphicon-save"></span> Guardar
+                    </button>
+                    @Html.ActionLink("Cancelar", "CatComponentes", "CatComponentes", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-remove", @style = "font-size:16px" })
+
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <h4 class="bg-info white-text"> @ViewBag.msg</h4>
+            </div>
+        </div>
+
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap-select")
+    @Styles.Render("~/Content/Bootstrap-Select/css")
+    <script>
+        $('#CodSistema').focus();
+
+        $(document).ready(function () {
+            $('#lstSistMantto').attr('data-live-search', true);
+            $('.selectCodSist').selectpicker(
+                {
+                    width: '100%',
+                    title: '[ Selecciona un Sistema ]',
+                    //style: 'btn-success',
+                    size: 10
+                });
+
+        });
+    </script>
+}

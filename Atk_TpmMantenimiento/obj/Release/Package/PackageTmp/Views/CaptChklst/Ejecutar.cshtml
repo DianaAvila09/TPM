@@ -1,0 +1,343 @@
+﻿@model Entidades.CapturaChklst
+@{
+    DateTime fecProgram = Model.ChklsxEq.FecProgramada.Value;
+    string vClase1 = "btn btn-sm btn-primary disabled ";
+    if (Session["CatChecklist"] != null)
+    {
+        if ((bool)Session["CatChecklist"] == true)
+        {
+            vClase1 = "btn btn-sm btn-primary ";
+        }
+    }
+
+    string vClas = " ";
+    if (Model.ResultSave == 1)
+    {
+        vClas = " disabled ";
+    }
+
+    string clRm = "";
+}
+
+<form asp-controller="CaptChklst" method="post" action="Ejecutar" class="form-horizontal">
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="alert bg-primary white-text" style="margin:0px; border:0px; height:45px;">
+        <h4 class="bg-primary white-text"><i class="glyphicon glyphicon-edit"></i> @ViewBag.Message: @Model.ChklsxEq.CodWorkCenter </h4>
+    </div>
+
+    <div style="background-color:#abc2d4; padding:5px">
+        <div class="row">
+            <div class="col-md-1">
+
+                @Html.Label("Id checklist: ", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.ChklsxEq.Planta)
+                @Html.HiddenFor(model => model.ChklsxEq.CodDepartamento)
+                @Html.HiddenFor(model => model.ChklsxEq.IdChkEquipo)
+
+                @Html.TextBoxFor(model => model.ChklsxEq.IdChkEquipo, new { @class = "form-control text-center", disabled = "true" })
+            </div>
+            <div class="col-md-2">
+
+                @Html.Label("Checklist:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.CodChkList)
+                @Html.TextBoxFor(model => model.ChklsxEq.CodChkList, new { @class = "form-control", disabled = "true" })
+            </div>
+            <div class="col-md-4">
+                @Html.Label("Descripción:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.DescripChkList)
+                @Html.TextBoxFor(model => model.ChklsxEq.DescripChkList, new { @class = "form-control", @style = "max-width:100%", disabled = "true" })
+
+            </div>
+            <div class="col-md-1">
+
+                @Html.Label("Clasificación:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.ChklsxEq.CodClasif)
+                @Html.TextBoxFor(model => model.ChklsxEq.CodClasif, new { @class = "form-control", @style = "max-width:100%", disabled = "true" })
+
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Frecuencia:", htmlAttributes: new { @class = "control-label" })
+
+                @Html.HiddenFor(model => model.ChklsxEq.Frecuencia)
+                @Html.TextBoxFor(model => model.ChklsxEq.Frecuencia, new { @class = "form-control col-md-1", disabled = "true" })
+            </div>
+            <div class="col-md-1">
+                @Html.Label("Periodo:", htmlAttributes: new { @class = "control-label" })
+                @Html.HiddenFor(model => model.ChklsxEq.DesripFrencu)
+                @Html.TextBoxFor(model => model.ChklsxEq.DesripFrencu, new { @class = "form-control col-md-1", disabled = "true" })
+            </div>
+            <div class="col-md-2">
+                <div>
+                    @Html.Label("Estatus:", htmlAttributes: new { @class = "control-label" })
+                </div>
+
+                @{
+                    if (Model.ChklsxEq.Activo)
+                    {
+                        <div class="btn-group">
+                            <label class="btn btn-xs btn-success" style="font-size:14px; width:80px; text-align:right">
+                                Activo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, true, new { disabled = "true" })
+                            </label>
+                            <label class="btn btn-xs btn-default text-right" style="font-size:14px; width:80px; text-align:right">
+                                Inactivo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, false, new { disabled = "true" })
+                            </label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="btn-group">
+                            <label class="btn btn-xs" style="font-size:14px; width:80px; text-align:right">
+                                Activo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, true, new { disabled = "true" })
+                            </label>
+                            <label class="btn btn-xs btn-danger text-right" style="font-size:14px; width:80px; text-align:right">
+                                Inactivo @Html.RadioButtonFor(model => model.ChklsxEq.Activo, false, new { disabled = "true" })
+                            </label>
+                        </div>
+                    }
+                }
+                @Html.HiddenFor(model => model.ChklsxEq.Activo)
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #eef3f7;">
+        <div class="row">
+            <div class="col-md-3">
+                @Html.ActionLink("Regresar", "ChklistProgram", "CaptChklst", new { @class = "btn btn-danger btn-sm glyphicon glyphicon-log-out", @style = "font-size:14px" })
+                <button type="submit" class="btn btn-md btn-success" onclick="return mostrar_procesar();" @vClas>
+                    <i class="glyphicon glyphicon-save"></i> Guardar
+                </button>
+            </div>
+            <div class="alert bg-primary white-text col-md-3 " style="margin:2px; border:2px; height:35px">
+                <h4 class="bg-primary white-text"><i class="glyphicon glyphicon"></i> Total de ponderacion: @ViewBag.SumPonder </h4>
+            </div>
+            <div class="alert bg-primary white-text col-md-3 " style="margin:2px; border:2px; height:35px">
+                 Fecha Programada: @fecProgram.ToString("dd/MM/yyyy HH:mm")
+            </div>
+        </div>
+
+        <div>
+            @{
+
+                if (Model.ResultSave == 1)
+                {
+                    <div class="alert alert-success" style="padding:5px;">
+                        <strong>@Model.Mensaje</strong>
+                    </div>
+                }
+                if (Model.ResultSave == 0)
+                {
+                    <div class="alert alert-danger" style="padding:5px;">
+                        <strong>@Model.Mensaje</strong>
+                    </div>
+                }
+            }
+
+        </div>
+
+        <div>
+            <table id="sort" class="display compact cell-border" style="width:100%; font-size:12px">
+                <thead>
+                    <tr>
+                        <th class="text-center">Item</th>
+                        <th scope="col">Orden</th>
+                        <th scope="col">Sistema</th>
+                        <th scope="col">Componente del sistema</th>
+                        <th scope="col">Actividad</th>
+                        <th scope="col">Equipo Parado</th>
+                        <th scope="col">UoM</th>
+                        @{
+                            if (!ViewBag.captura)
+                            {
+                                <th scope="col">Criterio</th>
+                            }
+                        }
+                        <th scope="col">Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.lstChckActEq.Count; i++)
+                    {
+
+                        <tr>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].Item)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].Item)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].Orden)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].Orden)
+                            </td>
+
+                            <td>
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].DescripSistema)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].DescripSistema)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].DescripCompo)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].DescripCompo)
+                            </td>
+                            <td>
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].DescripcionAct)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].DescripcionAct)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].EqParado)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].EqParado)
+                            </td>
+                            <td class="text-center">
+                                @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodUom)
+                                @Html.DisplayFor(modelItem => Model.lstChckActEq[i].CodUom)
+                            </td>
+
+                            @{
+                                if (Model.lstChckActEq[i].ResultActiv != null)
+                                {
+                                    if (Model.lstChckActEq[i].ResultActiv.Value)
+                                    { clRm = " background: #9ae59a;"; }
+                                    else
+                                    { clRm = " background: #ff6666;"; }
+                                }
+                            }
+
+
+                            @{
+                                if (!ViewBag.captura)
+                                {
+                                    <td class="text-center" style="@clRm">
+                                        @Html.HiddenFor(modelItem => Model.lstChckActEq[i].Criterio)
+                                        @Html.DisplayFor(modelItem => Model.lstChckActEq[i].Criterio)
+                                    </td>
+                                }
+                            }
+
+                            @{
+                                if (!ViewBag.captura)
+                                {
+                                    if (Model.lstChckActEq[i].TipoOperacion == "V")
+                                    {
+                                        <td class="text-center" style="@clRm">
+                                            <div class="btn-group">
+                                                <label class="btn btn-xs btn-default" style="font-size:12px; width:80px; text-align:right">
+                                                    OK @Html.RadioButtonFor(model => Model.lstChckActEq[i].ResultVisual, true)
+                                                </label>
+                                                <label class="btn btn-xs btn-default text-right" style="font-size:12px; width:80px; text-align:right">
+                                                    NOT OK @Html.RadioButtonFor(model => Model.lstChckActEq[i].ResultVisual, false)
+                                                </label>
+                                            </div>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td style="@clRm">
+                                            @Html.TextBoxFor(model => Model.lstChckActEq[i].ResultMedible, new { @class = "form-control text-right", style = "font-weight:bold" })
+                                            @Html.ValidationMessageFor(model => Model.lstChckActEq[i].ResultMedible, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    }
+                                }
+                                else
+                                {
+                                    if (Model.lstChckActEq[i].TipoOperacion == "V")
+                                    {
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <label class="btn btn-xs btn-default" style="font-size:12px; width:80px; text-align:right">
+                                                    OK @Html.RadioButtonFor(model => Model.lstChckActEq[i].ResultVisual, true)
+                                                </label>
+                                                <label class="btn btn-xs btn-default text-right" style="font-size:12px; width:80px; text-align:right">
+                                                    NOT OK @Html.RadioButtonFor(model => Model.lstChckActEq[i].ResultVisual, false)
+                                                </label>
+                                            </div>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            @Html.TextBoxFor(model => Model.lstChckActEq[i].ResultMedible, new { @class = "form-control text-right", style = "font-weight:bold" })
+                                            @Html.ValidationMessageFor(model => Model.lstChckActEq[i].ResultMedible, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    }
+                                }
+                            }
+
+
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].IdDtCheckList)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].IdDtCheckList)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].IdChkEquipo)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodWorkCenter)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodEquipo)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].IdCheckList)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodChkList)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodGpoActiv)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].IdActividad)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodActividad)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].CodSistema)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].IdComponente)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].TipoOperacion)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].TipoActividad)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].RangoMin)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].RangoMax)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].OperadorMin)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].OperadorMax)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].Ponderacion)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].Activo)
+                            @Html.HiddenFor(modelItem => Model.lstChckActEq[i].Criterio)
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                @Html.Label("Observaciones:")
+                <div>
+                    @Html.TextAreaFor(model => model.ChklsxEq.Observaciones, 3, 80, new { @class = "form-control", @style = "max-width:100% !important; resize:none;" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var table = $('#sort').DataTable({
+                "scrollY": "280px",
+                "scrollCollapse": true,
+                "responsive ": true,
+                "paging": false,
+                "select": true,
+                "fixedHeader": true,
+                "scrollX": true,
+                "order": [[1, 'asc']],
+                searching: false
+            });
+        });
+
+
+        function verde(o) {
+            var e = document.getElementById(o);
+            e.style.display = " btn btn-xs btn-success ";
+        }
+        function rojo(o) {
+            var e = document.getElementById(o);
+            e.style.display = " btn btn-xs btn-danger ";
+        }
+    </script>
+}
+
+
